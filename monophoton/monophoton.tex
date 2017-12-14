@@ -5,7 +5,7 @@ At LHC we can produce DM particles if they interact with Standard Model particle
 
 For the analysis we are using data collected during 2015 and 2016 with the ATLAS detector, corresponding to an integrated luminosity of $36.4$ \ifb.
 
-In this chapter after giving a definition of signal and control regions describing the kinematic cuts used to constrain data I present the result for a background only analysis. I give also a brief evaluation of systematic uncertainties.
+In this chapter after giving a definition of signal and control regions describing the kinematic cuts used to constrain data I present the result for a background only analysis. I give also a brief evaluation of the raise of systematic uncertainties.
 
 \section{Event selection}
 In the context of this MonoPhoton analysis several Conotrol Regions (CRs) enriched with the corresponding dominant background in order to extract their normalization on data and a Signal Region (SR) in which eventual signal could be found.
@@ -13,18 +13,19 @@ In the context of this MonoPhoton analysis several Conotrol Regions (CRs) enrich
 Events in SR are preselected required by
 \begin{itemize}
 \item belonging to the Good Run List (GRL) for data quality;
-\item passing the { HLT g140 loose} trigger
-\item having a primary vertex reconstructed with two associated good-quality tracks
-\item rejecting events with {\itshape BadLoose} jet (la [38] della nota) which {\bfseries does not overlap with photons or leptons}
+\item passing the  \verb!HLT_g140_loose! trigger
+\item having a primary vertex reconstructed with two associated good-quality tracks with \pt $\ge 400 \,$\MeV and \AetaRange{2.5}
+\item rejecting events with {\itshape BadLoose} jet (la [38] della nota) which overlaps with photons or leptons with \pt$> 20$ \GeV or not coming from hard scattering
 \end{itemize}
 
+After the preselection
 Candidates in SR are selected with the following kinematic cuts. We consider an event to be part of this region if:
 \begin{itemize}
 \item we compute \met $ \ge 150 $ \GeV;
-\item we get one loose photon with \pt $ \ge 150 $ \GeV with a pseudorapidity cut in \etaRange{1.37}{1.52} to cut ot the calorimeter crack region and %\etaRange{2.37}
-%\item \met significance is found to be above $8.5 GeV^{-frac{1}{2}}$
-\item the leading photon is isolated, so that we select events characterized by $ TopoEtcone40 \le 2.45$ \GeV$ + 0.022 $\pt \GeV. By this we ensure that in a cone with radius \DeltaRdef $ = 40$ centered in the photon track all the Topo Clusters have less energy deposited than the one defined above.
-\item photon track and \met doesn't overlap, requiring $\Delta_{\phi}(\gamma,\met) \le 0.4$
+\item we get one loose photon with \pt $ \ge 150 $ \GeV $\,$ with a pseudorapidity cut in \etaRange{1.52}{2.37} to cut ot the calorimeter crack region and \AetaRange{1.37}
+\item \met significance is found to be above $8.5$ \GeV$^{-\frac{1}{2}}$
+\item the leading photon is isolated, so that we select events characterized by $ \text{TopoEtcone40} \le 2.45$ \GeV$ + 0.022 \, $\pt \GeV. By this we ensure that in a cone with radius \DeltaRdef $ = 40$, centered in the photon track, all the Topo Clusters have less energy deposited than the one defined above.
+\item photon track and \met doesn't overlap, requiring $\Delta\phi_{\gamma - \met} \le 0.4$
 \item photon pointing along z coordinate wrt the identified primary vertex must no be larger than $250 \, mm$
 \item there is at most one {\itshape good} jet. Even if the analysis is called monophoton we take into account events even if they contains a jet, if not we could reject too much statistics as it will be clear in validation plots in section {\bfseries which hasn't been written yet}. Moreover we take only jets such that $\deltaphijetgamma \ge 0.4$
 
