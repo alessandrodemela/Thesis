@@ -44,7 +44,7 @@ In other words reasons for events of background can be ascribed to:
 For the \mph analysis the following background processes were considered.
 \begin{itemize}
 \item \znng where the two neutrinos produce high \met in the detector. This is the dominant, other than the only irreducible, background as one can see from plots.
-\item \wg in which all possible leptonic decay mode of \Wboson are gathered. Here $\ell$ can be an electron being missed or reconstructed as a photon, a muon being missed as well, or a $\tau$ lepton which can deacay via hadrons and reconstructed as jet or via leptons and being missed in the detector.
+\item \wg in which all possible leptonic decay mode of \Wboson are gathered. Here $\ell$ can be an electron being missed or reconstructed as a photon, a muon being missed as well, or a $\tau$ lepton which can decay via hadrons and reconstructed as jet or via leptons and being missed in the detector.
 \item \zg where, once again, I am considering all possible leptonic decays for the \Zboson where leptons end up in the same records as in the \Wboson case
 \item \gj events in which a jet or photon misreconstruction leads to fake \met.
 \item All kind of processes where a jet can fake a photon including:
@@ -54,9 +54,28 @@ For the \mph analysis the following background processes were considered.
   \end{itemize}
 \end{itemize}
 
+In order to quantify the amount of background events in SR, several Control Regions (CRs) are defined which are assumed to be free of signal contamination. Each of them is defined reverting one or more constraints for the SR to enrich every region with a given background process so that they are characterized by a pure dominant process among the others. This provides also ortogonality of a region to one another and their statistical independence.
+
+Events in CRs are simulated via Monte Carlo samples whose prediction must be fitted on data, to get a more reliable estimate of background in SR. This procedure will be explained in detail in section {\bfseries to be written}. A special procedure must be carried out for electron and jets faking photons. In this work results in all the regions for these sources have been taken from previous analysis. However this kind of background cannot be quantified like the previous ones because it is due to some detector mistakes in reconstruction.
+
+\section{Transfer factor technique and normalisation of background}
+In CRs the respective dominant background can be controlled by comparing MC samples to data. Initial predictions of background in a certain CR must be scaled to observed data in that region, using a normalization factor ($k_{i}$) which is usually computed by a numerical fit by the HistFitter software framework. Usually this procedure is referred as an extrapolation from CRs to SR.
+
+One can define a Trasfer Factor by a mere ratio between MC prediction in SR and MC prediction in a CRs, both unnormalized (raw), and the estimate of the number of events in the signal region for the $i$-th process could be written in terms of event observed in the CRs as:
+\begin{equation}
+  \label{eqn:TF}
+  N_{\textup{est},i}(\text{SR}) =  N_{\textup{obs},i}({\text{CR}}) \times \left[\frac{\text{MC}_{\textup{raw},i}(\text{SR})}{\text{MC}_{\textup{raw},i}(\text{CR})} \right]
+\end{equation}
+
+The proper normalization factor is defined as the ratio between events observed and expected in the CRs and equation \ref{eqn:TF} can also be rewritten:
+\begin{equation}
+  N_{\textup{est},i}(\text{SR}) = k_{i}\times\text{MC}_{\textup{raw},i}(\text{SR})
+\end{equation}
+
+By this factor the PDF of every region is rescaled everywhere in the parameter space. Indeed the analysis strategy performed by HistFitter shares the same parameters in all region so that any information found in a single region can be brought to the others.
+
+The advantage of using this procedure is that that systematic uncertainties common to the numerator and the denominator of the TF, such as the uncertainty on luminosity, on the predicted background processes can be canceled at first order in the extrapolation.
 
 
 
-  
-
-  
+ 
