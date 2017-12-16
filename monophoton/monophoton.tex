@@ -1,25 +1,24 @@
-\chapter{Fundamentals of Mono-Photon analysis}
+\chapter{Fundamentals of \mph analysis}
 Large missing transverse momentum (\met) signature can be sign of evidence of new physics, such as the indirect detection of dark matter.
 
-At LHC we can produce DM particles if they interact with Standard Model particles. A possible candidate to be a constituent of dark matter in universe is given by a weakly interactive mass particle (WIMP) which interacts with SM particles with a strenght similar to the weak interaction so it leaves no track on the detector. Missing transverse momentum can only be measured  if other particles are produced in the collision, for instance a detectable object such jets or photons, in order to tag the WIMP particle production. This kind of analysis are called Mono-X, for one selects events with a single object in final state. In the Mono-Photon analysis we are looking for a single high energy photon and large missing transverse momentum signature. The monophoton analysis is characterized by a relative clean final state thanks also to a small set of SM processes that produces the same outcome.
+At LHC we can produce DM particles if they interact with Standard Model particles. A possible candidate to be a constituent of dark matter in universe is given by a weakly interactive mass particle (WIMP) which interacts with SM particles with a strenght similar to the weak interaction so it leaves no track on the detector. Missing transverse momentum can only be measured  if other particles are produced in the collision, for instance a detectable object such jets or photons, in order to tag the WIMP particle production. This kind of analysis are called Mono-X, for one selects events with a single object in final state. In the \mph analysis we are looking for a single high energy photon and large missing transverse momentum signature. The \mph analysis is characterized by a relative clean final state thanks also to a small set of SM processes that produces the same outcome.
 
 For the analysis we are using data collected during 2015 and 2016 with the ATLAS detector, corresponding to an integrated luminosity of $36.4$ \ifb.
 
 In this chapter after giving a definition of signal and control regions describing the kinematic cuts used to constrain data I present the result for a background only analysis. I give also a brief evaluation of the raise of systematic uncertainties.
 
 \section{Event selection}
-In the context of this MonoPhoton analysis several Conotrol Regions (CRs) enriched with the corresponding dominant background in order to extract their normalization on data and a Signal Region (SR) in which eventual signal could be found.
+In the context of this \mph analysis several Conotrol Regions (CRs) enriched with the corresponding dominant background in order to extract their normalization on data and a Signal Region (SR) in which eventual signal could be found.
 
 Events in SR are preselected required by
-\begin{itemize}
-\item belonging to the Good Run List (GRL) for data quality;
-\item passing the  \verb!HLT_g140_loose! trigger
+\begin{itemize}%MAGARI CAMBIALO CON UNA DESCRIPTION
+\item belonging to the Good Run List (GRL) for data quality, i.e. collected in periods of well decector functioning and stable beams were provided;
+\item passing the  \verb!HLT_g140_loose! trigger, which {\itshape I think} is a trigger used to detect events with large \met; 
 \item having a primary vertex reconstructed with two associated good-quality tracks with \pt $\ge 400 \,$\MeV and \AetaRange{2.5}
 \item rejecting events with {\itshape BadLoose} jet (la [38] della nota) which overlaps with photons or leptons with \pt$> 20$ \GeV or not coming from hard scattering
 \end{itemize}
 
-After the preselection
-Candidates in SR are selected with the following kinematic cuts. We consider an event to be part of this region if:
+After the preselection Candidates in SR are selected with the following kinematic cuts. In order to populate the region with \gmet events, we consider an event to be part of this region if:
 \begin{itemize}
 \item we compute \met $ \ge 150 $ \GeV;
 \item we get one loose photon with \pt $ \ge 150 $ \GeV $\,$ with a pseudorapidity cut in \etaRange{1.52}{2.37} to cut ot the calorimeter crack region and \AetaRange{1.37}
@@ -27,9 +26,36 @@ Candidates in SR are selected with the following kinematic cuts. We consider an 
 \item the leading photon is isolated, so that we select events characterized by $ \text{TopoEtcone40} \le 2.45$ \GeV$ + 0.022 \, $\pt \GeV. By this we ensure that in a cone with radius \DeltaRdef $ = 40$, centered in the photon track, all the Topo Clusters have less energy deposited than the one defined above.
 \item photon track and \met doesn't overlap, requiring $\Delta\phi_{\gamma - \met} \le 0.4$
 \item photon pointing along z coordinate wrt the identified primary vertex must no be larger than $250 \, mm$
-\item there is at most one {\itshape good} jet. Even if the analysis is called monophoton we take into account events even if they contains a jet, if not we could reject too much statistics as it will be clear in validation plots in section {\bfseries which hasn't been written yet}. Moreover we take only jets such that $\deltaphijetgamma \ge 0.4$
+\item there is at most one {\itshape good} jet. Even if the analysis is called \mph we take into account events even if they contains a jet, if not we could reject too much statistics as it will be clear in validation plots in section {\bfseries which hasn't been written yet}. Moreover we take only jets such that $\deltaphijetgamma \ge 0.4$
 
 \end{itemize}
+
+In the following section I'm going to deal with all the sources of interference that could affect the SR describing the background processes.
+
+\section{Background estimation}
+Alongside the eventual signal coming from unknown ph\oe nomena many other SM processes could pass the cuts defined for the SR ending up being tagged in a wrong way as new physics. We call them background signal, i.e. predictable events that lead to the same signature we are looking for when producing DM particles from \pp scattering.
+
+In other words reasons for events of background can be ascribed to:
+\begin{itemize}
+\item properly reconstructed SM events which have the same final state as the signal we are looking for;
+\item badly reconstructed events in which one (or more) particle are mistaken for photons or they are not reconstructed at all.
+\end{itemize}
+
+For the \mph analysis the following background processes were considered.
+\begin{itemize}
+\item \znng where the two neutrinos produce high \met in the detector. This is the dominant, other than the only irreducible, background as one can see from plots.
+\item \wg in which all possible leptonic decay mode of \Wboson are gathered. Here $\ell$ can be an electron being missed or reconstructed as a photon, a muon being missed as well, or a $\tau$ lepton which can deacay via hadrons and reconstructed as jet or via leptons and being missed in the detector.
+\item \zg where, once again, I am considering all possible leptonic decays for the \Zboson where leptons end up in the same records as in the \Wboson case
+\item \gj events in which a jet or photon misreconstruction leads to fake \met.
+\item All kind of processes where a jet can fake a photon including:
+  \begin{itemize}
+  \item double neutrino decay of \Zboson combined with a jet,
+  \item leptonic decay of \Wboson along with a jet. If an electron is involved it could fake a photon as well, while we are keeping the jet as pure object for passing SR cuts.
+  \end{itemize}
+\end{itemize}
+
+
+
 
   
 
