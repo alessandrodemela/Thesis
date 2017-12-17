@@ -1,4 +1,4 @@
-\chapter{Fundamentals of \mph analysis}
+\chapter{Fundamentals of the \mph analysis}
 Large missing transverse momentum (\met) signature can be sign of evidence of new physics, such as the indirect detection of dark matter.
 
 At LHC we can produce DM particles if they interact with Standard Model particles. A possible candidate to be a constituent of dark matter in universe is given by a weakly interactive mass particle (WIMP) which interacts with SM particles with a strenght similar to the weak interaction so it leaves no track on the detector. Missing transverse momentum can only be measured  if other particles are produced in the collision, for instance a detectable object such jets or photons, in order to tag the WIMP particle production. This kind of analysis are called Mono-X, for one selects events with a single object in final state. In the \mph analysis we are looking for a single high energy photon and large missing transverse momentum signature. The \mph analysis is characterized by a relative clean final state thanks also to a small set of SM processes that produces the same outcome.
@@ -10,13 +10,14 @@ In this chapter after giving a definition of signal and control regions describi
 \section{Event selection}
 In the context of this \mph analysis several Conotrol Regions (CRs) enriched with the corresponding dominant background in order to extract their normalization on data and a Signal Region (SR) in which eventual signal could be found.
 
-Events in SR are preselected required by
-\begin{itemize}%MAGARI CAMBIALO CON UNA DESCRIPTION
-\item belonging to the Good Run List (GRL) for data quality, i.e. collected in periods of well decector functioning and stable beams were provided;
-\item passing the  \verb!HLT_g140_loose! trigger, which {\itshape I think} is a trigger used to detect events with large \met; 
-\item having a primary vertex reconstructed with two associated good-quality tracks with \pt $\ge 400 \,$\MeV and \AetaRange{2.5}
-\item rejecting events with {\itshape BadLoose} jet (la [38] della nota) which overlaps with photons or leptons with \pt$> 20$ \GeV or not coming from hard scattering
-\end{itemize}
+\subsection{Selection in Signal Region}
+Events in SR are preselected required by the following property:
+\begin{description}%MAGARI CAMBIALO CON UNA DESCRIPTION
+\item [Data quality] Data are considered good for physics if belonging to the Good Run List (GRL). They have to be collected in periods in which optimal detector functioning and stable beams were provided;
+\item [Trigger acceptance] Events selected must pass the  \verb!HLT_g140_loose! trigger, which {\itshape I think} is a trigger used to detect events with large \met; 
+\item [Vertex quality] We take into account events having a primary vertex reconstructed with two associated good-quality tracks with \pt $\ge 400 \,$\MeV and \AetaRange{2.5}
+\item [Jet cleaning] Jets tagged with {\itshape BadLoose} (la [38] della nota) in events in which they overlap with photons or leptons with \pt$> 20$ \GeV or not coming from hard scattering are rejected.
+\end{decription}
 
 After the preselection Candidates in SR are selected with the following kinematic cuts. In order to populate the region with \gmet events, we consider an event to be part of this region if:
 \begin{itemize}
@@ -58,7 +59,9 @@ In order to quantify the amount of background events in SR, several Control Regi
 
 Events in CRs are simulated via Monte Carlo samples whose prediction must be fitted on data, to get a more reliable estimate of background in SR. This procedure will be explained in detail in section {\bfseries to be written}. A special procedure must be carried out for electron and jets faking photons. In this work results in all the regions for these sources have been taken from previous analysis. However this kind of background cannot be quantified like the previous ones because it is due to some detector mistakes in reconstruction.
 
-\section{Transfer factor technique and normalisation of background}
+
+
+\subsection{Transfer factor technique and normalisation of background}
 In CRs the respective dominant background can be controlled by comparing MC samples to data. Initial predictions of background in a certain CR must be scaled to observed data in that region, using a normalization factor ($k_{i}$) which is usually computed by a numerical fit by the HistFitter software framework. Usually this procedure is referred as an extrapolation from CRs to SR.
 
 One can define a Trasfer Factor by a mere ratio between MC prediction in SR and MC prediction in a CRs, both unnormalized (raw), and the estimate of the number of events in the signal region for the $i$-th process could be written in terms of event observed in the CRs as:
@@ -76,6 +79,18 @@ By this factor the PDF of every region is rescaled everywhere in the parameter s
 
 The advantage of using this procedure is that that systematic uncertainties common to the numerator and the denominator of the TF, such as the uncertainty on luminosity, on the predicted background processes can be canceled at first order in the extrapolation.
 
+\subsection{Definition of Control Regions}
+There are four CRs definded in order to extrapolate information on background in Signal Region. In this section a brief definition and differences in kinematic cuts are descrbed.
 
+\begin{description}
+\item [One muon CR] In this region one selected muon is requested, kinematic cuts on \pt and \met are the same of those in SR. Here, however, \met is computed in a different way that is the muon energy is added to this variable, so we can treat it as an invisible particle in order to ensure that \met distribution is similar to the one in SR. This region extracts the normalization $k_W$ for \wg background.
+\item [Two muon/electron CR] Similarly to the One muon, here we add to \met both muon/electron contribution to \met. Here two selected muons/electrons are required. we can also add a constrain to the invariant mass of the di-lepton to be greater than 20 \GeV\, and less than 1 \TeV \, to avoid any BSM $Z\gamma$ resonances. Moreover we don't require the cut on \met significance. These regions get $k_Z$ for the dominant background \zg in this region which applies via branching ratio to the \znng process.
+\item [Photon jet CR] Here kinematic cuts on \met are lowered. We require \met to be in 85 - 110 \GeV\, range to enrich this region of \gj background because in this energy range, probability to have fake \met from jets is higher. To avoid signal contamination we set $\Delta\phi_{\gamma - \met} \le 3.0$ so that we prevent {\itshape back-to-back} signal events to fall in this region. This region, defined in \RunTwo, constrains the normalization for \gj background to get a $k_{pj}$ normalization factor.
+\end{description}
 
- 
+{\itshape A priori} a one electron CR could have been defined as well. Nevertheless the one muon CR has enough statistic to constrain the normalization on \Wboson$\gamma$.  This kind of region would have been more difficult to manage even just because electrons could be reconstructed easily as photons which not happens for muons being detected far away in the detector from photons increasing the number of \gj events contamination. In the analysis carried out in [nota di supporto] one evince that no improvement on $k_W$ error can be seen, instead there is a raise of $k_{pj}$ error due to furhter background contamination.
+
+As mentioned earlier fake photons from electrons and jets enter the fit as given values and it is not constrained by any region. They have been estimated via data driven tecniques in other analysis.
+
+\section{Results for a background-only fit}
+{\bfseries To be written}
