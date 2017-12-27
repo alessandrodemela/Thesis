@@ -12,11 +12,37 @@
 \usepackage{lettrine}
 \usepackage{mparhack}
 \usepackage{lipsum}
+\usepackage{geometry}
+\usepackage{longtable,booktabs,caption}
+\usepackage{titlesec}
+
+\usepackage{fancyhdr}
+ 
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE]{\itshape \nouppercase  	\rightmark }
+\fancyhead[RO]{\itshape \nouppercase \leftmark}
+\fancyfoot[LE]{ \thepage}
+\fancyfoot[RO]{ \thepage}
+
+\renewcommand{\contentsname}{{Table of Contents}}
+
 
 \begin{document}
+\titleformat{\chapter}[display]{\itshape}{}{2ex}{\fontfamily{ppl}\selectfont\LARGE}[\titlerule]
+\frontmatter
+\include{introduction}
+\tableofcontents
 
-%\include{introduction}
+\mainmatter
+\titleformat{\chapter}[display]{\filcenter\large }{\filcenter\uppercase{Chapter}\thechapter}{2ex}{\bfseries\LARGE\titlerule[1.3pt]\vspace{2ex}\centering}[\vspace{2ex}]
+\titleformat{\section}[block]{\filcenter\large }{\thesection}{0pt}{\bfseries	\quad \large \centering}[\vspace{3pt}]
+\titleformat{\subsection}[block]{\normalfont \large }{\thesubsection \quad}{0pt}{\itshape \bfseries}[]
+
 \include{monophoton/monophoton}
-%\include{anStrategy/anStrategy}
+%\include{MCSample/MCSample}
+
+\backmatter
+\include{out_fit_inclusive_150_after}
 
 \end{document}
