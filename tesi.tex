@@ -8,6 +8,9 @@
 \newcommand{\wg}{$\Wboson (\rarrow \lnu)\, + \, \gamma$ }
 \newcommand{\gj}{$\gamma \,  + \,  \text{jets}$ }
 \newcommand{\mph}{MonoPhoton }
+\usepackage[T1]{fontenc}
+\usepackage[urw-garamond]{mathdesign}
+\usepackage{garamondx}
 
 \usepackage{lettrine}
 \usepackage{mparhack}
@@ -17,8 +20,7 @@
 \usepackage{titlesec}
 
 \usepackage{fancyhdr}
- 
-\pagestyle{fancy}
+ \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[LE]{\itshape \nouppercase  	\rightmark }
 \fancyhead[RO]{\itshape \nouppercase \leftmark}
@@ -28,7 +30,19 @@
 \renewcommand{\contentsname}{{Table of Contents}}
 
 
-\begin{document}
+\begin{document}	
+\begin{titlepage}
+\begin{center}	
+ 	\textsc{\textbf{\Large UNIVERSIT\`A DEGLI STUDI DI MILANO}}\\
+ 	\textsc{\Large FACOLT\`A DI SCIENZE MATEMATICHE, \\FISICHE E NATURALI
+}\\
+ 	\vspace{10pt}
+ 	\textit{\Large Corso di laurea triennale in Fisica}
+ 	\vspace{30ex}
+ 	
+ 	{\bfseries \large Search for Dark Matter production \\in events with large missing transverse energy and a high momentum photon \\collected at $\sqrt{s}=13 \,\TeV$ with the ATLAS detector \\for the {\itshape Minimal Dark Matter} Model}
+\end{center}
+\end{titlepage}
 \titleformat{\chapter}[display]{\itshape}{}{2ex}{\fontfamily{ppl}\selectfont\LARGE}[\titlerule]
 \frontmatter
 \include{introduction}
