@@ -8,9 +8,9 @@
 \newcommand{\wg}{$\Wboson (\rarrow \lnu)\, + \, \gamma$ }
 \newcommand{\gj}{$\gamma \,  + \,  \text{jets}$ }
 \newcommand{\mph}{MonoPhoton }
+\newcommand{\cm}{centre-of-mass }
 \usepackage[T1]{fontenc}
 \usepackage[urw-garamond]{mathdesign}
-\usepackage{garamondx}
 
 \usepackage{lettrine}
 \usepackage{mparhack}
@@ -18,45 +18,58 @@
 \usepackage{geometry}
 \usepackage{longtable,booktabs,caption}
 \usepackage{titlesec}
+\usepackage{siunitx}
+\usepackage{graphicx}
+\usepackage{mhchem}
 
 \usepackage{fancyhdr}
- \pagestyle{fancy}
+\pagestyle{fancy}
 \fancyhf{}
-\fancyhead[LE]{\itshape \nouppercase  	\rightmark }
+\fancyhead[LE]{\itshape \nouppercase \rightmark }
 \fancyhead[RO]{\itshape \nouppercase \leftmark}
 \fancyfoot[LE]{ \thepage}
 \fancyfoot[RO]{ \thepage}
 
 \renewcommand{\contentsname}{{Table of Contents}}
 
+\usepackage{hyperref}
+
+\newlength\longest
+
 
 \begin{document}	
-\begin{titlepage}
-\begin{center}	
- 	\textsc{\textbf{\Large UNIVERSIT\`A DEGLI STUDI DI MILANO}}\\
- 	\textsc{\Large FACOLT\`A DI SCIENZE MATEMATICHE, \\FISICHE E NATURALI
-}\\
- 	\vspace{10pt}
- 	\textit{\Large Corso di laurea triennale in Fisica}
- 	\vspace{30ex}
+%\begin{titlepage}
+%\begin{center}	
+% 	\textsc{\textbf{\Large UNIVERSIT\`A DEGLI STUDI DI MILANO}}\\
+% 	\textsc{\Large FACOLT\`A DI SCIENZE MATEMATICHE, \\FISICHE E NATURALI
+%}\\
+% 	\vspace{10pt}
+% 	\textit{\Large Corso di laurea triennale in Fisica}
+% 	\vspace{30ex}
  	
- 	{\bfseries \large Search for Dark Matter production \\in events with large missing transverse energy and a high momentum photon \\collected at $\sqrt{s}=13 \,\TeV$ with the ATLAS detector \\for the {\itshape Minimal Dark Matter} Model}
-\end{center}
-\end{titlepage}
+% 	{\bfseries \large Search for Dark Matter \\in events with large missing transverse energy and a high momentum photon \\collected at $\sqrt{s}=13 \,\TeV$ with the ATLAS detector \\for the {\itshape Minimal Dark Matter} Model}
+%\end{center}
+%\end{titlepage}
+
+%====CITAZIONE=====
+%\include{quoting}
+
 \titleformat{\chapter}[display]{\itshape}{}{2ex}{\fontfamily{ppl}\selectfont\LARGE}[\titlerule]
+
 \frontmatter
-\include{introduction}
-\tableofcontents
+%\include{introduction}
+%\tableofcontents
 
 \mainmatter
 \titleformat{\chapter}[display]{\filcenter\large }{\filcenter\uppercase{Chapter}\thechapter}{2ex}{\bfseries\LARGE\titlerule[1.3pt]\vspace{2ex}\centering}[\vspace{2ex}]
 \titleformat{\section}[block]{\filcenter\large }{\thesection}{0pt}{\bfseries	\quad \large \centering}[\vspace{3pt}]
 \titleformat{\subsection}[block]{\normalfont \large }{\thesubsection \quad}{0pt}{\itshape \bfseries}[]
 
-\include{monophoton/monophoton}
+\include{LHC_ATLAS/LHC_ATLAS}
+%\include{monophoton/monophoton}
 %\include{MCSample/MCSample}
 
 \backmatter
-\include{out_fit_inclusive_150_after}
+%\include{out_fit_inclusive_150_after}
 
 \end{document}
