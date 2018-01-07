@@ -12,15 +12,16 @@
 \usepackage[T1]{fontenc}
 \usepackage[urw-garamond]{mathdesign}
 
-\usepackage{lettrine}
+\usepackage{lettrine,lipsum}
 \usepackage{mparhack}
-\usepackage{lipsum}
 \usepackage{geometry}
 \usepackage{longtable,booktabs,caption}
 \usepackage{titlesec}
 \usepackage{siunitx}
 \usepackage{graphicx}
 \usepackage{mhchem}
+\usepackage{tikz}
+\usepackage{wrapfig}
 
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -46,7 +47,7 @@
 % 	\vspace{10pt}
 % 	\textit{\Large Corso di laurea triennale in Fisica}
 % 	\vspace{30ex}
- 	
+ 		
 % 	{\bfseries \large Search for Dark Matter \\in events with large missing transverse energy and a high momentum photon \\collected at $\sqrt{s}=13 \,\TeV$ with the ATLAS detector \\for the {\itshape Minimal Dark Matter} Model}
 %\end{center}
 %\end{titlepage}
@@ -61,7 +62,7 @@
 %\tableofcontents
 
 \mainmatter
-\titleformat{\chapter}[display]{\filcenter\large }{\filcenter\uppercase{Chapter}\thechapter}{2ex}{\bfseries\LARGE\titlerule[1.3pt]\vspace{2ex}\centering}[\vspace{2ex}]
+\titleformat{\chapter}[display]{\filcenter\large }{\filcenter\uppercase{Chapter }\thechapter}{2ex}{\bfseries\LARGE\titlerule[1.3pt]\vspace{2ex}\centering}[\vspace{2ex}]
 \titleformat{\section}[block]{\filcenter\large }{\thesection}{0pt}{\bfseries	\quad \large \centering}[\vspace{3pt}]
 \titleformat{\subsection}[block]{\normalfont \large }{\thesubsection \quad}{0pt}{\itshape \bfseries}[]
 
