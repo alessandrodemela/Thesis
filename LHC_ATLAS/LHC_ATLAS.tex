@@ -1,16 +1,16 @@
-\chapter{Il potente e saggio Fabio Fazio nel magico mondo di LHC}
-Forse, non tutti sanno che, Fabio Fazio, un po' come Britney Spears e i semiconduttori, \'e un grande appassionato di rivelatori di particelle al punto di possederne uno piccolino nei suoi appartamenti di Celle Ligure. Il Fazio \`e molto esperto e molto bravo a riconoscere tutti quei rivelatori ridondanti, pieni di boria e faziosi da quelli utili come quelli del CERN. Come Dante scelse Virgilio per accompagnarlo nel suo viaggio attraverso l'aldil\`a io mi affido a lui affich\`e possa essermi guida e consiglio nel fazioviaggio in quel di LHC e dell'esperimento ATLAS.
+%\chapter{Il potente e saggio Fabio Fazio nel magico mondo di LHC}
+%Forse, non tutti sanno che, Fabio Fazio, un po' come Britney Spears e i semiconduttori, \'e un grande appassionato di rivelatori di particelle al punto di possederne uno piccolino nei suoi appartamenti di Celle Ligure. Il Fazio \`e molto esperto e molto bravo a riconoscere tutti quei rivelatori ridondanti, pieni di boria e faziosi da quelli utili come quelli del CERN. Come Dante scelse Virgilio per accompagnarlo nel suo viaggio attraverso l'aldil\`a io mi affido a lui affich\`e possa essermi guida e consiglio nel fazioviaggio in quel di LHC e dell'esperimento ATLAS.
 
-Now the serious part begins. {\scshape Please, read from here.}
-
+%Now the serious part begins. {\scshape Please, read from here.}
+\chapter{The LHC and the ATLAS experiment}
 \lettrine{T}{his} analysis uses data collected during 2015 and 2016, coming from the ATLAS detector at LHC, as well as all simulations were performed in its context. It is a good thing to begin this work describing the main features of the LHC facility at CERN and giving an overviwew of the ATLAS experiment.
 
 \section{The Large Hadron Collider}
-Since the day of its starting up LHC became the most powerful accelerator, of any kind, in the world. Built beneath the CERN site in Geneva, Switzerland, it consists of a double ring of 27 kilometers lenght made of superconducting magnets in which hadrons (protons or heavy ions) can be accelerates nearly up to the speed of light, or $\gamma\simeq7500$, and forced to collide in 4 specific points where the two rings intersects and likewise detectors take place.
+Since the day of its starting up LHC (Large Hadron Collider) became the most powerful accelerator, of any kind, in the world. Built beneath the CERN site in Geneva, Switzerland, it consists of a double ring of \SI{27}{km} lenght made of superconducting magnets in which hadrons (protons or heavy ions) can be accelerates nearly up to the speed of light, or $\gamma\simeq7500$, and forced to collide in 4 specific points where the two rings intersects and likewise detectors take place.
 
 After the Higgs Boson discovery there are many open questions in physics that LHC is trying to give an answer. Up to now, the main target of this project are:
 \begin{description}
-\item[Supersymmetric discoveries] Despite the Standar Model of particle physics (SM) is a well established theory it doesn't provide a theory for gravitation similar to those for the other forces. A hint might come from supesymmetry (SUSY) that hypothesises more massive particle than the ones we already know.
+\item[Supersymmetric discoveries] Despite the Standar Model of particle physics (SM) is a well established theory it doesn't provide a theory for gravitation similar to those for the other forces. A hint might come from supersymmetry (SUSY) that hypothesizes more massive particle than the ones we already know.
 \item[Dark matter] Cosmological and astrophysical observations have shown that all visible matter accounts only for about 5\% of the mass/energy of the Universe. There are many experiment which tries to understand the nature of potential dark matter.
 \item[SM particle property] A lot of properties of already known SM particle have to be defined with more precision. Since the production rate of \Wboson and \Zboson is high it is quite easy to verify any sort of deviation from SM predictions from this measurement and find prediction of new physics.
 \item[Antimatter puzzle] LHC will also helps to investigate the matter/antimatter ratio. Even if after the Big Bang they have been produced in equal amount there is no explanation on why, as best of our knowledge, matter dominates the universe
@@ -19,7 +19,7 @@ After the Higgs Boson discovery there are many open questions in physics that LH
 
 The most frequent collisions at LHC happen between protons. Before getting into the double ring they come across several machines which provide the first step of acceleration.
 
-Protons are obtained from ionuzed hydrogen atoms and accelerated by Linac2 up to \SI{50}{MeV}, then injected into the Proton Synchrotron Booster (PSB), which accelerates them to 1.4 \GeV. Then the beam travels into the Proton Synchrotron (PS), where is pushed towards 25 \GeV, and into the Super Proton Synchrotron (SPS),  the second largest machine among all CERN's complexes consisting of a ring of 1.1 km radius, that speed the protons up to 450 \GeV, which is the minimum at which the LHC can maintain a stable beam. The main advantage in using protons instead of electrons and positron, as it was used to in LEP at CERN before LHC, is thanks to their higher mass that they reduce syncrotron radiation while being accelerated. Protons are delivered in bunches: each bunch contains \SI{e11} of them and every proton beam has 2808 bunches. A simple representation of protons journey to LHC is given in \Fig{\ref{fig:accelerators}}.
+Protons are obtained from ionized hydrogen and accelerated by Linac2 up to \SI{50}{MeV}, then injected into the Proton Synchrotron Booster (PSB), which accelerates them to 1.4 \GeV. Then the beam travels into the Proton Synchrotron (PS), where is pushed towards 25 \GeV, and into the Super Proton Synchrotron (SPS),  the second largest machine among all CERN's complexes consisting of a ring of 1.1 km radius, that speed the protons up to 450 \GeV, which is the minimum at which the LHC can maintain a stable beam. The main advantage in using protons instead of electrons and positron, as it was used to in LEP at CERN before LHC, is thanks to their higher mass that they reduce syncrotron radiation while being accelerated. Protons are delivered in bunches: each bunch contains \SI{e11} of them and every proton beam has 2808 bunches. A simple representation of protons journey to LHC is given in \Fig{\ref{fig:accelerators}}.
 
 \begin{figure}[tp]
 	\centering
@@ -58,16 +58,16 @@ The LHC was designed to operate with a \cm energy of $\sqrt{s}=\SI{14}{TeV} $ fo
 
 In LHC the insantaneous luminosity is computed via the formula:
 \begin{equation}
-	\mathcal{L}=\frac{f_{\textup{LHC}} \cdot n_b \cdot N_{\textup{bunch}}^2}{A}
+	\mathcal{L}=\frac{f_{\textup{LHC}} \cdot n_{\textup{b}} \cdot N_{\textup{bunch}}^2}{A}
 \end{equation}
 
-where $f_{\textup{LHC}}$ is the collision frequency, $n_b$ is the number of bunch colliding, $N_{\textup{bunch}}$ is the number of particle per bunch, where we are considering the approximate case in which both bunches share the same population. At last the inverse cross section of bunches is $A=4\pi\sigma_x\sigma_y$ where $\sigma_k$ are the r.m.s of the distribution of the beams along the transverse plane. Instantaneous luminosity can be increased for example by reducing the bunch section or increasing the number of protons per bunch even if it's not very wise for the rising of effects discussed soon.
+where $f_{\textup{LHC}}$ is the collision frequency, $n_{\textup{b}}$ is the number of bunch colliding, $N_{\textup{bunch}}$ is the number of particle per bunch, where we are considering the approximate case in which both bunches share the same population. At last the inverse cross section of bunches is $A=4\pi\sigma_x\sigma_y$ where $\sigma_k$ are the r.m.s of the distribution of the beams along the transverse plane. Instantaneous luminosity can be increased for example by reducing the bunch section or increasing the number of protons per bunch even if it's not very wise for the rising of effects discussed soon.
 
 With the instantaneous luminosity one can forsee the number of event expected after a collision. Since the event rate is given by 
 \begin{equation}
-\frac{dN}{dt}\equiv\Gamma=\mathcal{L}\times\sigma,
+\Gamma\equiv\frac{dN}{dt}=\mathcal{L}\times\sigma,
 \end{equation}
-where $\sigma$ is the total \pp cross section which at $\sqrt{s}=\SI{13}{Tev}$ is about \SI{80}{mb}, we expect a rate of about \SI{e9}{s^{-1}}. Along with istantaneous luminosity an integrated luminosity is defined by simply integrating on time both members of the previous equation, in formul\ae:
+where $\sigma$ is the total \pp cross section which at $\sqrt{s}=\SI{13}{Tev}$ is about \SI{80}{mb}, we expect a rate of about \SI{e9}{s^{-1}}, or \SI{1}{GHz}. Along with istantaneous luminosity an integrated luminosity is defined by simply integrating on time both members of the previous equation, in formul\ae:
 \begin{gather}
 	L=\int{\mathcal{L}dt} \notag\\
 	N=L\times\sigma
@@ -81,7 +81,7 @@ where $\sigma$ is the total \pp cross section which at $\sqrt{s}=\SI{13}{Tev}$ i
 
 Among this events one can distinguish \emph{soft collisions} and \emph{hard collisions}.
 \begin{description}
-\item[Soft collisions] These are the most frequent collision happening between two protons behaving like elementary particle. The momentum transfered is relatively small so that products of the collision scatter for a little polar angle. They have large longitudinal momentum, but small transverse momentum \pt of about \SI{500}{MeV} (for greater detail, see next section).
+\item[Soft collisions] These are the most frequent collision happening between two protons behaving like elementary particle. The momentum transfered is relatively small so that products of the collision scatter for a little polar angle. They have large longitudinal \mbox{momentum}, but small transverse momentum \pt of about \SI{500}{MeV} (for greater detail, see next section).
 \item[Hard collisions] Even though they are very rare, they occur at most once for every bunch crossing, they are the most relevant collision to be taken into account: products of most analysis interest come from them. In this kind of collision the interaction happens at the quark size. The energy involved is made up also from parton momentum which is not known \emph{a priori}, but can be extimated from the Parton Distribution Function (PDF) giving the distributions of quark and gluon momenta inside the proton. From hard scattering we can get particle with high \pt with eventually high mass.
 \end{description}
 
@@ -92,7 +92,7 @@ What a detector see is always a superimposition of this two kind of scattering. 
 \section{The ATLAS detector}
 \begin{figure}[tp]
 	\centering
-	\includegraphics[scale=0.3,angle=-90]{LHC_ATLAS/0803012_01}
+	\includegraphics[scale=0.4,angle=-90]{LHC_ATLAS/0803012_01}
 	\caption{Cut-away view of the ATLAS detector. The dimensions of the detector are 25 m in height and 44 m in length. The overall weight of the detector is approximately 7000 tonnes.}	
 	\label{fig:atlas}
 \end{figure}
@@ -126,19 +126,25 @@ The ATLAS detector can be divided into three detectors, each one providing a pre
 \begin{description}
 \item[Inner detector] Immersed in a solenoid, it provides to the pattern recognition, momentum and vertex measurements, and electron identification thanks to high-resolution semiconductor pixel, including the Insertable B-layer which was added before the start of \RunTwo, strip detectors in its inner part and straw-tube tracking detectors with the capability to generate and detect transition radiation in its outer part. It will be described in detail in \Sect{\ref{sec:ID}}.
 \item[Calorimetry system] It is composed by two kind of calorimeter: a Liquid Argon (LAr) electromagnetic calorimeter and am hadronic calorimeter. They are surrounded by \num{24} toroidal magnet as described above and they provides to measure energy and track particle as their names suggest. It exhibit great position and energy resolution and it covers a very wide range in pseudorapidity extended by its forward part. For greater detail see \Sect{\ref{sec:calo}}.
-\item[Muon spectrometer] The muon spectrometer surrounds the calorimeter. It provides muon momentum resolution which is achieved with three layers of high precision tracking chambers. It includes an air-core toroid system with a long barrel and two side end-caps, which minimized multiple scattering effects.
+\item[Muon spectrometer] The muon spectrometer surrounds the calorimeter. It provides muon momentum resolution which is achieved with three layers of high precision tracking chambers. It includes an air-core toroid system with a long barrel and two side end-caps, which bends muon trajectory. It is described in \Sect{\ref{sec:muons}}.
 
 \end{description}
 
 \subsection{Inner detector}
 \label{sec:ID}
-\begin{figure}[t]
+\begin{figure}[tp]
 \centering
-\includegraphics[width=0.7\textwidth]{LHC_ATLAS/ID}
+\includegraphics[width=0.8\textwidth]{LHC_ATLAS/ID}
 \caption{Cut-away view of the ATLAS inner detector.}
 \end{figure}
 
 The inner detector (ID) is a tracking detector and it is designed to provide precise tracks recognition, excellent momentum resolution and both primary and secondary vertex measurements. For the purpose of tracking, great precision measurement must be performed so that an high granularity is strongly required. Indeed every \SI{25}{ns} about \num{1000} particle emerge from a collision within a $\eta$ cone of \num{2.5}. Tracking charged particle is very crucial to help further detectors to distinguish between two similar particles. Showers left in the hadronic calorimeter by protons and neutrons are very similar, the only way we have to decide which particle has been detected is looking whether tracks were left in this region.
+
+\begin{figure}[pt]
+\centering
+\includegraphics[width=0.8\textwidth]{LHC_ATLAS/IDCrossSection}
+\caption{Cross section of the inner detector.}
+\end{figure}
 
 The ID is is contained within a cylindrical region of radius \SI{1.05}{m} and lenght \SI{6.2}{m} about. It is submerged in a \SI{2}{T} solenoidal magnetic field and it consists of three independent and complementary parts which are the pixel detector, SemiConductor Tracker (SCT) and the transition radiation tracker (TRT).
 
@@ -153,47 +159,75 @@ The combination of precision trackers in the innermost shell with the TRT at a l
 The inner detector system provides tracking measurements in a range matched by the precision measurements of the electromagnetic calorimeter which will be described in the next section.
 
 \subsection{Calorimetry}
-\begin{figure}[pt]
-\centering
-\includegraphics[width=0.7\textwidth]{LHC_ATLAS/Calorimetry}
-\caption{Cut-away view of ATLAS calorimetry system. It develops around the inner detector in gray and it is composed by the electromagnetic and hadronic calorimers.}
-\label{fig:Calos}
-\end{figure}
 \label{sec:calo}
-Calorimeters are the detectors dedicated to energy measurements for every particle, but muons, including the missing transverse energy (\met) whose precise measurement is possible thanks to the wide pseudorapidity range, up tp $\eta=4.9$, while the $\phi$ coverage is full. Nevertheless there is a blind zone in \etaRange{1.37}{1.52} called \emph{crack region} where the barrel/end-cap transition happens.
+Calorimeters are the detectors dedicated to energy measurements for every particle, except for muons, including the missing transverse energy (\met) whose precise measurement is possible thanks to the wide pseudorapidity range, up tp $\eta=4.9$, while the $\phi$ coverage is full. Nevertheless there is a blind zone in \etaRange{1.37}{1.52} called \emph{crack region} where the barrel/end-cap transition happens.
 
 In ATLAS the calorimetry system, represented in \Fig{\ref{fig:Calos}} is composed by two subsystems: the electromagnetic (EM) calorimeter, devoted to recognize photons and electrons thanks to its finer granularity, and the hadronic calorimeter which accounts for hadrons such jets. Both of them are sample calorimeters, which means they are made as a series of active material and and absorber material.
 
 An important feature in building them is the calorimeter depth. They must provide good containment for electromagnetic and hadronic showers limiting the number of electrons, photons and hadrons break into the muon spectrometer. The total thickness of the EM calorimeter is greater than 22 radiation lengths ($X_0$), which is defined as the mean distance over which a high energy electron loses $1/e$ of its energy by bremsstrahlung, in the barrel and greater than 24 $X_0$ in the end-caps.
 
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.7\textwidth]{LHC_ATLAS/Calorimetry}
+\caption{Cut-away view of ATLAS calorimetry system. It develops around the inner detector in gray and it is composed by the electromagnetic and hadronic calorimers.}
+\label{fig:Calos}
+\end{figure}
+
 \subsubsection{Electromagnetic calorimeter}
-\begin{figure}[pt]
+\begin{figure}[p]
 \centering
 \includegraphics[width=0.5\textwidth]{LHC_ATLAS/EMcalo}
-\caption{Schematic view of a fraction of the EM calorimeter showing its accordion geometry and pointing out the triple segmentation in its barrel component}
+\caption{Schematic view of a fraction of the EM calorimeter showing its accordion geometry and pointing out the segmentation in ``strips'', ``middle'' and ``back'', along with their granularity, in the  barrel region.}
 \label{fig:EMlayers}
 \end{figure}
 
-The EM calorimeter is designed to detect, measure and track electrons and photons and it is part of the LAr calorimetry. Indeed it adopts entirely this tecnology being made up of a liquid argon ionization chamber using lead as absorber. It is composed by two half-barrels, separated at $\eta=0$ by a \SI{4}{mm} gap, covering \AetaRange{1.475} and two end-cap regions, composed by a outer and an inner weel, extending the range in pseudorapidity to \etaRange{1.375}{3.2} each housed in its own cryostat. 
+The EM calorimeter is designed to detect, measure and track electrons and photons and it is part of the LAr calorimetry. Indeed it adopts entirely this tecnology being made up of a liquid argon ionization chamber using lead as absorber. It is composed by two half-barrels, separated at $\eta=0$ by a \SI{4}{mm} gap, covering \AetaRange{1.475} and two end-cap regions (EMEC), composed by a outer and an inner weel, extending the range in pseudorapidity to \etaRange{1.375}{3.2} each housed in its own cryostat. 
 
 It is  built following an accordion geometry which naturally covers a full $\phi$ simmetry without any cracks. In the barrel the accordion waves are parallel to the beam axis, running in $\phi$, and their folding angle varies with $R$ keeping the LAr gaps pretty constant. In the endcaps, the waves run axially and the folding angle varies with radius.
 
 In the longitudinal direction and for \AetaRange{2.5} where precise measurements take place, the EM barrel calorimeter is segmented into three sections and in the end-cap zone, i.e. the inner wheel, in two sections. In barrel the three sections are called ``strips'', ``middle'' and ``back'' as pictured in \Fig{\ref{fig:EMlayers}}. In the strips the highest granularity is found and it amounts $0.008 \times 0.1 \left(\Delta \eta \times \Delta \phi \right)$ which is needed to distinguish between a decayed \pizero from an actual photon. The middle calorimeter collects the greater fraction of energy of electromagnetic showers and the back detects its tail and prevents the shower to reach the outer hadronic calorimeter.
-
+  
 Going through the ID, energy loss for photons and electrons might happen and it must be taken into account. A presampler, which is a very thin liquid-argon layer ($\sim \SI{11}{mm}$), is added before the calorimeter to recover any kind of loss.
 
 \subsubsection{Hadronic calorimeter}
-The hadronic calorimeter is characterized by two different technology: the tile calorimeter in the barrel region, and the LAr hadronic forward and end-cap calorimeter.
+The hadronic calorimeter is characterized by two different technology: the tile calorimeter in the barrel region, and the LAr hadronic forward (FCal) and end-cap (HEC) calorimeter. 
+
+The tile calorimeter, placed just outside the EM calorimeter, is a sample calorimeter which uses steel as absorber and a scintillator as an active medium giving a better response time than the LAr technology. It can be divided in the proper barrel region and two extended barrels, both extending from an inner radius of \SI{2.28}{m} to an outer one of \SI{4.25}{m} and segmented in depth in three layers. The barrel covers the region \AetaRange{1.0} and the two extended barrels extend the covering by measuring \etaRange{0.8}{1.7}. While speaking of hadrons interaction lenghts ($\lambda$), (i.e. the mean distance before hadrons interact with nuclear matter, must be used instead of radiation lenght. The interaction lenght can be computed as $\lambda \simeq \frac{A^{1/3}}{\rho}$ where $A$ is the mass number for a specific atom and $\rho$ is the nuclear density. The total detector thickness in the tile-instrumented region is \SI{9.7}{\lambda} at $\eta = 0$ and \SI{10}{\lambda} in the extended barrel.
+
+The HEC and FCal parts use the same technology as in the EM calorimeter so that their active medium is liquid Argon but their absorber can be tungsten and copper. HEC is located directly behind the EM end-cap calorimeter, sharing the same cryostat, and it consists of two independent wheels per end-cap. Each weel is divided into two segments in depth, for a total of four layers per end-cap. The FCal completes the $\eta$ coverage being located in \etaRange{3.5}{4.9}. It consists of three modules in each end-cap: the first, made of copper, is suited for electromagnetic measurements, while the other two, made of tungsten, measure the energy of hadronic interactions.
 
 \subsection{Muon spectrometer}
-\lipsum[1]
+\label{sec:muons}
+The muon spectrometer is the outermost detector in ATLAS. Its functioning is based on the magnetic deflection of muon tracks in the large superconducting air-core toroid magnets build in such a way the magnetic field is almost orthogonal to muons path. For \AetaRange{1.4} bending is achieved thanks to the barrel toroids, for \AetaRange{1.6}{2.7} muons are bent by two smaller end-cap toroids and int the intermediate, or transition, region for \etaRange{1.4}{1.6} the deflection occurs for a combination of the two fields. Bending power is computed by the field integral $\int B_{\bot}\,dl$ where $B_{\bot}$ is the field perpendicular to the muons trajectory and the integral is evaluated along the infinitesimal path covered by muons inside the spectrometer. The barrel toroid provides \SI{1.5} to \SI{5.5}{T m} and the end-cap toroid gives from \SI{1} to \SI{7.5}{T m}, while in the transition region the bending power is much lower. The magnetic field is continuously monitored by almost 1800 Hall sensors distributed throughout the spectrometer, this is crucial in order to calculate the bending power along the muon trajectory to a few parts in a thousand.
 
-\lipsum[3]
+In the barrel region, tracks are measured in chambers arranged in three cylindrical layers around the beam axis while in transition and end-cap region three-layered chambers are located in planes orthogonal to the $z$-axis. Monitored Drift Tube (MDT) chambers pursue high-precision tracking along almost the whole $\eta$ range. They are made of cylindrical aluminum drift tube being filled with gas which gets ionized when a muon passes by. Charges are collected by a wire held at high potential. Cathode-strip chambers (CSC) covers \etaRange{2}{2.7}. They are multiwire proportional chambers with cathodes segmented into strips with an higher rate capability and greater granularity.
 
-\lipsum[4]
+The muon spectrometer has its own trigger system which extends over \AetaRange{2.4} and uses Resistive Plate Chambers (RPC) and Thin-gap Chambers (TGC) in barrel and end-cap regions respectively. What the trigger achieves is bunch crossing identification (BCID), to give a precise \pt threshold and to measure muons tracks in direction orthogonal to which the chambers have measured.
+
+\begin{figure}[pt]
+\centering
+\includegraphics[width=0.75\textwidth]{LHC_ATLAS/Muons}
+\caption{Cut-away view of the ATLAS muon system.}
+\label{fig:muons}
+\end{figure}
+
+\input{LHC_ATLAS/ATLASLayers}
+
+\subsection{Forward calorimeters}
+Three smaller detector systems cover the ATLAS forward region. LUCID (LUminosity measurement using Cerenkov Integrating Detector) at \SI{\pm 17}{m}, along the beam, and ALFA (Absolute Luminosity For ATLAS) located at \SI{\pm 240}{m} are used to measure the istantaneous luminosity delivered to ATLAS. The former by detecting inelastic \pp scattering while the latter by using scintillating fiber trackers inside Roman pots capable to reach \SI{1}{mm} from the beam. The third system is the Zero-Degree Calorimeter (ZDC), located at \SI{\pm 140}{m}, which is used in determining the centrality of heavy-ion collisions.
 
 \subsection{Trigger system}
-\lipsum[1]
+The rate of events expected rate at the LHC designed luminosity is \SI{1}{GHz}, as mentioned in the previous Section, on the other hand the maximum event rate that ATLAS can record is \SI{\sim 200}{MHz}. It is evident that an appropriate trigger system must be used so that only events that could have potential physical interest would be recorded. There are three distinct levels of trigger: L1, L2 and the event filter. Each trigger level refines the decisions made at the previous level using greater amount of data at each step, and, where necessary, applies additional selection criteria.
+
+L1 looks for high-\pt particles such as electrons, photons, $\tau$-leptons decaying into hadrons as well as large \met and defines one or more Region-of-Interest (RoI) which is a $\Delta \eta \times \Delta \phi$ region in which interesting events can be found. It uses information coming from a subset of detectors which are processed by the central trigger processor. The operating time is about \SI{2.5}{\mu s} which reduces the event rate down to \SI{100}{kHz}.
+
+L2 elaborates all the subdetector information in a particular RoI. It uses a more complicate algorithm than L1 and it can reduce the event rate to \SI{4}{kHz}. It provides a first full reconstruction of the events made by the Event Builder which uses its informations.
+
+The final stage of the selection is made by the Event Filter (EF) which reduces the rate to a reasonable \SI{200}{Hz}. It selects events using the full granularity avaliable for each subdetector, and store them as raw data (RDO) for offline analysis. Every event is computed in about \SI{4}{s}
+
+
+
+
 
 
 
