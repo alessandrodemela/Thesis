@@ -9,24 +9,18 @@
 \newcommand{\gj}{$\gamma \,  + \,  \text{jets}$ }
 \newcommand{\mph}{MonoPhoton }
 \newcommand{\cm}{centre-of-mass }
+
+
+\usepackage{lettrine,lipsum,mparhack,geometry,longtable,booktabs,caption,titlesec,siunitx,graphicx,mhchem}
+\usepackage{microtype}
+\usepackage{tikz}
+\usetikzlibrary{trees,decorations.pathmorphing,decorations.markings,shadings,patterns,quotes,angles,snakes}
+\usepackage{wrapfig}
 \usepackage[T1]{fontenc}
 \usepackage[urw-garamond]{mathdesign}
-
-\usepackage{lettrine,lipsum}
-\usepackage{mparhack}
-\usepackage{geometry}
-\usepackage{longtable,booktabs,caption}
-\usepackage{titlesec}
-\usepackage{siunitx}
-\usepackage{graphicx}
-\usepackage{mhchem}
-\usepackage{tikz}
-\usetikzlibrary{trees}
-\usetikzlibrary{decorations.pathmorphing}
-\usetikzlibrary{decorations.markings,shadings,patterns}
-\usetikzlibrary{quotes,angles}
-\usetikzlibrary{snakes}
-\usepackage{wrapfig}
+\usepackage[autostyle]{csquotes}
+\usepackage[backend=bibtex,bibstyle=authortitle,style=numeric]{biblatex}
+\addbibresource{bibliography.bib}
 
 \hyphenation{to-roi-dal}
 
@@ -42,25 +36,25 @@
 
 \usepackage{hyperref}
 
-\newlength\longest
+%\newlength\longest
 
 
 \begin{document}	
 %\begin{titlepage}
 %\begin{center}	
-% 	\textsc{\textbf{\Large UNIVERSIT\`A DEGLI STUDI DI MILANO}}\\
+% 	\textsc{{ \Large UNIVERSIT\`A DEGLI STUDI DI MILANO}}\\
 % 	\textsc{\Large FACOLT\`A DI SCIENZE MATEMATICHE, \\FISICHE E NATURALI
 %}\\
 % 	\vspace{10pt}
 % 	\textit{\Large Corso di laurea triennale in Fisica}
 % 	\vspace{30ex}
- 		
+		
 % 	{\bfseries \large Search for Dark Matter \\in events with large missing transverse energy and a high momentum photon \\collected at $\sqrt{s}=13 \,\TeV$ with the ATLAS detector \\for the {\itshape Minimal Dark Matter} Model}
 %\end{center}
 %\end{titlepage}
 
-%====CITAZIONE=====
-%\include{quoting}
+%%====CITAZIONE=====
+% \include{quoting}
 
 \titleformat{\chapter}[display]{\itshape}{}{2ex}{\fontfamily{ppl}\selectfont\LARGE}[\titlerule]
 
@@ -70,14 +64,39 @@
 
 \mainmatter
 \titleformat{\chapter}[display]{\filcenter\large }{\filcenter\uppercase{Chapter }\thechapter}{2ex}{\bfseries\LARGE\titlerule[1.3pt]\vspace{2ex}\centering}[\vspace{2ex}]
-\titleformat{\section}[block]{\filcenter\large }{\thesection}{0pt}{\bfseries	\quad \large \centering}[\vspace{3pt}]
+\titleformat{\section}[block]{\filcenter\Large }{\thesection}{0pt}{\bfseries	\quad \large \centering}[\vspace{3pt}]
 \titleformat{\subsection}[block]{\normalfont \large }{\thesubsection \quad}{0pt}{\itshape \bfseries}[]
 
-\include{LHC_ATLAS/LHC_ATLAS}
-%\include{monophoton/monophoton}
+%\include{LHC_ATLAS/LHC_ATLAS}
+\include{DarkMatter/DarkMatter}
+%\chapter[titolocorto]{LENTE PER DM}
+%Castle database numero 29 
+
 %\include{MCSample/MCSample}
+%\include{monophoton/monophoton}
+
+
+
 
 \backmatter
+\cleardoublepage
+\addcontentsline{toc}{chapter}{\bibname}
+\printbibliography
+
+
 %\include{out_fit_inclusive_150_after}
 
 \end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
