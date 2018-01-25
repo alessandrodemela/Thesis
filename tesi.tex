@@ -1,4 +1,4 @@
-\documentclass[a4paper,openright,11pt]{book}
+\documentclass[a4paper,openright,10pt]{book}
 
 \newcommand{\ATLASLATEXPATH}{../atlaslatex/latex/}
 \usepackage{\ATLASLATEXPATH atlasphysics}
@@ -12,7 +12,7 @@
 
 
 \usepackage{lettrine,lipsum,mparhack,geometry,longtable,booktabs,caption,titlesec,siunitx,graphicx,mhchem}
-\usepackage{microtype}
+\usepackage{microtype,mathtools,slashed}
 \usepackage{tikz}
 \usetikzlibrary{trees,decorations.pathmorphing,decorations.markings,shadings,patterns,quotes,angles,snakes}
 \usepackage{wrapfig}
@@ -33,6 +33,11 @@
 \fancyfoot[RO]{ \thepage}
 
 \renewcommand{\contentsname}{{Table of Contents}}
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\theta}{\vartheta}
+\renewcommand{\rho}{\varrho}
+\renewcommand{\phi}{\varphi}
 
 \usepackage{hyperref}
 
@@ -60,7 +65,7 @@
 
 \frontmatter
 %\include{introduction}
-%\tableofcontents
+\tableofcontents
 
 \mainmatter
 \titleformat{\chapter}[display]{\filcenter\large }{\filcenter\uppercase{Chapter }\thechapter}{2ex}{\bfseries\LARGE\titlerule[1.3pt]\vspace{2ex}\centering}[\vspace{2ex}]
@@ -68,17 +73,16 @@
 \titleformat{\subsection}[block]{\normalfont \large }{\thesubsection \quad}{0pt}{\itshape \bfseries}[]
 
 %\include{LHC_ATLAS/LHC_ATLAS}
-\include{DarkMatter/DarkMatter}
-%\chapter[titolocorto]{LENTE PER DM}
-%Castle database numero 29 
-
-%\include{MCSample/MCSample}
+%\include{DarkMatter/DarkMatter}
+\include{MCSample/MCSample}
 %\include{monophoton/monophoton}
 
 
-
+%\chapter[titolocorto]{LENTE PER DM}
+%Castle database numero 29 
 
 \backmatter
+\titleformat{\chapter}[display]{\itshape}{}{2ex}{\fontfamily{ppl}\selectfont\LARGE}[\titlerule]
 \cleardoublepage
 \addcontentsline{toc}{chapter}{\bibname}
 \printbibliography

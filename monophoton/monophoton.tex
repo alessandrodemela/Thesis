@@ -1,9 +1,9 @@
 \chapter{Fundamentals of the \mph analysis}
-Large missing transverse momentum (\met) signature can be sign of evidence of new physics, such as the indirect detection of dark matter.
+Large missing transverse momentum (\met) signature can be sign of evidence of new physics, such as the indirect detection of DM.
 
-At LHC we can produce DM particles if they interact with Standard Model particles. A possible candidate to be a constituent of dark matter in universe is given by a weakly interactive mass particle (WIMP) which interacts with SM particles with a strenght similar to the weak interaction so it leaves no track on the detector. Missing transverse momentum can only be measured  if other particles are produced in the collision, for instance a detectable object such jets or photons, in order to tag the WIMP particle production. This kind of analysis are called Mono-X, for one selects events with a single object in final state. In the \mph analysis we are looking for a single high energy photon and large missing transverse momentum signature. The \mph analysis is characterized by a relative clean final state thanks also to a small set of SM processes that produces the same outcome.
+At LHC we can produce DM particles if they interact with Standard Model particles. A possible candidate to be a constituent of dark matter in universe is given by a weakly interactive mass particle (WIMP) which interacts with SM particles with a strenght similar to the weak interaction leaving no track on the detector. Missing transverse momentum can only be measured if other particles are produced in the collision, for instance a detectable object such jets or photons, in order to tag the WIMP particle production.  In the \mph analysis, which will be described better in the {\bfseries following chapters} we are looking for a single high energy photon and large missing transverse momentum signature. It is characterized by a relative clean final state thanks also to a small set of SM processes that produces the same outcome. Quality criteria and isolation requirements are imposed to the photon candidate.
 
-For the analysis we are using data collected during 2015 and 2016 with the ATLAS detector, corresponding to an integrated luminosity of $36.4$ \ifb.
+For the analysis we are using data collected during 2015 and 2016 with the ATLAS detector, corresponding to an integrated luminosity of \SI{36.4}{\ifb}.
 
 In this chapter after describing the software used in the analysis, other than how it performs the fit, and giving a definition of signal and control regions describing the kinematic cuts used to constrain data I present the result for a background only analysis. I report also a brief evaluation of the raise of systematic uncertainties. It conlcudes with some model-independent upper limit results for a discovery analysis.
 
@@ -33,8 +33,8 @@ Events in SR are preselected required by the following property:
 \begin{description}%MAGARI CAMBIALO CON UNA DESCRIPTION
 \item [Data quality] Data are considered good for physics if belonging to the Good Run List (GRL). They have to be collected in periods in which optimal detector functioning and stable beams were provided;
 \item [Trigger acceptance] Events selected must pass the  \verb!HLT_g140_loose! trigger, which {\itshape I think} is a trigger used to detect events with large \met; 
-\item [Vertex quality] We take into account events having a primary vertex reconstructed with two associated good-quality tracks with \pt $\ge 400 \,$\MeV and \AetaRange{2.5}
-\item [Jet cleaning] Jets tagged with {\itshape BadLoose} (la [38] della nota) in events in which they overlap with photons or leptons with \pt$> 20$ \GeV or not coming from hard scattering are rejected.
+\item [Vertex quality] We take into account events having a primary vertex reconstructed with two associated good-quality tracks with \pt \SI{\ge 400}{\MeV} and \AetaRange{2.5}
+\item [Jet cleaning] Jets tagged with {\itshape BadLoose} (la [38] della nota) in events in which they overlap with photons or leptons with \pt \SI{>20}{\GeV} or not coming from hard scattering are rejected.
 \end{description}
 
 After the preselection Candidates in SR are selected with the following kinematic cuts. In order to populate the region with \gmet events, we consider an event to be part of this region if:
@@ -102,7 +102,7 @@ There are four CRs definded in order to extrapolate information on background in
 
 \begin{description}
 \item [One muon CR] In this region one selected muon is requested, kinematic cuts on \pt and \met are the same of those in SR. Here, however, \met is computed in a different way that is the muon energy is added to this variable, so we can treat it as an invisible particle in order to ensure that \met distribution is similar to the one in SR. This region extracts the normalization $k_W$ for \wg background.
-\item [Two muon/electron CR] Similarly to the One muon, here we add to \met both muon/electron contribution to \met. Here two selected muons/electrons are required. we can also add a constrain to the invariant mass of the di-lepton to be greater than 20 \GeV\, and less than 1 \TeV \, to avoid any BSM $Z\gamma$ resonances. Moreover we don't require the cut on \met significance. These regions get $k_Z$ for the dominant background \zg in this region which applies via branching ratio to the \znng process.
+\item [Two muon/electron CR] Similarly to the One muon, here we add to \met both muon/electron contribution to \met. Here two selected muons/electrons are required. we can also add a constrain to the invariant mass of the di-lepton to be greater than \SI{20}{\GeV} and less than \SI{1}{\TeV} to avoid any BSM $Z\gamma$ resonances. Moreover we don't require the cut on \met significance. These regions get $k_Z$ for the dominant background \zg in this region which applies via branching ratio to the \znng process.
 \item [Photon jet CR] Here kinematic cuts on \met are lowered. We require \met to be in 85 - 110 \GeV\, range to enrich this region of \gj background because in this energy range, probability to have fake \met from jets is higher. To avoid signal contamination we set $\Delta\phi_{\gamma - \met} \le 3.0$ so that we prevent {\itshape back-to-back} signal events to fall in this region. This region, defined in \RunTwo, constrains the normalization for \gj background to get a $k_{pj}$ normalization factor.
 \end{description}
 
