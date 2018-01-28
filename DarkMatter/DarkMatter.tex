@@ -9,7 +9,7 @@ Particles of SM can be divided into three cathegories. The first comprehend spin
 
 On the other hand, the SM presents a series of open issues. In addition to major problems such the gauge hierarchy problem, i.e. understand why the Higgs mass is so small compared to the Planck mass, the SM does not contemplate gravitation as a quantum theory nor it provides a particle to be a solid candidate for Dark Matter. There are several extension of the SM trying to include several neutral, stable or at least long lived, and non-baryonic particles that could account for DM constituent.
 
-The principal candidate comes from the so called Weakly Interactive Mass Particles (WIMPs). They are the most studied Dark Matter candidates, since they are found in many particle physics theories, they have the correct relic density, i.e. the measure of the present quantity of a particle remaining from the Big Bang, and may be detected in many ways \cite{feng:DM}.
+The principal candidate comes from the so called Weakly Interactive Mass Particles (WIMPs). They are the most studied Dark Matter candidates, since they are found in many particle physics theories, they have the correct relic density, i.e. the measure of the present quantity of a particle remaining from the Big Bang, and may be detected in many ways~\cite{feng:DM}.
 
 Before talking about WIMPs, let's introduce several evidences that justify the search for DM.
 
@@ -55,8 +55,8 @@ v=\sqrt{\frac{GM(r)}{r}}.
 The theory predicts that velocity should decrease with radius, but actual measurements shows that it remains constant after \SI{\sim5}{pc} as pointed out in data shown in \Fig{\ref{fig:rotation}}. A simple explanation to this behaviour is the presence of a Dark Matter halo throughout the galaxy whose mass distribution is proportional to the distance from the center so that the velocity distribution would be constant.
 \begin{figure}[pt]
 \centering
-\includegraphics[width=0.6\textwidth]{DarkMatter/Rotationcurves}
-\caption{Rotation curves of several galaxies. All the images represents a fit on the rotation curves made of three parameters: a stellar (dashed) and a gaseous disk (dotted) and a Dark Matter halo (dash-dotted) modeled by a singular isothermal sphere (SIS)}
+\includegraphics[width=0.5\textwidth]{DarkMatter/Rotationcurves}
+\caption{Rotation curves of NGC 6503 galaxy. The image represents a fit on the rotation curves made of three parameters: a stellar (dashed) and a gaseous disk (dotted) and a Dark Matter halo (dash-dotted) modeled by a singular isothermal sphere (SIS).}
 \label{fig:rotation}
 \end{figure}
 
@@ -76,6 +76,16 @@ Dark Matter has been produced as thermal relic of the Big Bang and its evolution
 
 where $n$ is the number density of the dark matter particle $H$ is the Hubble parameter, \avg{\sigma_A v} is the thermally averaged annihilation cross section, and $n_{\textup{eq}}$ is is the dark matter number density in thermal equilibrium \cite{feng:DM}. Solving \Eqn{\ref{eqn:boltz}}, numerically, the thermal relic density is determined. Moreover we can define the freeze out time when the Hubble parameter became important, i.e. $n\avg{\sigma_A v}= H$, at that time, the number density stopped changing and that is the relic abundance of Dark Matter we observe today.
 
+In formul\ae, where $f$ subscript denotes quantities at thermal freeze out and $0$ present day quantity, we have:
+\begin{equation}
+	n_f\simeq\frac{T^2_f}{M_\textup{Pl}\avg{\sigma_A v}}
+\end{equation}
+where $M_\textup{Pl}$ is the Planck mass. The relic density is therefore:
+\begin{equation}
+	\Omega_\textup{DM}=\frac{M_\textup{DM}n_0}{\rho_c}\simeq\frac{M_\textup{DM}T_0^3}{\rho_c M_\textup{Pl} T_f}\avg{\sigma_A v}^{-1}
+\end{equation}
+where $\rho_c=3H^2/8\pi$ is the critical density. As we can see the relic density is proportional to the inverse of annihilation cross section.
+
 \begin{figure}[pt]
 \centering
 \includegraphics[width=0.75\textwidth]{DarkMatter/Freezeout}
@@ -88,8 +98,12 @@ Since WIMP DM candidates are particularly well-motivated, a robust experimental 
 
 In direct detection searching for WIMPs scattering of nuclei of ordinary matter is involved. Since the nuclear recoil is very small, tipycally \SI{\sim 100}{\kev}, detectors capable capable of low energy detection thresholds, generally located underground, has to be built. The indirect detection involves searches for the products of the very annihilation processes that are responsible for establishing the DM relic density.
 
+All the kind of detection methods are gathered in a Feynman like diagram in \Fig{\ref{fig:detection}}.
+
+\input{DarkMatter/detection}
+
 \subsection{Direct Detection}
-The basic idea of Direct Detection is that if our galaxy is populated by WIMPs, a flux of them would run over our detectors and being detected. The WIMP flux on the Earth is estimated to be of the order of \SI{e5}{\per \cm\squared\per\s}. The basic methodology for direct detection experiments is to look for this rare events that might be the signature of WIMP interactions, namely the elastic scattering of a WIMP from a target nucleus \cite{snowmass}.
+The basic idea of Direct Detection is that if our galaxy is populated by WIMPs, a flux of them would run over our detectors and being detected. The WIMP flux on the Earth is estimated to be of the order of \SI{e5}{\per \cm\squared\per\s}. The basic methodology for direct detection experiments is to look for this rare events that might be the signature of WIMP interactions, namely the elastic scattering of a WIMP from a target nucleus~\cite{snowmass}.
 
 This kind of experiments must be carried out underground to reduce the signal contamination from every source of background. This sources comes from cosmic rays, environmental radioactivity or detector radioactivity. For instance, two major experiment ongoing takes place at LNGS, Italy, with the DAMA detector, and the Edelweiss-III experiment at the LSM in Modane, France.
 
@@ -115,29 +129,6 @@ Common to all DM searches is the signature of missing transverse momentum (\met)
 These experiments signature is therefore a large value of \met and a back-to-back topology between \met and the Standard Model particle used for tagging. Indeed in order to detect a possible WIMP, it must be tagged with a detectable object. This kind of analisys are called \emph{Mono-X}. They are  characterized by large missing transverse momentum and an energetic particle (the \emph{X}) such a jet (Mono-jet), a photon (\mph) or a \Wboson or \Zboson boson. 
 
 Moreover since DM particle lifetime is extimated to be similar to the Universe, it is long enough to be detected as \met.
-
-\section{Minimal Dark Matter Model}
-This model, presented by Prof. Marco Cirelli\footnote{Institut de Physique Th\'eorique, CNRS, URA 2306 \& CEA/Saclay, F-91191 Gif-sur-Yvette, France}, extends the SM with a ElectroWeak (EW) fermion triplet, being a potential DM candidate \cite{Cirelli:paper}. This particle ($\chi$) is triplet under $SU(2)_L$, where the subscript L indicates coupling only to left-handed fermions, and singlet under color and hypercharge ($Y=0$). Its relevant Lagrangian is very simple and reads:
-\begin{equation}
-\begin{split}
-\mathcal{L}_\chi&=\frac{1}{2}\bar{\chi}\left(i\slashed{D}-M_\chi\right)\chi \\
-			&= \frac{1}{2}\bar{\chi_0}\left(i\slashed{\partial}-M_{\chi_0}\right)\chi_0+\bar{\chi}^+\left(i\slashed{\partial}-M_{\chi}^\pm\right)\chi^+ \\
-			&+ g \left(\bar{\chi}^+\gamma_\mu\chi^+\left(s_w A_\mu + c_w Z_\mu \right) +\bar{\chi}^+ \gamma_\mu\chi_0W^-_\mu + \bar{\chi_0}\gamma_\mu\chi^+W^+_\mu \right)
-\end{split}
-\end{equation}
-where $g$ is the $SU(2)$ gauge coupling, and $s_w$ and $c_w$ are the sine and the cosine of the Weinberg angle.
-
-All the possible interaction between $\chi$ and other SM particle are required to preserve the gauge and the symmetries of the SM particularly the lepton number. This constrain was not applied to an eventual 5-plet particle which would have been automatically stable anyway. On the other hand the triplet has important features even beyond the DM motivation and it is capable to be produced at collider rather than the 5-plet.
-
-If one requires that $\chi$ is thermally produced via the freeze-out mechanism discussed in \Sect{\ref{sec:wimp}}, and that it constitues all the DM in the Univers, then we can extimate its mass to be \SI{3.0}{}$\div$\SI{3.2}{\tev}. This range of mass, of course, is out of reach from actual detectors. Nevertheless for masses lower than \SI{3}{\tev}, $\chi$ is a subdominant DM component if thermally produced and its existence is again well justified to pursue any search at colliders. So the Minimal model can be seen as a benchmark of the typical thermal-relic WIMP Dark Matter candidate, being a prototype for more complicated models, reproducing their low energy phenomenology with great accuracy.
-
-As mentioned in the previous section, a way to search for WIMPs at colliders is via the so-called \emph{Mono-X} analyses. In this kind of searches the signal comes not only for the $\chi_0$ WIMP candidate particle but also from its two charged partners in the triplet. We can assume that the latter decay via a $\chi_0$ and soft, or low-momentum, charged pions (\pipm) both unreconstructed in a detector. 
-
-A different, possible, scenario is that the tail of the decay distribution of the two charged $\chi$s might also leave tracks in the detector. These tracks would end when they decay as described into a couple of $\chi_0$ and charged pions. For that reason the \emph{disappearing tracks} would provide the most sensitive probe to the Minimal Model.
-
-\smallskip
-In this work a \mph analisys has been pursued following the lead of the one carried on in 2017 by the ATLAS Collaboration \cite{paperMP}, whose main features will be described in the next chapters. In this context the \mph was re-interpreted and the Minimal Dark Matter model was tested by setting upper limits on pair of $\chi_0$ production
-
 
 
 
