@@ -9,18 +9,25 @@
 \newcommand{\gj}{$\gamma \,  + \,  \text{jets}$ }
 \newcommand{\mph}{MonoPhoton }
 \newcommand{\cm}{centre-of-mass }
+\newcommand{\chizero}{$\chi_0$ }
+\newcommand{\chip}{$\chi^+$ }
+\newcommand{\chim}{$\chi^-$ }
+\newcommand{\chipm}{$\chi^\pm$ }
+\newcommand{\geant}{{\scshape Geant4 }}
+
 
 
 \usepackage{lettrine,lipsum,mparhack,geometry,longtable,booktabs,caption,titlesec,siunitx,graphicx,mhchem}
-\usepackage{microtype,mathtools,slashed}
+\usepackage{microtype,mathtools,slashed,subfig,multicol}
 \usepackage{tikz}
 \usetikzlibrary{trees,decorations.pathmorphing,decorations.markings,shadings,patterns,quotes,angles,snakes}
 \usepackage{wrapfig}
 \usepackage[T1]{fontenc}
 \usepackage[urw-garamond]{mathdesign}
 \usepackage[autostyle]{csquotes}
-\usepackage[backend=bibtex,bibstyle=authortitle,style=numeric]{biblatex}
+\usepackage[backend=bibtex,bibstyle=authortitle,style=numeric-comp,sorting=none]{biblatex}
 \addbibresource{bibliography.bib}
+
 
 \hyphenation{to-roi-dal}
 
@@ -47,14 +54,15 @@
 \begin{document}	
 %\begin{titlepage}
 %\begin{center}	
-% 	\textsc{{ \Large UNIVERSIT\`A DEGLI STUDI DI MILANO}}\\
+%	\textsc{{ \Large UNIVERSIT\`A DEGLI STUDI DI MILANO}}\\
 % 	\textsc{\Large FACOLT\`A DI SCIENZE MATEMATICHE, \\FISICHE E NATURALI
 %}\\
 % 	\vspace{10pt}
 % 	\textit{\Large Corso di laurea triennale in Fisica}
 % 	\vspace{30ex}
 		
-% 	{\bfseries \large Search for Dark Matter \\in events with large missing transverse energy and a high momentum photon \\collected at $\sqrt{s}=13 \,\TeV$ with the ATLAS detector \\for the {\itshape Minimal Dark Matter} Model}
+%	{\Large \bfseries Search for new phenomena in events \mbox{with a photon} and missing transverse momentum \mbox{in \pp collisions} at $\sqrt{s}=\SI{13}{\tev}$ with the ATLAS detector in the context of Minimal Dark Matter model}
+	
 %\end{center}
 %\end{titlepage}
 
@@ -65,7 +73,7 @@
 
 \frontmatter
 %\include{introduction}
-\tableofcontents
+%\tableofcontents
 
 \mainmatter
 \titleformat{\chapter}[display]{\filcenter\large }{\filcenter\uppercase{Chapter }\thechapter}{2ex}{\bfseries\LARGE\titlerule[1.3pt]\vspace{2ex}\centering}[\vspace{2ex}]
@@ -86,8 +94,6 @@
 \cleardoublepage
 \addcontentsline{toc}{chapter}{\bibname}
 \printbibliography
-
-
 %\include{out_fit_inclusive_150_after}
 
 \end{document}

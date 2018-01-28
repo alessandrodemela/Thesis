@@ -89,7 +89,7 @@ The integrated luminosity versus time delivered by LHC, collected by ATLAS and c
 \begin{figure}[tp]
 	\centering
 	\includegraphics[width=0.75\textwidth]{LHC_ATLAS/peakLumiByFill}
-	\caption{Peak instantaneous luminosity delivered to ATLAS during stable beams for pp collisions at 13 TeV centre-of-mass energy for each LHC fill as a function of time in 2016.}
+	\caption{Peak instantaneous luminosity delivered to ATLAS during stable beams for pp collisions at 13 TeV centre-of-mass energy for each LHC fill as a function of time in 2016. Designed luminosity of \SI{e34}{\per\cm\squared\per\s} has already been exceded during that year}
 	\label{fig:peakLumiByFill}
 \end{figure}
 
@@ -99,9 +99,7 @@ Among the events recorded at LHC one can distinguish \emph{soft collisions} and 
 \item[Hard collisions] Even though they are very rare, they are the most relevant collisions to be taken into account. In this kind of collisions the interaction happens at the quark size. The energy involved in the collision is carried by partons whose momentum which is not known \emph{a priori}, but can be extimated from the Parton Distribution Function (PDF) giving the distributions of quark and gluon momenta inside the proton. From hard scatterings we can produce particles with high \pt with eventually high mass.
 \end{description}
 
-What a detector produces is always a superimposition of this two kind of collisions. The principal source of noise in the detector comes from \pileup interactions, i.e. additional \pp collisions that are recorded as belonging to the same event, but are in fact originated by distinct collisions. It can be distinguished in \emph{in time \pileup} when multiple interaction comes from the same bunch crossing and \emph{out of time \pileup} when previous scattering left any electronic signal in the detector which overlap with the one from successive collisions. In order to avoid this unpleasant situation, LHC detectors have been built along a \emph{fast response time} cryterium so they do not integrate signal over many bunch crossings.
-
-\textbf{Manca underlying event}
+What a detector produces is always a superimposition of this two kind of collisions. The principal source of noise in the detector comes from \pileup interactions, i.e. additional \pp collisions that are recorded as belonging to the same event, but are in fact originated by distinct collisions. It can be distinguished in \emph{in time \pileup} when multiple interaction comes from the same bunch crossing and \emph{out of time \pileup} when previous scattering left any electronic signal in the detector which overlap with the one from successive collisions. In order to avoid this unpleasant situation, LHC detectors have been built along a \emph{fast response time} cryterium so they do not integrate signal over many bunch crossings. \textbf{Finally the underlying event must be taken into account, i.e. products from a hard scattering collision but the hard collision itself. They happens between the rest of the partons of the protons which undergo the hard collision. Its product sums up with \pileup either contributing to the background or interact in a way to cover the interesting events}.
 
 \section{The ATLAS detector}
 \begin{figure}[tp]
@@ -265,17 +263,15 @@ L1 looks for high-\pt particles such as electrons, photons, $\tau$-leptons decay
 
 The final stage of the selection is made by the Event Filter (EF) which reduces the rate to a reasonable \SI{1}{\kHz}. It selects events using the full granularity avaliable for each subdetector, and store them as raw data (RDO) for offline analysis. Every event is computed in about \SI{4}{\s}. Performance of L1 and High Level Trigger are show respectively in \Fig{\ref{fig:L1}} and \Fig{\ref{fig:HLT}}.
 
-\begin{figure}[pb]
+\begin{figure}[t]
 \centering
-\includegraphics[width=0.7\textwidth]{LHC_ATLAS/Time_L1GroupRate_Stack_2016_07}
-\caption{Physics trigger group rates at the High Level Trigger (HLT) as a function of the number of luminosity blocks which correspond to on average \SI{60}{\s} per luminosity block in a fill taken in July 2016 with a peak luminosity of L = \SI{1.02 e34}{\per\cm\squared\per\s}. We can notice the sawthoot behavior given by loosing of trigger requirements while the beam gets less perfect.}
-\label{fig:L1}
-\end{figure}
-\begin{figure}[pb]
-\centering
-\includegraphics[width=0.7\textwidth]{LHC_ATLAS/Time_HLTGroupRate_Stack_2016_07}
-\caption{Physics trigger group rates at the first trigger level (L1) as a function of the number of luminosity blocks which correspond to on average \SI{60}{s} per luminosity block in a fill taken in July 2016 with a peak luminosity of L = \SI{1.02 e34}{\per\cm\squared\per\s}. Again, a sawthooth behaviour is shown.}
-\label{fig:HLT}
+\subfloat[][L1 performance]
+{\includegraphics[width=.55\textwidth]{LHC_ATLAS/Time_L1GroupRate_Stack_2016_07} \label{fig:L1}} \\
+
+\subfloat[][HLT performance]
+{\includegraphics[width=.55\textwidth]{LHC_ATLAS/Time_HLTGroupRate_Stack_2016_07} \label{fig:HLT}}
+
+\caption{Physics trigger group rates at the High Level Trigger (HLT) and the first trigger level (L1) as a function of the number of luminosity blocks which correspond to on average \SI{60}{\s} per luminosity block in a fill taken in July 2016 with a peak luminosity of L = \SI{1.02 e34}{\per\cm\squared\per\s}. We can notice the sawthoot behavior given by loosing of trigger requirements while the beam gets less perfect.}
 \end{figure}
 
 
