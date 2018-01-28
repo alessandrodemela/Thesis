@@ -1,0 +1,55 @@
+
+\begin{figure}[pt]
+\centering
+{\fontfamily{pag}\selectfont  
+\begin{tikzpicture}[scale=0.7]
+
+	\node[] at (-1,1.3){Step};
+ 	\node[] at (-1,0.6){Format};
+ 	
+ 	\draw[draw=none,fill=orange!75!, rounded corners=10pt] (12.5,0) rectangle +(3,-2);
+ 	\node[] at (1.5+12.5,-2+0.6+.35){NTUPLE};
+ 	
+	\draw[draw=none,fill=orange!60!, rounded corners=10pt] (12.5,0) rectangle +(3,2);
+ 	\draw[draw=none,fill=orange!60!] (13,0.1)--(1.4+12.5,-0.5)--(2.5+12.5,0.1) -- cycle;
+ 	\node[] at (7.75+6.3,1.3){Derivation};
+ 	\node[] at (7.75+6.3,0.6){EXOT6};
+	
+	\draw[draw=none,fill=yellow!40!orange!40,rounded corners=10pt] (9.5,0) rectangle +(3,2);
+ 	\draw[draw=none,fill=yellow!40!orange!40] (12.4,0.4)--(12.8,1)--(12.4,1.6) -- cycle;
+ 	\node[] at (7.75+3.3,1.3){Reco};
+ 	\node[] at (7.75+3.3,0.6){ESD/AOD};
+	
+	\draw[draw=none,fill=green!10!yellow!60,rounded corners=10pt] (6,0) rectangle +(3.5,2);
+ 	\draw[draw=none,fill=green!10!yellow!60] (9.4,0.4)--(9.8,1)--(9.4,1.6) -- cycle;
+ 	\node[] at (7.75,1.3){Digitization};
+ 	\node[] at (7.75,0.6){RDO};
+	
+	\draw[draw=none,fill=green!30!yellow!60,rounded corners=10pt] (3,0) rectangle +(3,2);
+ 	\draw[draw=none,fill=green!30!yellow!60] (5.9,0.4)--(6.3,1)--(5.9,1.6) -- cycle;
+ 	\node[] at (4.5,1.3){Simulation};
+ 	\node[] at (4.5,0.6){HITS};
+ 	
+ 	\draw[draw=none,fill=green!75!yellow!70,rounded corners=10pt] (0,0) rectangle +(3,2);
+	\draw[draw=none,fill=green!50!yellow!40,rounded corners=10pt] (0,0) rectangle +(3,-2);
+ 	\draw[draw=none,fill=green!75!yellow!70] (2.9,0.4)--(3.3,1)--(2.9,1.6) -- cycle;
+ 	\draw[draw=none,fill=green!75!yellow!70] (.5,0.1)--(1.4,-0.5)--(2.5,0.1) -- cycle;
+ 	
+ 	\node[] at (1.5,1.3){Generation};
+ 	\node[] at (1.5,0.6){EVNT};
+ 	\node[] at (1.5,-2+1.3){Derivation};
+ 	\node[] at (1.5,-2+0.6){TRUTH1};
+ 	
+ 	\draw[draw=none,fill=green!60!blue!60,rounded corners=10pt] (0,2) rectangle +(3,2);
+ 	\draw[draw=none,fill=green!60!blue!60] (.5,2.1)--(1.4,1.5)--(2.5,2.1) -- cycle;
+ 	\node[] at (1.5,3.3){Model};
+ 	\node[] at (1.5,2.6){UFO};
+ 	
+ 	%\node[] at (10.5,1.3){Reconstruction};
+ 	%\node[] at (10.5,0.6){ESD/AOD};
+
+	%\node[ single arrow , draw, single arrow head extend=.7cm, gray!50, black] at (3.3,0.8) {    };
+\end{tikzpicture}
+}
+\caption{The ATLAS simulation chain. The theorical model is implemented in a UFO file and given as input for the generation of sample. Truth level analysis can be pursued, or the EVNT file can be used in a detector simulation whose outcome will be digitized in a RawData Object file and reconstructed in Event Summary Data (ESD) and Analysis Object Data (AOD). A derivation framework runs over the AOD to get the relevant events for a specific analysis. The Derivated Analysis Object Data (DAOD), which in our case is an EXOT6 file, can be made readable by RooT in a NTUPLE form.}
+\end{figure}

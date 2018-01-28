@@ -1,0 +1,32 @@
+\begin{figure}[pt]
+\centering
+{\fontfamily{pag}\selectfont  
+\begin{tikzpicture}
+	\draw[thick] (-3,1.5) -- (3,-1.5);
+	\draw[thick] (-3,-1.5) -- (3,1.5);
+	\filldraw[white] (0,0) circle (0.9cm) ;
+	\filldraw[pattern=north east lines] (0,0) circle (0.9cm) ;
+	
+	\node[left] at (-3,1.5){DM};
+	\node[left] at (-3,-1.5){DM};
+	\node[right] at (3,1.5){SM};
+	\node[right] at (3,-1.5){SM};
+	
+	\draw[draw=none, fill=orange!80!yellow!70] (-2.5,2)--(2.3,2) -- (2.3,2.2) -- (-2.5,2.2);
+	\draw[draw=none, fill=orange!80!yellow!70] (2.2,1.8) -- (2.5,2.1) -- (2.2,2.4) --cycle;
+	\node[] at (0,2.9){Indirect detection};
+	\node[] at (0,2.5){(Thermal freeze-out)};
+	
+	\draw[draw=none, fill=yellow!80!red!50] (4,1.3)--(4,-1.1) -- (4.2,-1.1) -- (4.2,1.3);
+	\draw[draw=none, fill=yellow!80!red!50] (3.8,-1) -- (4.1,-1.3) -- (4.4,-1) --cycle;
+	\node[rotate=-90] at (4.6,0){Direct detection};
+	
+	\draw[draw=none, fill=orange!80!red!70] (-2.3,-2)--(2.5,-2) -- (2.5,-2.2) -- (-2.3,-2.2);
+	\draw[draw=none, fill=orange!80!red!70] (-2.2,-1.8) -- (-2.5,-2.1) -- (-2.2,-2.4) --cycle;
+	\node[] at (0,-2.6){Production at colliders};
+	
+\end{tikzpicture}
+}
+\caption{Feynman like diagram which illustrates different methods for dark matter particle detection. The direction of the time axis selects a particula process. In indirect detection Standard Model (SM) particles coming from Dark Matter (DM) decays are detected. In direct detction the recoil of nuclei from DM scattering is measured. At colliders SM particles collide to produce a pair of DM candidate.}
+\label{fig:detection}
+\end{figure}
