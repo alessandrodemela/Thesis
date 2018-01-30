@@ -1,5 +1,19 @@
 \documentclass[a4paper,openright,10pt]{book}
 
+\usepackage{lettrine,lipsum,mparhack,geometry,longtable,booktabs,caption,titlesec,siunitx,graphicx,mhchem}
+\usepackage{microtype,mathtools,slashed,subfig,multicol}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usetikzlibrary{trees,decorations.pathmorphing,decorations.markings,shadings,patterns,quotes,angles,snakes}
+\usetikzlibrary{shapes.arrows}
+\usepackage{wrapfig}
+\usepackage[T1]{fontenc}
+\usepackage[urw-garamond]{mathdesign}
+\usepackage[autostyle]{csquotes}
+\usepackage[backend=bibtex,bibstyle=authortitle,style=numeric-comp,sorting=none]{biblatex}
+\addbibresource{bibliography.bib}
+
 \newcommand{\ATLASLATEXPATH}{../atlaslatex/latex/}
 \usepackage{\ATLASLATEXPATH atlasphysics}
 \newcommand{\gmet}{$\gamma +$\met }
@@ -14,20 +28,13 @@
 \newcommand{\chim}{$\chi^-$ }
 \newcommand{\chipm}{$\chi^\pm$ }
 \newcommand{\geant}{{\scshape Geant4 }}
+\newcommand{\hf}{{HistFitter }}
+\newcommand{\p}{{\itshape p}-value }
+\newcommand{\sv}{$\sigma_\textup{vis}$\xspace}
+\newcommand{\tmu}{t_{\mu} }
 
-
-
-\usepackage{lettrine,lipsum,mparhack,geometry,longtable,booktabs,caption,titlesec,siunitx,graphicx,mhchem}
-\usepackage{microtype,mathtools,slashed,subfig,multicol}
-\usepackage{tikz}
-\usetikzlibrary{trees,decorations.pathmorphing,decorations.markings,shadings,patterns,quotes,angles,snakes}
-\usepackage{wrapfig}
-\usepackage[T1]{fontenc}
-\usepackage[urw-garamond]{mathdesign}
-\usepackage[autostyle]{csquotes}
-\usepackage[backend=bibtex,bibstyle=authortitle,style=numeric-comp,sorting=none]{biblatex}
-\addbibresource{bibliography.bib}
-
+\theoremstyle{definition}
+\newtheorem{definizione}{Definition}
 
 \hyphenation{to-roi-dal}
 
@@ -42,9 +49,8 @@
 \renewcommand{\contentsname}{{Table of Contents}}
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
 \renewcommand{\epsilon}{\varepsilon}
-\renewcommand{\theta}{\vartheta}
 \renewcommand{\rho}{\varrho}
-\renewcommand{\phi}{\varphi}
+
 
 \usepackage{hyperref}
 
@@ -80,10 +86,10 @@
 \titleformat{\section}[block]{\filcenter\Large }{\thesection}{0pt}{\bfseries	\quad \large \centering}[\vspace{3pt}]
 \titleformat{\subsection}[block]{\normalfont \large }{\thesubsection \quad}{0pt}{\itshape \bfseries}[]
 
-%\include{LHC_ATLAS/LHC_ATLAS}
-%\include{DarkMatter/DarkMatter}
+\include{LHC_ATLAS/LHC_ATLAS}
+\include{DarkMatter/DarkMatter}
 \include{MCSample/MCSample}
-%\include{monophoton/monophoton}
+\include{monophoton/monophoton}
 
 
 %\chapter[titolocorto]{LENTE PER DM}
