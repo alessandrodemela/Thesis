@@ -34,7 +34,7 @@ The full form of the likelihood function used in mono-photon analysis is:
 \begin{equation}
   \label{eqn:likelihood}
   \begin{split}
-    \mathfrak{L} \,=\, &  f\left( N \Big\vert \sigma_{\textup{vis}} \cdot L \cdot \prod_s \nu\left(\theta_{s}\right) +\sum _j \beta_{j} B_{j}\cdot \prod_b \nu\left(\theta_{b}\right)\right) \cdot \\
+    \mathfrak{L} = &  f\left( N \Big\vert \sigma_{\textup{vis}} \cdot L \cdot \prod_s \nu\left(\theta_{s}\right) +\sum _j \beta_{j} B_{j}\cdot \prod_b \nu\left(\theta_{b}\right)\right) \cdot \\
     & \prod_m f\left(N_{m} \Big\vert \sum _j \beta_{j} B_{jm}\right) \cdot \prod _t g\left(\vartheta_{t} \vert \theta_{t}\right) \cdot \prod _k f\left(\xi_{k} \vert \gamma_{k}\right)
   \end{split}
 \end{equation}
@@ -62,37 +62,6 @@ where $i=\{s,b\}$, which quantifies the impact of statistical and systematic err
 \item Finally the fourth term treats the sample error due to the finite sample size\footnote{poco chiaro}
 \end{itemize}
 
-\subsection{The profiled likelihood ratio}
-To test an hypothesized value of $\mu$ we consider the profile likelihood ratio which is used as the {\itshape key} parameter in the whole analysis.
-\begin{equation}
-  \lambda(\mu) = \frac {\mathfrak{L}(\mu,\hat{\hat{\theta}})}{\mathfrak{L(\hat{\mu},\hat{\theta})}}
-\end{equation}
-
-where the denominator is the maximized likelihood and $\hat{\hat{\theta}}$ in the numerator is the value which maximize the likelihood for a given value of $\mu$. $\lambda(\mu)$ is constrained to vary between 0 and 1 so that it is useful to define the corresponding $\tmu$ statistic as 
-\begin{equation}
-  t_{\mu} = -2 \log{\lambda(\mu)}
-\end{equation}
-which can be used to build a statistic to measure the discrepancy between data and the hypothesis where higher value of $t_{\mu}$ correspond to higher disagreement. \p can be evaluated even to quantify the level of disagreement, like is pointed out in \Fig{\ref{pvalue}}, as:
-\begin{equation}
- p_{\mu}=\int_{t_{\mu,\textup{obs}}}^\infty f\left(t_\mu \vert \mu\right) dt_\mu
-\end{equation}
-
-where $t_{\mu,\textup{obs}}$ is the value of $t_\mu$ observed from data and $f\left(t_\mu \vert \mu\right)$ is the probability density function of $t_\mu$ under the assumption of the POI value $\mu$. One can often assume that presence of new signal can only increase the mean event rate, which for a counting experiment can be evaluated as $E[n] = \mu s + b$ where $s$ are the signal events and $b$ is the background, so that we can consider parameter $\mu$ as positive.
-
-Note thath $f\left(t_\mu \vert \mu\right)$ is unknown, because we miss the real POI which is crucial to its determination. According to Wilks' theorem, the distribution of $f(t_\mu \vert \mu)$ is known in the case of a large statistics an it follows a one-degree of freedom (in case of one POI) $\chi^2$ distribution, regardless of the values taken by the nuisance parameters . So $f$ is expressed in term of certain asymptotic formul\ae in the limit of large samples. Alternatively one can obtain it by performing several pseudo-experiment, i.e. \emph{toys}, even if they're always time expensive.
-
-\begin{figure}[tp]
-\centering
-\subfloat[][]
-{\includegraphics[width=.4\textwidth]{monophoton/pvaluea}}
-\subfloat[][]
-{\includegraphics[width=.416\textwidth]{monophoton/pvalueb}}
-\caption{(\emph{a}) Relation between \p and $t_{\mu,\textup{obs}}$. (\emph{b}) Relation between the significance $Z$ and \p for a gaussian distribution $\varphi(x)$.}
-\label{pvalue}
-\end{figure}
-
-\emph{NOTA}: prima di fare l'analisi model independent e dependent. Ricorda di dire qualcosa sull'Asimov e sui toys. Introduci il qmu espandendo questa sezione 
-
 \section{\hf software framework}
 
 \subsection{Overview}
@@ -103,17 +72,18 @@ Usually analyses rely on the comparison between prediction of MC processes and d
 
 Its functioning is based on the concept of Signal Regions (SRs), Validation Regions (VRs) and Control Regions (CRs):
 \begin{description}
-\item[Signal Region] It's a signal-enriched region defined where a particular signal model predicts a significant excess of events over the predicted background. Depending on the analysis one or more SRs can be defined;
+\item[Signal Region] It's a signal-enriched region defined where a particular signal model predicts a significant excess of events over the predicted background. Depending on the analysis, one or more SRs can be defined;
 \item[Control Region] It's a background-enriched region and free of signal contamination, used to extimate background in the SR. Comparisons between MC and data are performed and results are extrapolated in the SR Various CRs are defined to contain the greatest number of events for a specific process;
 \item[Validation Region] It's a region used to validate the extrapolation process from CRs to SRs. It is placed \emph{halfway} those and its choice is a trade-off between maximizing statistical significance and minimizing signal contamination. In this work no VRs are defined, because the procedure is assumed to be already validate in previous analyses.
 \end{description}
 
-\hf also builds a parametric model which is a Probability Density Function (PDF) whose parameters are extracted via a fitting procedure. The above mentioned fit on data is based on SRs and CRs which are statistically independent by construction, i.e. no events can compete for more than one region, so that they can modeled by separate PDFs and combined in a simultaneous fit. The \hf analysis strategy holds on the sharing of PDF parameters in all regions enabling the use of information found in a region everywhere.
+\hf also builds a parametric model which is a Probability Density Function (PDF) whose parameters are extracted via a fitting procedure. The above mentioned fit on data is based on SRs and CRs which are statistically independent by construction, i.e. no events can compete for more than one region, so that they can modeled by separate PDFs and combined in a simultaneous fit. The \hf analysis strategy holds on the sharing of PDF parameters in all regions enabling the use of information found in a region everywhere. This prodcedure is called ``simultaneous fitting technique''. This technique enables the signal and background yields estimation in every region exploiting constrains on data in all these regions at the same time.
 
 Through the fit to data, the observed event counts in CRs are used to normalize the background estimates in the SRs. This extrapolation procedure, which will be shown in action in this analysis in \Fig{\ref{fig:regions}}, happens by means of a rescaling of MC prediction in all regions, i.e. computing a \emph{normalization factor} in the fit.
 
 
 \subsection{Transfer factor technique and normalisation of background}
+\label{sec:kfactor}
 In CRs the respective dominant background can be controlled by comparing MC samples to data. Initial predictions of background in a certain CR must be scaled to observed data in that region, using a normalization factor ($k_{i}$) which is usually computed by a numerical fit by the HistFitter software framework. Usually this procedure is referred as an extrapolation from CRs to SR.
 
 One can define a Trasfer Factor by a mere ratio between MC prediction in SR and MC prediction in a CRs, both unnormalized (raw), and the estimate of the number of events in the signal region for the $i$-th process could be written in terms of event observed in the CRs as:
@@ -132,6 +102,7 @@ By this factor the PDF of every region is rescaled everywhere in the parameter s
 The advantage of using this procedure is that that systematic uncertainties common to the numerator and the denominator of the TF, such as the uncertainty on luminosity, on the predicted background processes can be canceled at first order in the extrapolation.
 
 \section{Event selection}
+\label{sec:SRselection}
 The Signal Region for the \mph analysis has been defined by comparing the background expectation and different signal model choosing kinematic cuts which would maximies the \emph{significance} of the data. In a very intuitive way if we define $N$ as the number of events yields and assuming absence of signal then $E[N]=b$ with a standard deviation of $\sigma = \sqrt{b}$. Therefore we compute the significance as
 \begin{equation}
   Z=\frac{N-b}{\sqrt{b}}=\frac{s}{\sqrt{b}}
@@ -150,17 +121,17 @@ Candidate events in SR are preselected requiring the following property:
 
 After the preselection Candidates in SR are selected with the following kinematic cuts. In order to populate the region with \gmet events, we consider an event to be part of this region if:
 \begin{itemize}
-\item we compute \met $ \ge \SI{150}{\gev}$;
-\item we get one loose photon with \pt $ \ge 150 $ \GeV $\,$ with a pseudorapidity cut in \etaRange{1.52}{2.37} to cut out the calorimeter crack region and \AetaRange{2.37}
-\item \met significance is found to be above $8.5$ \GeV$^{-\frac{1}{2}}$
-\item the leading photon is isolated, so that we select events characterized by $ \text{TopoEtcone40} \le 2.45$ \GeV$ + 0.022 \, $\pt \GeV. By this we ensure that in a cone with radius \DeltaRdef $ = 40$, centered in the photon track, all the Topo Clusters have less energy deposited than the one defined above.
+\item we compute \met \SI{\ge 150}{\gev};
+\item we get one loose photon with \pt \SI{\ge 150}{\gev} with a pseudorapidity cut in \etaRange{1.52}{2.37} to cut out the calorimeter crack region and \AetaRange{2.37}
+\item \met significance is found to be above \SI{8.5}{\gev^{-1/2}};
+\item the leading photon is isolated as specified in \Sect{\ref{sec:phisolation}}, so that we select events characterized by $ \text{TopoEtcone40} \le \SI{2.45}{\GeV} + \SI{0.022}{\pt\GeV}$ and $\text{ptcone20}/\pt^\gamma<0.05$;
 \item photon track and \met doesn't overlap, requiring $\Delta\phi_{\gamma - \met} \le 0.4$
-\item photon pointing along z coordinate wrt the identified primary vertex must no be larger than $250 \, mm$
-\item there is at most one {\itshape good} jet. Even if the analysis is called \mph we take into account events even if they contains a jet, if not we could reject too much statistics as it will be clear in validation plots in section {\bfseries which hasn't been written yet}. Moreover we take only jets such that $\deltaphijetgamma \ge 0.4$
+\item photon pointing along z coordinate wrt the identified primary vertex must no be larger than \SI{250}{\mm};
+\item there is at most one {\itshape good} jet. Even if the analysis is called \mph we take into account events even if they contains a jet, if not we could reject too much statistics as we saw in \Sect{\ref{sec:truth}} in \Fig{\ref{fig:validation}}. Moreover we take only jets which don't overlap with \met, i.e. $\deltaphijetgamma \ge 0.4$.
 
 \end{itemize}
 
-In the following section I'm going to deal with all the sources of interference that could affect the SR describing the background processes.
+In the following section we're going to deal with all the sources of interference that could affect the SR describing the background processes.
 
 \section{Background estimation}
 Alongside the eventual signal coming from unknown ph\oe nomena many other SM processes could pass the cuts defined for the SR ending up being tagged in a wrong way as new physics. We call them background signal, i.e. predictable events that lead to the same signature we are looking for when producing DM particles from \pp scattering.
@@ -186,7 +157,7 @@ For the \mph analysis the following background processes were considered.
 
 In order to quantify the amount of background events in SR, several Control Regions (CRs) are defined which are assumed to be free of signal contamination. Each of them is defined reverting one or more constraints for the SR to enrich every region with a given background process so that they are characterized by a pure dominant process among the others. This provides also ortogonality of a region to one another and their statistical independence.
 
-Events in CRs are simulated via Monte Carlo samples whose prediction must be fitted on data, to get a more reliable estimate of background in SR. This procedure will be explained in detail in section {\bfseries to be written}. A special procedure must be carried out for electron and jets faking photons. In this work results in all the regions for these sources have been taken from previous analysis. However this kind of background cannot be quantified like the previous ones because it is due to some detector mistakes in reconstruction.
+Events in CRs are simulated via Monte Carlo samples with \SHERPA v2.2.0 whose prediction must be fitted on data, to get a more reliable estimate of background in SR. A special procedure must be carried out for electron and jets faking photons, but in this work results in all the regions from these sources have been taken from previous analyses. However, this kind of background cannot be quantified like the previous ones because it is due to some detector mistakes in reconstruction.
 
 
 \subsection{Definition of Control Regions}
@@ -195,29 +166,101 @@ There are four CRs show in \Fig{\ref{fig:regions}} defined in order to extrapola
 
 \begin{description}
 \item [One muon CR] In this region one selected muon is requested, kinematic cuts on \pt and \met are the same of those in SR. Here, however, \met is computed in a different way that is the muon energy is added to this variable, so we can treat it as an invisible particle in order to ensure that \met distribution is similar to the one in SR. This region extracts the normalization $k_W$ for \wg background.
-\item [Two muon/electron CR] Similarly to the One muon, here we add to \met both muon/electron contribution to \met. Here two selected muons/electrons are required. we can also add a constrain to the invariant mass of the di-lepton to be greater than \SI{20}{\GeV} and less than \SI{1}{\TeV} to avoid any BSM $Z\gamma$ resonances. Moreover we don't require the cut on \met significance. These regions get $k_Z$ for the dominant background \zg in this region which applies via branching ratio to the \znng process.
-\item [Photon jet CR] Here kinematic cuts on \met are lowered. We require \met to be in 85 - 110 \GeV\, range to enrich this region of \gj background because in this energy range, probability to have fake \met from jets is higher. To avoid signal contamination we set $\Delta\phi_{\gamma - \met} \le 3.0$ so that we prevent {\itshape back-to-back} signal events to fall in this region. This region, defined in \RunTwo, constrains the normalization for \gj background to get a $k_{pj}$ normalization factor.
+\item [Two muon/electron CR] Similarly to the One muon, here we add to \met both muon/electron contribution to \met. In order to get a \met spectrum similar to the one in SR, muons/electrons are treated as non-interacting particles in the \met reconstruction. Here two selected muons/electrons are required. We also added a constrain to the invariant mass of the di-lepton $m_{\ell\ell}$ to be greater than \SI{20}{\GeV} to avoid any BSM $Z\gamma$ resonances. Moreover we don't require the cut on \met significance. These regions get $k_Z$ for the dominant background \zg in this region which applies via branching ratio to the \znng process.
+\item [Photon jet CR] Here kinematic cuts on \met are lowered. We require \met to be in \SI{85}{\gev} -\SI{110}{\GeV} range to enrich this region of \gj background because in this energy range, probability to have fake \met from jets is higher. To avoid signal contamination we set $\Delta\phi_{\gamma - \met} \le 3.0$ so that we prevent {\itshape back-to-back} signal events to fall in this region. This region, defined in \RunTwo, constrains the normalization for \gj background to get a $k_{\gammajet}$ normalization factor.
 \end{description}
 
-{\itshape A priori} a one electron CR could have been defined as well. Nevertheless the one muon CR has enough statistic to constrain the normalization on \Wboson$\gamma$.  This kind of region would have been more difficult to manage even just because electrons could be reconstructed easily as photons which not happens for muons being detected far away in the detector from photons increasing the number of \gj events contamination. In the analysis carried out in [nota di supporto] one evince that no improvement on $k_W$ error can be seen, instead there is a raise of $k_{pj}$ error due to furhter background contamination.
+{\itshape A priori} a one electron CR could have been defined as well. Nevertheless the one muon CR has enough statistic to constrain the normalization on \Wboson$\gamma$.  This kind of region would have been more difficult to manage even just because electrons could be reconstructed easily as photons which not happens for muons being detected far away in the detector from photons increasing the number of \gj events contamination. In the analysis carried out in~\cite{paperMP} one evince that no improvement on $k_W$ error can be seen, instead there is a raise of $k_{pj}$ error due to furhter background contamination.
 
-As mentioned earlier fake photons from electrons and jets enter the fit as given values and it is not constrained by any region. They have been estimated via data driven tecniques in other analysis.
+As mentioned earlier fake photons from electrons and jets enter the fit as given values and it is not constrained by any region. They have been estimated via data driven tecniques which are the \emph{tag and probe} method for fake photons from electrons, and the \emph{2D sideband method} for fake photons from jets.
 
-\section{Results for a backgroud only fit}
+Is it clear now that the predicted event yiels in a specific region ``R'', which could be the SR or a CR, is descrbed as a random poissonian variable:
+
+\begin{equation}
+\begin{split}
+		N_\textup{R} \propto \text{Pois} &\bigg( N_\textup{R}\left(\text{data}\right)\vert L\times\sigma_{\textup{vis}} \\
+						&+ k_{\textup{Z}} N_{\textup{R}}\left(\text{MC}\right) \left(\Zboson \left(\rarrow \nu\nu \right) +  \gamma\right) \\
+						&+ k_{\textup{Z}}N_\textup{R}\left(\text{MC}\right) \left(\Zboson \left(\rarrow \ell\ell\right) + \gamma \right) \\
+						&+ k_{\textup{W}}N_\textup{R}\left(\text{MC}\right) \left(\Wboson \left(\rarrow \lnu\right)+ \gamma \right) \\
+					 	&+ k_{\textup{pj}}N_{\textup{R}}\left(\text{MC}\right) \left(\gamma + \text{jets} \right)\\  
+					 	&+ \sum_{\textup{other bkg.}} N_{\textup{R}}\left(\text{B}\right) \bigg)
+\end{split}
+\end{equation}
+
+whose expectation value is given by the sum of:
+\begin{itemize}
+\item the signal yield in the region R, i.e. the integrated luminosity multiplied by the visible cross section;
+\item the expected (MC) events for a backgroung rescaled for the corresponding $k$-factor;
+\item other sources of background such the fake photons from electrons and jets.
+\end{itemize}
+
+In \Fig{\ref{fig:prefit}} and \Fig{\ref{fig:prefitcont}}, the distribution of leading photon \pt and \met for the main background sources in SR and in CRs is given. Per\`o queste tabelle son brutte e occupano parecchio spazio. Siccome poi vanno messe anche quelle postfit con i conteggi degli eventi per ogni region, che sono altre 5, qualcosa va spostato magari in appendice. Poi incasinano tutte le altre tabelle e figure.
+
+\begin{figure}[pt]
+\centering
+\subfloat[][Photon momentum distribution in SR]
+{\includegraphics[width=.45\textwidth]{monophoton/can_phPT_total_SR_t}} \quad
+\subfloat[][\met distribution in SR]
+{\includegraphics[width=.45\textwidth]{monophoton/can_metMOD_total_SR_t}} \\
+
+\subfloat[][Photon momentum distribution in 1 muon CR]
+{\includegraphics[width=.45\textwidth]{monophoton/can_phPT_total_CR1_t}} \quad
+\subfloat[][\met distribution in muon CR]
+{\includegraphics[width=.45\textwidth]{monophoton/can_metMOD_total_CR1_t}} \\
+
+\caption{Plots showing the cumulative distribution of \pt$^{\gamma}$ and \met in the SR and in every CRs for the dominant background, ie \znng, \zg, \wg, \gj.}
+\label{fig:prefit}
+\end{figure}
+
+\begin{figure}[pt]
+\centering
+
+\subfloat[][Photon momentum distribution in 2 muon CR]
+{\includegraphics[width=.45\textwidth]{monophoton/can_phPT_total_CR2_t}} \quad
+\subfloat[][\met distribution in 2 muon CR]
+{\includegraphics[width=.45\textwidth]{monophoton/can_metMOD_total_CR2_t}} \\
+
+\subfloat[][Photon momentum distribution in 2 ele CR]
+{\includegraphics[width=.45\textwidth]{monophoton/can_phPT_total_CR3_t}} \quad
+\subfloat[][\met distribution in 2 ele CR]
+{\includegraphics[width=.45\textwidth]{monophoton/can_metMOD_total_CR3_t}} \\
+
+\subfloat[][Photon momentum distribution in \gammajet CR]
+{\includegraphics[width=.45\textwidth]{monophoton/can_phPT_total_CR4_t}} \quad
+\subfloat[][\met distribution in \gammajet CR]
+{\includegraphics[width=.45\textwidth]{monophoton/can_metMOD_total_CR4_t}} \\
+
+\caption{Continued from \Fig{\ref{fig:prefit}}}
+\label{fig:prefitcont}
+\end{figure}
+
+\section{Results for a background only fit}
+In order to get the background yields for the analysis in the SR and in all the CRs, a \emph{background-only fit} is performed'' by the HistFitter package in which the statistcal features described above are implemented. In all CRs the k-factors are evaluates by means described in \Sect{\ref{sec:kfactor}}. The \emph{in-situ} estimates for electrons and jets faking photons are included in the fit. The free parameters of the fit are the signal yield and the three k factors: $k_{\textup{Z}}$, $k_{\textup{W}}$ and $k_{\textup{pj}}$.
+
+The three estimated $k$-factors after the fit for the SR, are reported in \Tab{\ref{tab:kfactors}}. Their value is not significantly far from unity, which is that statistic is good enough to reproduce the MC sample for background.
+
+\begin{table}[pt]
+\centering
+\begin{tabular}{lc}
+\toprule
+$k$-factor&Value\\
+\midrule
+$k_{\textup{Z}}$& $1.10\pm0.09$\\
+$k_{\textup{W}}$& $1.05\pm0.09$\\
+$k_{\textup{pj}}$& $1.07\pm0.25$\\
+\bottomrule
+\end{tabular}
+\caption{Normalization factors ($k$-factors) obtained from a background only fit performed in the SR for an integrated luminosity of \SI{36.4}{\ifb}. The errors shown include both the statistical and systematic uncertainties.}
+\label{tab:kfactors}
+\end{table}
+
+The HistFitter \Tab{\ref{table.results.systematics.in.logL.fit.table.results.yields}} reports report the expected background yields with their uncertainties before and after the fit and the number of observed events in data in all the CRs and in the SR. Results are in agreement with SM expectations within $1\sigma$.
+
+\input{monophoton/MonoPhoton_sys_afterFit}
 
 \section{Systematic uncertainties}
+To be written.
 
 
-\subsection{Experimental sensitivity, da mettere prima delle analisi}
-It is useful to characterize the sensitivity of an experiment by reporting the expected significance that one would obtain for a variety of signal hypotheses. One is not interested in the significance obtained in a single data set while in the expected (median) significance whose estimation is given by replacing the ensamble of simulated data set with a single representative one, the so-called Asimov data set. Otherwise one can simulate several \emph{toys} in order to get as much statistic as he could.
 
-If we're analysing data regardless of any nuisance parameters, one can assume that if there is no signal then $E[n]=b$ with standard deviation $\sigma = \sqrt{b}$. Therefore we compute the significance as
-\begin{equation}
-  z=\frac{n-b}{\sqrt{b}}=\frac{s}{\sqrt{b}}
-\end{equation}
 
-and the probability that $s$ comes from background fluctuations is evaluated via the \p in the following way:
-\begin{equation}
-  p=\int_Z^\infty \frac{e^{-\frac{z^2}{2}}}{\sqrt{2\pi}}\,dz .
-\end{equation}
-QUI C'\`E UNA PARTE DA CAPIRE CHE \`E LA FIGURA 2 DEL COWAN.
