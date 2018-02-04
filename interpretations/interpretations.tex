@@ -1,0 +1,111 @@
+\chapter{Interpretations of the results}
+
+\lettrine{D}{}ata yield in \SI{36.4}{\ifb}, presented in the previous chapter, are in agreement with prediction of the SM. This chapter quantifies this level of agreement introducing appropiate test statistics allowing to set model independent, regardless of the model considered, and model dependent, within the Minimal DM model, upper limits.
+
+\section{The profiled likelihood ratio}
+In \Sect{\ref{sec:likelihood}} the Likelihood function was defined as a function of the POI $\mu$~\cite{Cowan}.
+A very common procedure to establish discovery (or exclusion) in particle physics is based on a likelihood ratio as a test statistic. Indeed, to test an hypothesized value of $\mu$ the \emph{profiled likelihood ratio} which is used as the principal statistical parameter in this analysis, has been considered.
+\begin{equation}
+  \lambda(\mu) = \frac {\mathfrak{L}(\mu,\hat{\hat{\theta}})}{\mathfrak{L(\hat{\mu},\hat{\theta})}}
+  \label{eqn:profiled}
+\end{equation}
+where the numerator, $\hat{\hat{\theta}}$ conditional maximum-likelihood estimator (MLE) of $\theta$, or the value which maximies $\mathfrak{L}$ for a given $\mu$ (therefore, it is a function of $\mu$, and the denominator is the maximized, unconditionally by fixing no parameters, likelihood function. \Eqn{\ref{eqn:profiled}} is a rescaling of the likelihood function: 
+
+\subsection{The $t_\mu$ test statistic}
+The profiled likelihood ratio $\lambda(\mu)$ is constrained to vary between 0 and 1 so that it is useful to define the corresponding $\tmu$ statistic as 
+\begin{equation}
+  t_{\mu} = -2 \log{\lambda(\mu)}
+\end{equation}
+which can be used to build a statistic to measure the discrepancy between data and the hypothesis where higher value of $t_{\mu}$ correspond to higher disagreement. The \p can also be evaluated, and its correspondance to $t_{\mu}$ is pointed out in \Fig{\ref{pvalue}}, as:
+\begin{equation}
+ p_{\mu}=\int_{t_{\mu,\textup{obs}}}^\infty f\left(t_\mu \vert \mu\right) dt_\mu
+ \label{eqn:pdatmu}
+\end{equation}
+
+where $t_{\mu,\textup{obs}}$ is the value of $t_\mu$ observed from data and $f\left(t_\mu \vert \mu\right)$ is the probability density function of $t_\mu$ under the assumption of the POI value $\mu$. One can often assume that presence of new signal can only increase the mean event rate, which for a counting experiment can be evaluated as $E[n] = \mu s + b$ where $s$ are the signal events and $b$ is the background, so that we can consider parameter $\mu$ as positive so that an alternative test statistic $\tilde{t}_\mu$ can be defined. For a model in which $\mu>0$, if one finds that $\hat{\mu}<0$, the best level of agreement must be for $\mu=0$.
+
+Note that $f\left(t_\mu \vert \mu\right)$ in \Eqn{\ref{eqn:pdatmu}}, like all the $f$ distribution in this Section, is unknown, because we miss the real POI which is crucial to its determination. According to Wilks' theorem, the distribution of $f(t_\mu \vert \mu)$ is known in the case of a large statistics an it follows a one-degree of freedom (in case of one POI) $\chi^2$ distribution, regardless of the values taken by the nuisance parameters, see~\cite[\Sect{3}]{Cowan}, so that $f$ is expressed in term of certain asymptotic formul\ae~ in the limit of large samples. Alternatively one can obtain it by performing several pseudo-experiment, i.e. \emph{toys}, to get the right distribution expression even if they're always time expensive.
+
+\begin{figure}[tp]
+\centering
+\subfloat[][]
+{\includegraphics[width=.4\textwidth]{monophoton/pvaluea}}
+\subfloat[][]
+{\includegraphics[width=.416\textwidth]{monophoton/pvalueb}}
+\caption{(\emph{a}) Relation between \p and $t_{\mu,\textup{obs}}$. (\emph{b}) Relation between the significance $Z$ and \p for a gaussian distribution $\varphi(x)$.}
+\label{pvalue}
+\end{figure}
+
+\subsection{Test statistics for discovery and exclusion fit}
+Without any observed excess of events in one or more SR(s), two methods set exclusion
+limits on specific signal models. These two fit strategies, complementary to the background only fit described {\bf above}, are the discovery fit, or model-independent and the exclusion fit model-dependent. Both fit are used to set upper limits on the POI, i.e. the number of events in case of discovery and the visible cross section for exclusion, by varying its value whithin a certain range and then interpolating for which POI value one finds \SI{95}{\percent} exclusion. For this reason, setting an upper limit is also called \emph{hypotest inversion}.
+
+\subsubsection{The $q_0$ test for discovery of a positive signal}
+When searching for new physics phenomena typically one would put constraints on potential new physiscs. Indeed, in a discovery fit the purpose is to set model-independent \SI{95}{\percent} CL upper limits on the number of Beyond Standard Model (BSM) events in SR. For no signal model in particular anyone can estimate the number of signal events predicted in a particular SR, in our case the already defined ``fiducial region'', and see wether a certain model has been excluded by current data or not.
+
+In this scenario rejecting the $\mu = 0$ hypothesis leads to the discovery of a new signal.  An appropriate test, the $q_0$ test statistic, is therefore defined as follows:
+\begin{equation}
+q_0=
+\left\{
+\begin{aligned}
+-2\log{\lambda(0)}\quad &\text{if}\quad \hat{\mu}\ge0\\
+ 0 \qquad&\text{if}\quad \hat{\mu}<0
+\end{aligned}
+\right.
+\end{equation} 
+
+Data shows lack of agreement with the background only hypothesis ($\hat{\mu}=0$), only if $q_0\ne0$. Using the observed value of $q_0$ one can quantify the level of disagreement between the data and the null hypothesis not so much unlike for the $t_\mu$ case:
+\begin{equation}
+ p_{\mu}=\int_{q_{0,\textup{obs}}}^\infty f\left(q_0 \vert 0\right) dq_0
+ \label{eqn:pdaq0}
+\end{equation}
+
+\subsubsection{The $q_\mu$ test for model dependent upper limits}
+This fit strategy is used with the objective of studying a specific signal model. Again, with no relevant excess of events proved by the background only fit exclusion limits can be performed for    setting upper limit on the visible cross section of the model being tested. The signal sample must be added to every CRs and not only in the SR, in order to take into account any posssible signal contamination in the CRs. Note that this test is useful even in case of excess of events for which can be used to measure properties such as the signal strength.
+
+Like for the model independent fit, a suitable test statistic can be defined for the model independent fit as well, in a very similar way. However, now the null hypothesis is the signal+background coexisting in the SR because a signal is supposed to be tested against the back. Therefore the $q_\mu$ test statistic is defined as:
+\begin{equation}
+q_\mu=
+\left\{
+\begin{aligned}
+-2\log{\lambda(0)}\quad &\text{if}\quad \hat{\mu}\le\mu\\
+ 0 \qquad&\text{if}\quad \hat{\mu}>\mu
+\end{aligned}
+\right.
+\end{equation} 
+Once again the relation between $q_\mu$ and the \p is straighforward:
+\begin{equation}
+ p_{\mu}=\int_{q_{\mu,\textup{obs}}}^\infty f\left(q_\mu \vert \mu\right) dq_\mu
+ \label{eqn:pdaqmu}
+\end{equation}
+
+\subsection{Experimental sensitivity}
+\label{sec:sensitivity}
+To characterize the sensitivity of an experiment, the significance obtained from a single dataset is irrelevant. The expected (or median) significance which allows to reject different values of $\mu$ is more useful. In a discovery analysis one would like to know the median significance with which one would reject the background-only null hypothesis and for exclusion the median with which one rejects a nonzero value of $\mu$.
+
+The median significance is obtained by replacing the ensamble of simulated data set with a single representative one, the so-called Asimov data set which it is easy to obtain the median values of $q_0$ and $q_\mu$.
+
+The sensitivity of an experiment is illustrated in \Fig{\ref{fig:medianq}} which shows the PDF for $q_\mu$ assuming an observed (tested) value of $\mu$ and an expected value of $\mu'$ retrieved from certain asymptotic formul\ae~ valid in the case of large samples~\cite{Cowan}. Analogous consideration can be made for the discovery analysis by replacing $q_\mu$ with the corresponding $q_0$. The sensitivity of an experiment can be characterized by giving the \p corresponding to the median $q_\mu$, assuming $\mu=\mu'$. 
+
+When the distribution of the strenght parameters $\mu'$ gets shifted to higher values, so does the median $q_\mu$. From \Eqn{\ref{eqn:pdaq0}} and \Eqn{\ref{eqn:pdaqmu}} it is clear that \p is pushed towards lower values. Now the hypotest inversion is finally revealed. What the fitting procedure achieved is to scan several values of $\mu$ and evaluate the median \p assuming $\mu'$. The computed upper limit is therefore the value of $\mu$ for which \p gets under the threshold of \num{0.05}.
+
+In the context of exclusion limits, the $\cls$ statistic is mostly used replacing the \p. $\cls$ being derived from the \p is defined as:
+\begin{equation}
+	\cls=\frac{\text{p-value}(H_0)}{1-\text{p-value}(H_1)}
+\end{equation}
+
+Upper limits are then set for the value when $\cls$ is computed to be below the $0.05$ threshold.
+
+\begin{figure}[pt]
+\centering
+\includegraphics[width=0.5\textwidth]{interpretations/medianq}
+\caption{Representation of the situation described in \Sect{\ref{sec:sensitivity}}. The observed distribution $f\left(q_\mu \vert \mu \right)$ is overlapped with the median $f\left(q_\mu \vert \mu' \right)$ given by the asimptotic formul\ae~ according to which it has the form of an half chi squared distribution. The median $q_\mu$ is computed assuming the alternate value $\mu'$ and the result is used to calculate the \p for distribution $f\left(q_\mu \vert \mu \right)$.}
+\label{fig:medianq}
+\end{figure}
+
+\section{Model-independent limit}
+
+%\section{prova}
+%\input{interpretations/Asymptotic_Scan}
+
+
