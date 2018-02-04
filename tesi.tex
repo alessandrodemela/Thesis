@@ -1,13 +1,13 @@
 \documentclass[a4paper,openright,10pt]{book}
 
-\usepackage{lettrine,lipsum,mparhack,geometry,longtable,booktabs,caption,titlesec,siunitx,graphicx,mhchem}
+\usepackage{lettrine,lipsum,mparhack,geometry,longtable,booktabs,caption,titlesec,graphicx,mhchem}
 \usepackage{microtype,mathtools,slashed,subfig,multicol}
 \usepackage{amsthm}
 \usepackage{amsmath}
+\usepackage[swapnames]{frontespizio}
 \usepackage{tikz}
-\usetikzlibrary{trees,decorations.pathmorphing,decorations.markings,shadings,patterns,quotes,angles,snakes}
+\usetikzlibrary{trees,decorations.pathmorphing,decorations.markings,shadings,patterns,quotes,angles,snakes}%snakes
 \usetikzlibrary{shapes.arrows}
-\usepackage{wrapfig}
 \usepackage[T1]{fontenc}
 \usepackage[urw-garamond]{mathdesign}
 \usepackage[autostyle]{csquotes}
@@ -16,6 +16,7 @@
 
 \newcommand{\ATLASLATEXPATH}{../atlaslatex/latex/}
 \usepackage{\ATLASLATEXPATH atlasphysics}
+\usepackage[range-phrase=-]{siunitx}
 \newcommand{\gmet}{$\gamma +$\met }
 \newcommand{\znng}{$\Zboson (\rarrow \nu\nu )  + \gamma$ }
 \newcommand{\zg}{$\Zboson (\rarrow \ell\ell) + \gamma$ }
@@ -32,6 +33,8 @@
 \newcommand{\p}{{\itshape p}-value }
 \newcommand{\sv}{$\sigma_\textup{vis}$\xspace}
 \newcommand{\tmu}{t_{\mu} }
+\newcommand{\cls}{\text{CL}_\textup{s} }
+
 
 \theoremstyle{definition}
 \newtheorem{definizione}{Definition}
@@ -51,29 +54,16 @@
 \renewcommand{\epsilon}{\varepsilon}
 \renewcommand{\rho}{\varrho}
 
+%\renewcommand{\Correlatore}{Relatore Esterno}
 
 \usepackage{hyperref}
 
 %\newlength\longest
 
-
 \begin{document}	
-%\begin{titlepage}
-%\begin{center}	
-%	\textsc{{ \Large UNIVERSIT\`A DEGLI STUDI DI MILANO}}\\
-% 	\textsc{\Large FACOLT\`A DI SCIENZE MATEMATICHE, \\FISICHE E NATURALI
-%}\\
-% 	\vspace{10pt}
-% 	\textit{\Large Corso di laurea triennale in Fisica}
-% 	\vspace{30ex}
-		
-%	{\Large \bfseries Search for new phenomena in events \mbox{with a photon} and missing transverse momentum \mbox{in \pp collisions} at $\sqrt{s}=\SI{13}{\tev}$ with the ATLAS detector in the context of Minimal Dark Matter model}
-	
-%\end{center}
-%\end{titlepage}
+\include{frontespizio}
 
-%%====CITAZIONE=====
-% \include{quoting}
+\include{quoting}
 
 \titleformat{\chapter}[display]{\itshape}{}{2ex}{\fontfamily{ppl}\selectfont\LARGE}[\titlerule]
 
@@ -87,9 +77,10 @@
 \titleformat{\subsection}[block]{\normalfont \large }{\thesubsection \quad}{0pt}{\itshape \bfseries}[]
 
 %\include{LHC_ATLAS/LHC_ATLAS}
-\include{DarkMatter/DarkMatter}
+%\include{DarkMatter/DarkMatter}
 %\include{MCSample/MCSample}
 %\include{monophoton/monophoton}
+\include{Interpretations/interpretations}
 
 
 %\chapter[titolocorto]{LENTE PER DM}

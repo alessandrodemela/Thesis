@@ -27,6 +27,7 @@ An equivalent way to compute this kind of agreement is to turn the \p into Gauss
 Null hypothesis is rejected only if \p is found to be under a common defined threshold usually set at \num{2.87e-7}, corresponding to a significance of $Z=5$.
 
 \subsection{Likelihood based test for the \mph analysis}
+\label{sec:likelihood}
 The statistic test used in this analysis, such in all physics analysis performed at ATLAS, is based on a profile likelihood approach as pointed out in~\cite{mgiulia}. A likelihood is a funtion of a parameter of interest (POI), here referred to as $\mu$, which could be the visible cross section \sv, see \textbf{later}, or the number of events observed, if rescaled on the integrated luminosity.
 The likelihood model takes background and signal yields into account through poissonian distributions, while statistical and systematic uncertainties are nuisance parameters that modify the expectation and which are not known {\itshape a priori} but instead fitted from the data by maximizing the likelihood function.
 
@@ -175,7 +176,6 @@ There are four CRs show in \Fig{\ref{fig:regions}} defined in order to extrapola
 As mentioned earlier fake photons from electrons and jets enter the fit as given values and it is not constrained by any region. They have been estimated via data driven tecniques which are the \emph{tag and probe} method for fake photons from electrons, and the \emph{2D sideband method} for fake photons from jets.
 
 Is it clear now that the predicted event yiels in a specific region ``R'', which could be the SR or a CR, is descrbed as a random poissonian variable:
-
 \begin{equation}
 \begin{split}
 		N_\textup{R} \propto \text{Pois} &\bigg( N_\textup{R}\left(\text{data}\right)\vert L\times\sigma_{\textup{vis}} \\
@@ -208,7 +208,7 @@ In \Fig{\ref{fig:prefit}} and \Fig{\ref{fig:prefitcont}}, the distribution of le
 \subfloat[][\met distribution in muon CR]
 {\includegraphics[width=.45\textwidth]{monophoton/can_metMOD_total_CR1_t}} \\
 
-\caption{Plots showing the cumulative distribution of \pt$^{\gamma}$ and \met in the SR and in every CRs for the dominant background, ie \znng, \zg, \wg, \gj.}
+\caption{Plots showing the cumulative distribution of $\pt^{\gamma}$ and \met in the SR and in every CRs for the dominant background, ie \znng, \zg, \wg, \gj.}
 \label{fig:prefit}
 \end{figure}
 
