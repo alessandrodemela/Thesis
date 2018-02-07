@@ -2,27 +2,37 @@
 
 \lettrine{T}{}his chapter describes all the steps made to generate, simulate and reconstruct MonteCarlo (MC) events for the \mph analysis in the context of the Minimal DM model.
 
-In the \mph analysis, which is a ``cut\&count'' analysis (refer to Chapt. \ref{chapt:mph}), we are looking for a single high energy photon and large missing transverse momentum (\met) signature, whose definition will be given in \Sect{\ref{sec:recoreal}}. Therefore it is characterized by a relative clean final state thanks also to a small set of SM processes that produces the same outcome. The Minimal DM model predicts several ways in which DM can be produced and revealed within a \mph analysis. Three examples of Feynman diagram are given in \Fig{\ref{fig:feynman}}. Notice that a photon can also be radiated from the final state which is a peculiarity with respect to other DM simplified models adopted at LHC.
+%In the \mph analysis, which is a ``cut\&count'' analysis (refer to Chapt. \ref{chapt:mph}), we are looking for a single high energy photon and large missing transverse momentum (\met) signature, whose definition will be given in \Sect{\ref{sec:recoreal}}. Therefore it is characterized by a relative clean final state thanks also to a small set of SM processes that produces the same outcome. The Minimal DM model predicts several ways in which DM can be produced and revealed within a \mph analysis. Three examples of Feynman diagram are given in \Fig{\ref{fig:feynman}}. Notice that a photon can also be radiated from the final state which is a peculiarity with respect to other DM simplified models adopted at LHC.
 
-\input{MCSample/feynmandiagrams}
 
-\section{Event generation for MDM}
-In order to study the detector response for a wide range of physics processes and scenarios, a detailed simulation  of the physics process and of the detector response is pursued providing an output format which is identical to that of the true detector is pursued. 
+In order to study the detector response for a wide range of physics processes and scenarios, a detailed simulation  of the physics process and of the detector response is pursued providing an output format which is identical to that of the true detector. 
 
-The simulation process of events comes across several steps. The first one is the event generation in which the very fisrt products of \pp collision are simulated followed by the \emph{hadronization} and the \emph{parton-shower}. This step consists in the Truth-level simulation and a summary file (a TRUTH file) can be built from this events at particle level.
+The simulation process of events comes across several steps. The first one is the event generation in which the very first products of \pp collision are simulated followed by the \emph{hadronization} and the \emph{parton-shower}. This step consists in the Truth-level simulation and a summary file (a TRUTH file) can be built from this events at particle level.
 
-The second step consists in the simulation of how particles interact with the detector which is followed by the digitization step. The simulation program is integrated into the ATLAS software framework, Athena, and uses the \geant \cite{geant4} simulation toolkit. Detailed description of the the ATLAS Simulation Infrastructure is given in~\cite{simulation}.
+The second step consists in the simulation of how particles interact with the detector which is followed by the digitization step. The simulation program is integrated into the ATLAS software framework, Athena, and uses the \geant \cite{geant4} simulation toolkit. Detailed description of the ATLAS Simulation Infrastructure is given in~\cite{simulation}.
 
-Afterwards the simulated dataset can be passed to the reconstruction software in the same way as actual recorded data. Then all the events reconstructed are filtered by a derivation code which selects only the  relevant events for a specific analysis. Finally the ``derivated'' events are collected in a compact and practical RooT file i.e a \emph{NTUPLE} ready to be processed by the analysis.
+Afterwards the simulated event can be passed to the reconstruction software in the same way as actual recorded data. Then all the events reconstructed are filtered by a derivation code which selects only the  relevant events for a specific analysis. Finally the ``derivated'' events are collected in a compact and practical RooT file i.e a \emph{NTUPLE} ready to be processed by the analysis.
 
-For this analysis all the software chain described and shown in \Fig{\ref{fig:chain}} was run in batch mode on the Milano Tier3 computing facility via HTCondor$^{\textup{TM}}$.
+For this analysis all the software chain described above and shown in \Fig{\ref{fig:chain}} was run in batch mode on the Milano Tier3 computing facility via HTCondor$^{\textup{TM}}$.
 
 \input{MCSample/chain}
 
 \section{Generation}
-For the generation process \MGMCatNLO v2.4.0 was used~\cite{madgraph}. This software automatically generates matrix elements as for example decays or scattering from a couple of particles. The user simply specifies the process of interest by giving the initial and final state particles and \MADGRAPH generates the Feynman diagrams and the code needed for the calculation of the matrix element~\cite{Pottgen:2016807}. In this context, even if the software could generate matrix element up to the next to leading order (\NLO) we used only leading order (\LO) calculations. 
+\input{MCSample/feynmandiagrams}
+For the generation process \MGMCatNLO v2.4.0 was used~\cite{madgraph}. This software automatically generates matrix elements, as for example decays or scattering from a couple of particles. The user simply specifies the process of interest by giving the initial and final state particles and \MADGRAPH generates the Feynman diagrams and the code needed for the calculation of the matrix element~\cite{Pottgen:2016807}. In this context, even if the software could generate matrix element up to the next to leading order (\NLO) only leading order (\LO) calculations were used.
 
 The Minimal DM Model has already been implemented in an UFO file containing its details~\cite{mperego} considering the pure electroweak triplet (\chip\!, \chizero\!, \chim\!) and implemented in FeynRules. UFO is the format used in input by \MADGRAPH. Although the model would predict a mass splitting of \SI{\sim 165}{\mev} between \chipm and the \chizero, here is set to be \SI{1}{\gev}: small enough to let the charged $\chi$s decay into soft pions and a \chizero but large enough not to create issues in the generation program. 
+
+Events of the type: 
+\begin{gather*}
+p p > \chi^+ \chi^- \gamma,\, \chi^+ > \piplus \chi_0,\, \chi^- > \piminus \chi_0\\
+p p > \chi^+ \chi_0 \gamma,\, \chi^+ > \piplus \chi_0\\
+p p > \chi^+ \chi_0 \gamma,\, \chi^- > \piminus \chi_0
+\end{gather*}
+ 
+have been generated to provide a final stare characterized by one photon and missing transverse momentum (\met). The Minimal DM model predicts several ways in which DM can be produced and revealed within a \mph analysis. Three examples of Feynman diagram are given in \Fig{\ref{fig:feynman}}. Notice that a photon can also be radiated from the final state which is a peculiarity with respect to other DM simplified models adopted at LHC.
+
+For 21 different $\chi_0$ masses, \num{10000} events have been generated requiring a kinematic cut on photon energy to be greater than \SI{130}{\gev} in order to populate the \mph phase space.
 
 Before performing the hadronization and parton shower, a fast scan for different mass point running \MADGRAPH \emph{on-the-fly} was made in order to get an order the values of cross sections. Results are reported in \Tab{\ref{tab:xsectheo}}.
 
@@ -46,15 +56,15 @@ Mass[GeV]&Cross section [pb]&Error [pb]\\
 \label{tab:xsectheo}
 \end{table}
 
-For 21 different $\chi_0$ masses, \num{10000} events have been generated requiring a kinematic cut on photon energy to be greater than \SI{130}{\gev} in order to populate the \mph phase space.
-
 For the simulation of parton showers, underlying event or hadronization, the output of \MADGRAPH has to be passed on to an external programm, which in our case is \PYTHIA v8.210~\cite{pythia}. This framework accounts for the generation, starting from a \emph{Les Houches Event} (LHE) file, of parton shower and underlying event, i.e. it creates colourless states from free quarks and gluons. \PYTHIA was set up with NNPDF23LO PDF and the A14 tuning. The output file produced is an EVNT file which can be used as input either for the detector simulation step or to produce a TRUTH file.
 
 \subsection{Truth level validation}
 \label{sec:truth}
-The simulation of the events as it were ``in vacuum'' is called \emph{Truth level}. Here no assumption are made on the detector, but we only want to analyze the process and its outcome. The TRUTH1 is a file format coming from a Derivation framework, which will be better explained in \Sect{\ref{sec:derivation}}, and it contains all the information we need at this stage.
+The simulation of the events as it were ``in vacuum'' is called \emph{Truth level}. Here no assumption are made on the detector, but we only want to analyze the process and its outcome. The TRUTH1 is a file format coming from a Derivation framework, which will be better explained in \Sect{\ref{sec:derivation}}, and it contains all needed information at particle level.
+
+To validate the TRUTH1 samples a ``fiducial region'' is defined appling the \mph selection (see Chapter \ref{chapt:mph}) on truth quantities. Such ``fiducial region'' will be used to reinterpret the \mph analysis in terms of new physiscs models, like the Minimal DM model, providing useful contraints.
  
-These events are used to define a ``fiducial region'' with dedicated selections. It is made to provide useful constraints on new physics which can be re-interpreted in terms of signal models not covered here. The selection for \mph events, whose explanation of kinematic criteria will be provided in \Sect{\ref{sec:SRselection}}, involves:
+The selection for \mph events, whose explanation of kinematic criteria will be provided in \Sect{\ref{sec:SRselection}}, involves:
 \begin{itemize}
 \item photons with $\pt^\gamma>\SI{10}{\GeV}$ with $\abs{\eta_\gamma}<2.37$ and $1.37<\abs{\eta_\gamma}<1.52$;
 \item electrons with $\pt^e>\SI{7}{\gev}$ with $\abs{\eta_e}<2.47$;
@@ -66,8 +76,9 @@ These events are used to define a ``fiducial region'' with dedicated selections.
 \item no electrons nor muons and $N_\textup{jets}\le 1$ with $\Delta\phi_\textup{jet-\met}<0.4$ if any.
 \end{itemize}
 
-
-From several TRUTH files for the different masses,one we would like to validate the sample and check the kinematics. The results are shown in validation plots in \Fig{\ref{fig:validation}} after the first four cuts provided above, for different DM masses. Notice that the peak for low-$\pt^\gamma$ in \Fig{\ref{subfig:phpt}} rises because the leading photon could get in the crack region (\etaRange{1.37}{1.52}) and therefore doesn't pass the $\eta$ cuts. Then the code select a subleading photon with lower momentum\footnote{A weird behaviour has been noticed in \PYTHIA for which sometimes the leading photon converts in a couple $e^+e^-$ for apparently no reasons. These events, however, contribute to the sharp low peak but they occur in the 5\% of the case and they can be neglected}. Detailed analyisis on these events in terms of fiducial cross section will be given {\bfseries in the next chapter}.
+The validation of the TRUTH files produced for several \chizero masses consists in the check of the main kinematic variables involved in the analysis. The results are shown in validation plots in \Fig{\ref{fig:validation}} after the first four cuts provided above, for different DM masses. Notice that the peak for low-$\pt^\gamma$ in \Fig{\ref{subfig:phpt}} rises because the leading photon could enter the crack region (\etaRange{1.37}{1.52}) and therefore doesn't pass the $\eta$ cuts, then the code select a subleading photon with lower momentum
+%\footnote{A weird behaviour has been noticed in \PYTHIA for which sometimes the leading photon converts in a couple $e^+e^-$ for apparently no reasons. These events, however, contribute to the sharp low peak but they occur in the 5\% of the case and they can be neglected}. 
+Detailed analyisis on these events in terms of fiducial cross section will be given {\bfseries in the next chapter}.
 
 \begin{figure}[t]
 \centering
@@ -84,15 +95,15 @@ From several TRUTH files for the different masses,one we would like to validate 
 \end{figure}
 
 \section{Simulation}
-The standard simulation of ATLAS relies on the \geant particle simulation toolkit which is a toolkit for simulating the interaction of particles through matter. This step takes as inpunt the EVNT file from \PYTHIA, in our case, or any of the generators such \HERWIG and \SHERPA, and it is the most time expensive stage in the full simulation. The output is stored into an HIT file. To save time the framework allows the user to skip a certain number of events at the beginning of an input file by submitting $n$ jobs with $N$ events each to a $n\times N$ event input file and merged together at the end of the process.
+The standard simulation of ATLAS relies on the \geant particle simulation toolkit to simulate the interaction of particles through matter. This step takes as inpunt the EVNT file from \PYTHIA, in our case, or any of the generators such \HERWIG and \SHERPA, and it is the most time expensive stage in the full simulation. The output is stored into an HIT file. To save time the framework allows the user to skip a certain number of events at the beginning of an input file by submitting $n$ jobs with $N$ events each to a $n\times N$ event input file and merged together at the end of the process.
 
 %First of all comes the simulation initialization which is divided in three steps. Stage one of the initialization occurs as soon as Athena is started which is set to AtlasProduction 19.2.4.9. release. Here job properties provided by the user are locked, metadata that will be stored with the hit output file are gathered and the HIT file initialized. Finally service is created to interface with \geant which is not fully initialized at this stage. In stage two detector, physics regions, range cuts are created. Each piece of the ATLAS detector is constructed in GeoModel according to the geometry chosen, which in this work is \verb!ATLAS-R2-2015-03-01-00_VALIDATION!, and translated into an equivalent \geant geometry. Next, the Monte Carlo truth strategies, which are \verb!MC12! in this context, are added to the simulation.Then the magnetic field is loaded and every user action, which allows a user to insert pieces of code in various places throughout the simulation event loop, provided from the configuration command are initialized. The physics list (see below) used for simulation is also set at this point. The third stage completes the job preparation. assigning fast simulation models and runs \geant  software.
 
 %A physics list contains all numerical models that describe the particles' interactions in the \geant simulation. The \geant Collaboration provides several combinations of these models for every possible physical outline. We used the \verb!FTFP_BERT! phisics list which is the current \geant default. Any further information can be found in~\cite{ftfpbert}.
 
-To speed up the simulation process an approach consists in the Fast Simulation. In this work ATLFAST-II was used. ATLFAST-II is a kind of fast simulation, which provides large statistics to supplement full simulation studies. It is made up from two components: the Fast ATLAS Tracking Simulation (Fatras) for the inner detector and muon system simulation and the Fast calorimeter Simulation (FastCaloSim) for the calorimeter simulation~\cite{simulation}. 
+To speed up the full simulation process a fast simulation approach is adopted. In this work ATLFAST-II was used, which provides large statistics to supplement full simulation studies. It is made up from two components: the Fast ATLAS Tracking Simulation (Fatras) for the inner detector and muon system simulation and the Fast Calorimeter Simulation (FastCaloSim) for the calorimeter simulation~\cite{simulation}. 
 
-In Fatras for the geometry of the detector consists in a simplified description of the full detector geometry, which mantains the same descriptive accuracy for its sensitive parts, and all other detector components are approximated as simplified layers that carry a high-granularity density providing an improvement in CPU time by a factor \num{100}. The interactions of the particles with the simplified detector layers are simulated using several methods, for instance ionization and radiative energy loss are simulated according to the Bethe-Bloch model. The photon conversion into a couple of electron and positron is performed depending on the thickness of the material crossed and hadronic interactions with the detector layer are simulated from a parametric model obtained from \geant simulation results. Fatras provides also the input particle collection to give to FastCaloSim. Moreover it records energy deposition for muons in the calorimeter layers which will be used in the FastCaloSim application. The trajectories of the muons are also simulated in the muon spectrometer.
+In Fatras the geometry of the detector consists in a simplified description of the full detector geometry, which mantains the same descriptive accuracy for its sensitive parts, and all other detector components are approximated as simplified layers that carry a high-granularity density providing an improvement in CPU time by a factor \num{100}. The interactions of the particles with the simplified detector layers are simulated using several methods, for instance ionization and radiative energy loss are simulated according to the Bethe-Bloch model. The photon conversion into a couple of electron and positron is performed depending on the thickness of the material crossed and hadronic interactions with the detector layer are simulated from a parametric model obtained from \geant simulation results. Fatras provides also the input particle collection to give to FastCaloSim. Moreover it records energy deposition for muons in the calorimeter layers which will be used in the FastCaloSim application. The trajectories of the muons are also simulated in the muon spectrometer.
 
 FastCaloSim uses parametrizations of the longitudinal and lateral energy profile of the energy of single particle showers instead of simulating the particle interactions with the detector material. The parametrizations are based on a fully-simulated, with \geant, sample of 30 million events made of single photons and charged pions from an energy range between \SI{200}{\MeV} and \SI{500}{\GeV} for \AetaRange{5.0} and every $\phi$. Electron and photon showers are approximated by the photon parametrization and hadronic showers are modeled on the charged pions.
 
@@ -110,21 +121,24 @@ In order to understand anomalies and debug errors due to geometry or checking by
 \section{Digitization}
 The ATLAS digitization software converts the hits produced by the core simulation into detector responses i.e ``digits''. In real events a digit is produced when the voltage of a readout channel rises above a preconfigured threshold in a particular time window~\cite{simulation}.
 
-{\bfseries ora inizia parte poco chiara, perch\'e il paper parla solo di hard scattering digitizzato. non c'era tutto nel file hit?}
+%{\bfseries ora inizia parte poco chiara, perch\'e il paper parla solo di hard scattering digitizzato. non c'era tutto nel file hit?}
 
-In addition to the hard scattering digitization pile-up and any other source of noise must be incorporated. For pile-up simulation, there are also input HIT files for each type of background interaction to be overlaid, whose number for each bunch crossing is a function of the luminosity simulated. Moreover cavern background could influence the simulation. The cavern background is a sort of neutron-photon gas made up from neutrons propagating into the ATLAS cavern before getting thermalized. 
+In addition to the hard scattering digitization, pile-up and any other source of noise must be incorporated. For pile-up simulation, there are also input HIT files for each type of background interaction to be overlaid, whose number for each bunch crossing is a function of the luminosity simulated. Moreover cavern background could influence the simulation. The cavern background is a sort of neutron-photon gas made up of neutrons propagating into the ATLAS cavern before getting thermalized. 
 
-The ATLAS detector electronics produce data in bytestream format called RawData Objects (RDO) whose size on disk is typically \SI{2.5}{MB\per event} and increases with larger number of \pileup events.
+The ATLAS detector electronic produces data in bytestream format called RawData Objects (RDO) whose size on disk is typically \SI{2.5}{MB\per event} and increases with larger number of \pileup events.
 
-RDO TRIGGER?
+%RDO TRIGGER?
 
 \section{Reconstruction}
 \label{sec:recoreal}
-Within this section, physics object definition and reconstruction in ATLAS is given, focusing on those mainly involved in this analysis. Definitions follow the recommendations from the various Combined Performance (CP) groups.
 
-An event in ATLAS is an ensemble of signals produced in the detector, which must be processed in order to get particle's property and identification. 
+A reconstructed event in ATLAS is an ensemble of signals produced in the detector, which must be processed in order to get particle's property and identification. 
 
-This step is identical for both real data and MC generated data and produces an output file in a Event Summary Data and Analysis Data Object form. 
+This step is identical for both real data and MC generated data and produces an output file in a Event Summary Data (ESD) and Analysis Object Data (AOD) form. 
+
+Within this section, physics object definition and reconstruction in ATLAS is described, focusing on those mainly involved in the \mph analysis. Definitions follow the recommendations from the various Combined Performance (CP) groups.
+
+
 
 \subsection{Photons}
 \label{photons}
@@ -191,27 +205,27 @@ There are several computation of \met. The one this analysis is based on is the 
 
 \section{EXOT6 Derivation}
 \label{sec:derivation}
-During the \RunTwo ATLAS has developed a ``derivation framework'', by proposal by the Analysis Model Study Group (AMSG), which works on the principle that analyzers need to be able to run over their data sample frequently. For this purpose the derivation framework provides the offline software tools and structures to work on data in a very simple way~\cite{twiki:DAOD}. 
+During the \RunTwo ATLAS has developed a ``Derivation Framework'', by proposal by the Analysis Model Study Group (AMSG), which works on the principle that analyzers need to be able to run over their data sample frequently. For this purpose the derivation framework provides the offline software tools and structures to work on data in a very simple way~\cite{twiki:DAOD}. 
 
 Unlike in \RunOne, when derivation was made by users, this production is now made centrally by the ATLAS production services, even if it can be run locally as in our case, avoiding difficulties in cross-team analyses due to differences in the formats and in reading the output file.
 
-Derivations will be made from the full data via four operations:
+Derivations are made from the reconstructed data via four operations:
 \begin{enumerate}
-\item skimming: the removal of the entire event,
-\item thinning: when removing the whole objects in an event, but keeping the rest of it,
-\item slimming: information removal from objects, while keeping the rest of it,
+\item skimming: the removal of entire events,
+\item thinning: when removing the whole object in an event, but keeping the rest of it (for instance an electron is totally removed while other object remains),
+\item slimming: information removal from objects, while keeping the rest of it (i.e. only certain object information ,such its transverse momentum. are removed but the object still remains in the event),
 \item augmentation: adding informations not found in the input data.
 \end{enumerate}
 
 Therefore the derivation framework selects only the relevant data for a specific analysis, from all ATLAS data collected. This functioning is well explained in the sketch shown in \Fig{\ref{fig:derivation}}.
 
-For this analysis a specifix derivation called ``EXOT6'' has been implemented and the following skimming selection was applied:
+For this analysis a specific derivation called ``EXOT6'' has been implemented and the following skimming selection was applied:
 \begin{itemize}
 \item Events must pass one out of several trigger request, including the \verb!HLT_g140_loose! which this analysis is based on;
 \item Events must have one loose\footnote{see \Sect{\ref{photons}}} photon with $\pt\ge\SI{80}{\gev}$ or one loose electron with $\pt\ge\SI{100}{\gev}$.
 \end{itemize}
 
-As final step a RooT::NTUPLE file was produced in which events are once again selected following the recommendation by Combined Performance groups. The analysis code is based on SUSYTools-00-08-20 based on AnalysisBase 2.4.28. Details on object definition and kinematic cuts performed in the SUSYTools code are given in~\cite{twiki:SUSYTools}.
+As final step a RooT::NTUPLE file was produced in which events are once again selected following the recommendation by the Combined Performance groups. The analysis code is based on SUSYTools-00-08-20 based on AnalysisBase 2.4.28. Details on object definition and kinematic cuts performed in the SUSYTools code are given in~\cite{twiki:SUSYTools}.
 
 
 \begin{figure}[t]
