@@ -1,5 +1,5 @@
 \documentclass[a4paper,openright,10pt]{book}
-
+\usepackage[a-1b]{pdfx}
 \usepackage{lettrine,lipsum,mparhack,geometry,longtable,booktabs,caption,titlesec,graphicx,mhchem}
 \usepackage{microtype,mathtools,slashed,subfig,multicol}
 \usepackage{amsthm}
@@ -11,6 +11,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[urw-garamond]{mathdesign}
 \usepackage[autostyle]{csquotes}
+\usepackage{dashrule}
 \usepackage[backend=bibtex,bibstyle=authortitle,style=numeric-comp,sorting=none]{biblatex}
 \addbibresource{bibliography.bib}
 
@@ -18,10 +19,10 @@
 \usepackage{\ATLASLATEXPATH atlasphysics}
 \usepackage[range-phrase=-]{siunitx}
 \newcommand{\gmet}{$\gamma +$\met }
-\newcommand{\znng}{$\Zboson (\rarrow \nu\nu )  + \gamma$ }
-\newcommand{\zg}{$\Zboson (\rarrow \ell\ell) + \gamma$ }
-\newcommand{\wg}{$\Wboson (\rarrow \lnu) + \gamma$ }
-\newcommand{\gj}{$\gamma + \text{jets}$ }
+\newcommand{\znng}{\mbox{$\Zboson (\rarrow \nu\nu )  + \gamma$} }
+\newcommand{\zg}{\mbox{$\Zboson (\rarrow \ell\ell) + \gamma$} }
+\newcommand{\wg}{\mbox{$\Wboson (\rarrow \lnu) + \gamma$} }
+\newcommand{\gj}{\mbox{$\gamma + \text{jets}$} }
 \newcommand{\mph}{MonoPhoton }
 \newcommand{\cm}{centre-of-mass }
 \newcommand{\chizero}{$\chi_0$ }
@@ -49,12 +50,10 @@
 \fancyfoot[LE]{ \thepage}
 \fancyfoot[RO]{ \thepage}
 
-%\renewcommand{\contentsname}{{Table of Contents}}
+\renewcommand{\contentsname}{{Table of Contents}}
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
 \renewcommand{\epsilon}{\varepsilon}
 \renewcommand{\rho}{\varrho}
-
-%\renewcommand{\Correlatore}{Relatore Esterno}
 
 \usepackage{hyperref}
 
@@ -68,7 +67,7 @@
 \titleformat{\chapter}[display]{\itshape}{}{2ex}{\fontfamily{ppl}\selectfont\LARGE}[\titlerule]
 
 \frontmatter
-%\include{introduction}
+\include{introduction}
 \tableofcontents
 
 \mainmatter
@@ -79,9 +78,8 @@
 %\include{LHC_ATLAS/LHC_ATLAS}
 %\include{DarkMatter/DarkMatter}
 %\include{MCSample/MCSample}
-%\include{monophoton/monophoton}
-\include{Interpretations/interpretations}
-
+\include{monophoton/monophoton}
+%\include{Interpretations/interpretations}
 
 %\chapter[titolocorto]{LENTE PER DM}
 %Castle database numero 29 
