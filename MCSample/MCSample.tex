@@ -1,27 +1,28 @@
-\chapter[MonteCarlo sample production]{MonteCarlo production of Minimal DM model sample for the \mph analysis}
+\chapter[MonteCarlo sample production]{MonteCarlo production of Minimal DM model samples for the \mph analysis}
 
-\lettrine{T}{}his chapter describes all the steps made to generate, simulate and reconstruct MonteCarlo (MC) events for the \mph analysis in the context of the Minimal DM model.
+\lettrine{T}{}his chapter describes all the steps made to generate, simulate and reconstruct MonteCarlo (MC) events in the context of the Minimal DM model for the \mph analysis .
 
 %In the \mph analysis, which is a ``cut\&count'' analysis (refer to Chapt. \ref{chapt:mph}), we are looking for a single high energy photon and large missing transverse momentum (\met) signature, whose definition will be given in \Sect{\ref{sec:recoreal}}. Therefore it is characterized by a relative clean final state thanks also to a small set of SM processes that produces the same outcome. The Minimal DM model predicts several ways in which DM can be produced and revealed within a \mph analysis. Three examples of Feynman diagram are given in \Fig{\ref{fig:feynman}}. Notice that a photon can also be radiated from the final state which is a peculiarity with respect to other DM simplified models adopted at LHC.
 
+The simulation of the physics processes in the detector is a fundamental ingredient in the analysis to assess the discovery potential for a new signal but also as input to the real data scrutiny.
+%In order to study the detector response for a wide range of physics processes and scenarios, 
+A detailed simulation  of the physics process and of the detector response is pursued providing an output format which is identical to that of the true detector. 
 
-In order to study the detector response for a wide range of physics processes and scenarios, a detailed simulation  of the physics process and of the detector response is pursued providing an output format which is identical to that of the true detector. 
-
-The simulation process of events comes across several steps. The first one is the event generation in which the very first products of \pp collision are simulated followed by the \emph{hadronization} and the \emph{parton-shower}. This step consists in the Truth-level simulation and a summary file (a TRUTH file) can be built from this events at particle level.
+The simulation process of events comes across several steps. The first one is the event generation in which the products of \pp collision are simulated. The event generation starts with the creation of the list of particles (electrons, photons, partons\dots) from the hard scattering. The partons radiation is modeled through \emph{parton shower}, finally hadronization and underlying events are also used to complete the event. This step consists in the Truth-level simulation, producing an EVNT file, and a summary file (a TRUTH file) can be built from this events at particle level.
 
 The second step consists in the simulation of how particles interact with the detector which is followed by the digitization step. The simulation program is integrated into the ATLAS software framework, Athena, and uses the \geant \cite{geant4} simulation toolkit. Detailed description of the ATLAS Simulation Infrastructure is given in~\cite{simulation}.
 
 Afterwards the simulated event can be passed to the reconstruction software in the same way as actual recorded data. Then all the events reconstructed are filtered by a derivation code which selects only the  relevant events for a specific analysis. Finally the ``derivated'' events are collected in a compact and practical RooT file i.e a \emph{NTUPLE} ready to be processed by the analysis.
 
-For this analysis all the software chain described above and shown in \Fig{\ref{fig:chain}} was run in batch mode on the Milano Tier3 computing facility via HTCondor$^{\textup{TM}}$.
+For this analysis the software chain described above and shown in \Fig{\ref{fig:chain}} was run in batch mode on the Milano Tier3 computing facility via HTCondor$^{\textup{TM}}$.
 
 \input{MCSample/chain}
 
 \section{Generation}
 \input{MCSample/feynmandiagrams}
-For the generation process \MGMCatNLO v2.4.0 was used~\cite{madgraph}. This software automatically generates matrix elements, as for example decays or scattering from a couple of particles. The user simply specifies the process of interest by giving the initial and final state particles and \MADGRAPH generates the Feynman diagrams and the code needed for the calculation of the matrix element~\cite{Pottgen:2016807}. In this context, even if the software could generate matrix element up to the next to leading order (\NLO) only leading order (\LO) calculations were used.
+For the event generation process \MGMCatNLO v2.4.0 was used~\cite{madgraph}. This software automatically generates matrix elements, as for example decays or scattering from a couple of particles. The user simply specifies the process of interest by giving the initial and final state particles and \MADGRAPH generates the Feynman diagrams and the code needed for the calculation of the matrix elements~\cite{Pottgen:2016807}. In this context, even if the software could generate matrix element up to the next to leading order (\NLO) only leading order (\LO) calculations were used.
 
-The Minimal DM Model has already been implemented in an UFO file containing its details~\cite{mperego} considering the pure electroweak triplet (\chip\!, \chizero\!, \chim\!) and implemented in FeynRules. UFO is the format used in input by \MADGRAPH. Although the model would predict a mass splitting of \SI{\sim 165}{\mev} between \chipm and the \chizero, here is set to be \SI{1}{\gev}: small enough to let the charged $\chi$s decay into soft pions and a \chizero but large enough not to create issues in the generation program. 
+The Minimal DM Model was already been implemented in an UFO file containing its details~\cite{mperego} considering the pure electroweak triplet (\chip\!, \chizero\!, \chim\!) and implemented in FeynRules. UFO is the format used in input by \MADGRAPH. Although the model would predict a mass splitting of \SI{\sim 165}{\mev} between \chipm and the \chizero, here is set to be \SI{1}{\gev}: small enough to let the charged $\chi$s decay into soft pions and a \chizero but large enough not to create issues in the generation program. 
 
 Events of the type: 
 \begin{gather*}
@@ -32,9 +33,9 @@ p p > \chi^+ \chi_0 \gamma,\, \chi^- > \piminus \chi_0
  
 have been generated to provide a final stare characterized by one photon and missing transverse momentum (\met). The Minimal DM model predicts several ways in which DM can be produced and revealed within a \mph analysis. Three examples of Feynman diagram are given in \Fig{\ref{fig:feynman}}. Notice that a photon can also be radiated from the final state which is a peculiarity with respect to other DM simplified models adopted at LHC.
 
-For 21 different $\chi_0$ masses, \num{10000} events have been generated requiring a kinematic cut on photon energy to be greater than \SI{130}{\gev} in order to populate the \mph phase space.
+For 21 different $\chi_0$ masses, \num{10000} events have been generated requiring a kinematic cut on photon energy to be greater than \SI{130}{\gev} in order to populate the \mph analysis phase space.
 
-Before performing the hadronization and parton shower, a fast scan for different mass point running \MADGRAPH \emph{on-the-fly} was made in order to get an order the values of cross sections. Results are reported in \Tab{\ref{tab:xsectheo}}.
+Before performing the hadronization and parton shower, a fast scan for different mass point running \MADGRAPH \emph{on-the-fly} was made in order to get an order the values of the cross sections. Results are reported in \Tab{\ref{tab:xsectheo}}.
 
 \begin{table}[pt]
 \centering
@@ -56,27 +57,30 @@ Mass[GeV]&Cross section [pb]&Error [pb]\\
 \label{tab:xsectheo}
 \end{table}
 
-For the simulation of parton showers, underlying event or hadronization, the output of \MADGRAPH has to be passed on to an external programm, which in our case is \PYTHIA v8.210~\cite{pythia}. This framework accounts for the generation, starting from a \emph{Les Houches Event} (LHE) file, of parton shower and underlying event, i.e. it creates colourless states from free quarks and gluons. \PYTHIA was set up with NNPDF23LO PDF and the A14 tuning. The output file produced is an EVNT file which can be used as input either for the detector simulation step or to produce a TRUTH file.
+For the simulation of the parton showers, underlying event and hadronization, the output of \MADGRAPH has to be passed to an external programm, which in our case is \PYTHIA v8.210~\cite{pythia}. This framework accounts for the generation, starting from a \emph{Les Houches Event} (LHE) file, of parton shower and underlying event, i.e. it creates colourless states from free quarks and gluons. \PYTHIA was set up with NNPDF23LO PDF and the A14 tuning. The output file produced is an EVNT file which can be used as input either for the detector simulation step or to produce a TRUTH file.
 
 \subsection{Truth level validation}
 \label{sec:truth}
-The simulation of the events as it were ``in vacuum'' is called \emph{Truth level}. Here no assumption are made on the detector, but we only want to analyze the process and its outcome. The TRUTH1 is a file format coming from a Derivation framework, which will be better explained in \Sect{\ref{sec:derivation}}, and it contains all needed information at particle level.
+The generation of the events as it were ``in vacuum'' is called \emph{Truth level}. Here no assumptions are made on the detector, but we only want to analyze the process and its outcome. The TRUTH1 is a file format coming from a Derivation framework, which will be better explained in \Sect{\ref{sec:derivation}}, and it contains all needed information at particle level.
 
-To validate the TRUTH1 samples a ``fiducial region'' is defined appling the \mph selection (see Chapter \ref{chapt:mph}) on truth quantities. Such ``fiducial region'' will be used to reinterpret the \mph analysis in terms of new physiscs models, like the Minimal DM model, providing useful contraints.
+A ``fiducial region'' can be defined t allow the re-interpretation of the data analysis results in terms of new physiscs models, like the Minimal DM model, providing useful contraints.
  
-The selection for \mph events, whose explanation of kinematic criteria will be provided in \Sect{\ref{sec:SRselection}}, involves:
+The pre-selection for \mph analysis, (\Sect{\ref{sec:SRselection}}), involves:
 \begin{itemize}
 \item photons with $\pt^\gamma>\SI{10}{\GeV}$ with $\abs{\eta_\gamma}<2.37$ and $1.37<\abs{\eta_\gamma}<1.52$;
 \item electrons with $\pt^e>\SI{7}{\gev}$ with $\abs{\eta_e}<2.47$;
-\item muons with $\pt^\mu>\SI{6}{\gev}$ with $\abs{\eta_\mu}<2.5$\footnote{These last two occurs only for a preselection, no electrons or muons are allowed in this region (see last point)};
+\item muons with $\pt^\mu>\SI{6}{\gev}$ with $\abs{\eta_\mu}<2.5$;
 \item jets with $\ptjet>\SI{30}{\gev}$ with $\abs{\eta_{\textup{jet}}}<4.5$ not overlapping with electron or photon by $\DeltaR > 0.4$;
+\end{itemize}
+while the actual selection requires:
+\begin{itemize}
 \item $\met>\SI{150}{\gev}$;
 \item leading photon with $\pt^\gamma > \SI{150}{\GeV}$;
 \item \met significance: $\met/\sqrt{\sumET} > \SI{8.5}{\GeV^{1/2}}$;
 \item no electrons nor muons and $N_\textup{jets}\le 1$ with $\Delta\phi_\textup{jet-\met}<0.4$ if any.
 \end{itemize}
 
-The validation of the TRUTH files produced for several \chizero masses consists in the check of the main kinematic variables involved in the analysis. The results are shown in validation plots in \Fig{\ref{fig:validation}} after the first four cuts provided above, for different DM masses. Notice that the peak for low-$\pt^\gamma$ in \Fig{\ref{subfig:phpt}} rises because the leading photon could enter the crack region (\etaRange{1.37}{1.52}) and therefore doesn't pass the $\eta$ cuts, then the code select a subleading photon with lower momentum
+The validation of the TRUTH files produced for several \chizero masses consists in the check of the distribution of the main kinematic variables involved in the analysis. The results are shown in validation plots in \Fig{\ref{fig:validation}} after the first four cuts provided above, for different DM masses. Notice that the peak for low-$\pt^\gamma$ in \Fig{\ref{subfig:phpt}} rises because the leading photon could enter the crack region (\etaRange{1.37}{1.52}) and therefore doesn't pass the $\eta$ cuts, then the code select a subleading photon with lower momentum
 %\footnote{A weird behaviour has been noticed in \PYTHIA for which sometimes the leading photon converts in a couple $e^+e^-$ for apparently no reasons. These events, however, contribute to the sharp low peak but they occur in the 5\% of the case and they can be neglected}. 
 Detailed analyisis on these events in terms of fiducial cross section will be given {\bfseries in the next chapter}.
 
@@ -90,12 +94,12 @@ Detailed analyisis on these events in terms of fiducial cross section will be gi
 {\includegraphics[width=.45\textwidth]{MCSample/canEtaoverlap}} \quad
 \subfloat[][Number of jets for different masses]
 {\includegraphics[width=.45\textwidth]{MCSample/canNjetsoverlap}} \quad
-\caption{Validation plots for the Minimal DM model. From these plots an evolution on kinematics variables can be seen as a function of DM mass. these plots are generated following the first four cuts given in \Sect{\ref{sec:truth}}}
+\caption{Validation plots for the Minimal DM model. From these plots the evolution of the main kinematics variables can be seen as a function of DM mass. These plots are generated after the pre-selection cuts given in \Sect{\ref{sec:truth}}}
 \label{fig:validation}
 \end{figure}
 
 \section{Simulation}
-The standard simulation of ATLAS relies on the \geant particle simulation toolkit to simulate the interaction of particles through matter. This step takes as inpunt the EVNT file from \PYTHIA, in our case, or any of the generators such \HERWIG and \SHERPA, and it is the most time expensive stage in the full simulation. The output is stored into an HIT file. To save time the framework allows the user to skip a certain number of events at the beginning of an input file by submitting $n$ jobs with $N$ events each to a $n\times N$ event input file and merged together at the end of the process.
+The standard simulation of ATLAS relies on the \geant particle simulation toolkit to simulate the interaction of particles with matter. This step takes as inpunt the EVNT file from \PYTHIA, in our case, or any of the generators such \HERWIG and \SHERPA, and it is the most time expensive stage in the full simulation. The output is stored into an HIT file. To save time the framework allows the user to skip a certain number of events at the beginning of an input file by submitting $n$ jobs with $N$ events each to a $n\times N$ event input file and merged together at the end of the process.
 
 %First of all comes the simulation initialization which is divided in three steps. Stage one of the initialization occurs as soon as Athena is started which is set to AtlasProduction 19.2.4.9. release. Here job properties provided by the user are locked, metadata that will be stored with the hit output file are gathered and the HIT file initialized. Finally service is created to interface with \geant which is not fully initialized at this stage. In stage two detector, physics regions, range cuts are created. Each piece of the ATLAS detector is constructed in GeoModel according to the geometry chosen, which in this work is \verb!ATLAS-R2-2015-03-01-00_VALIDATION!, and translated into an equivalent \geant geometry. Next, the Monte Carlo truth strategies, which are \verb!MC12! in this context, are added to the simulation.Then the magnetic field is loaded and every user action, which allows a user to insert pieces of code in various places throughout the simulation event loop, provided from the configuration command are initialized. The physics list (see below) used for simulation is also set at this point. The third stage completes the job preparation. assigning fast simulation models and runs \geant  software.
 
@@ -103,7 +107,7 @@ The standard simulation of ATLAS relies on the \geant particle simulation toolki
 
 To speed up the full simulation process a fast simulation approach is adopted. In this work ATLFAST-II was used, which provides large statistics to supplement full simulation studies. It is made up from two components: the Fast ATLAS Tracking Simulation (Fatras) for the inner detector and muon system simulation and the Fast Calorimeter Simulation (FastCaloSim) for the calorimeter simulation~\cite{simulation}. 
 
-In Fatras the geometry of the detector consists in a simplified description of the full detector geometry, which mantains the same descriptive accuracy for its sensitive parts, and all other detector components are approximated as simplified layers that carry a high-granularity density providing an improvement in CPU time by a factor \num{100}. The interactions of the particles with the simplified detector layers are simulated using several methods, for instance ionization and radiative energy loss are simulated according to the Bethe-Bloch model. The photon conversion into a couple of electron and positron is performed depending on the thickness of the material crossed and hadronic interactions with the detector layer are simulated from a parametric model obtained from \geant simulation results. Fatras provides also the input particle collection to give to FastCaloSim. Moreover it records energy deposition for muons in the calorimeter layers which will be used in the FastCaloSim application. The trajectories of the muons are also simulated in the muon spectrometer.
+In Fatras the geometry of the detector consists in a simplified description of the full detector geometry, which mantains the same descriptive accuracy for its sensitive parts, and all other detector components are approximated as simplified layers that carry a high-granularity density providing an improvement in CPU time by a factor \num{100}. The interactions of the particles with the simplified detector layers are simulated using several methods, for instance ionization and radiative energy loss are simulated according to the Bethe-Bloch model. The photon conversion into a couple of electron and positron is performed depending on the thickness of the material crossed and hadronic interactions with the detector layer are simulated from parametric models obtained from \geant simulation results. Fatras provides also the input particle collection to give to FastCaloSim. Moreover it records energy deposition for muons in the calorimeter layers which will be used in the FastCaloSim application. The trajectories of the muons are also simulated in the muon spectrometer.
 
 FastCaloSim uses parametrizations of the longitudinal and lateral energy profile of the energy of single particle showers instead of simulating the particle interactions with the detector material. The parametrizations are based on a fully-simulated, with \geant, sample of 30 million events made of single photons and charged pions from an energy range between \SI{200}{\MeV} and \SI{500}{\GeV} for \AetaRange{5.0} and every $\phi$. Electron and photon showers are approximated by the photon parametrization and hadronic showers are modeled on the charged pions.
 
@@ -119,11 +123,9 @@ In order to understand anomalies and debug errors due to geometry or checking by
 \end{figure}
 
 \section{Digitization}
-The ATLAS digitization software converts the hits produced by the core simulation into detector responses i.e ``digits''. In real events a digit is produced when the voltage of a readout channel rises above a preconfigured threshold in a particular time window~\cite{simulation}.
+The ATLAS digitization software converts the hits produced by the core simulation into detector responses i.e ``digits''. In real events a digit is produced when a signal is recorded in a readout channel of the detector~\cite{simulation}.
 
-%{\bfseries ora inizia parte poco chiara, perch\'e il paper parla solo di hard scattering digitizzato. non c'era tutto nel file hit?}
-
-In addition to the hard scattering digitization, pile-up and any other source of noise must be incorporated. For pile-up simulation, there are also input HIT files for each type of background interaction to be overlaid, whose number for each bunch crossing is a function of the luminosity simulated. Moreover cavern background could influence the simulation. The cavern background is a sort of neutron-photon gas made up of neutrons propagating into the ATLAS cavern before getting thermalized. 
+In addition to the hard scattering digitization, pile-up and any other source of noise must be incorporated. For pile-up simulation, there are also input HIT files for minimum bias events to be overlaid, whose number for each bunch crossing is a function of the luminosity simulated. Moreover cavern background and cosmic muons could influence the simulation.
 
 The ATLAS detector electronic produces data in bytestream format called RawData Objects (RDO) whose size on disk is typically \SI{2.5}{MB\per event} and increases with larger number of \pileup events.
 
@@ -132,9 +134,11 @@ The ATLAS detector electronic produces data in bytestream format called RawData 
 \section{Reconstruction}
 \label{sec:recoreal}
 
+Within this section, physics object definition and reconstruction in ATLAS are discussed, focusing on those mainly involved in this analysis. Definitions follow the recommendations from the various Combined Performance (CP) groups.
+
 A reconstructed event in ATLAS is an ensemble of signals produced in the detector, which must be processed in order to get particle's property and identification. 
 
-This step is identical for both real data and MC generated data and produces an output file in a Event Summary Data (ESD) and Analysis Object Data (AOD) form. 
+This step is identical for both real data and MC generated events and produces an output file in a Event Summary Data (ESD) and Analysis Object Data (AOD) form. 
 
 Within this section, physics object definition and reconstruction in ATLAS is described, focusing on those mainly involved in the \mph analysis. Definitions follow the recommendations from the various Combined Performance (CP) groups.
 
@@ -143,45 +147,53 @@ Within this section, physics object definition and reconstruction in ATLAS is de
 \subsection{Photons}
 \label{photons}
 \subsubsection{Reconstruction}
-Photons are reconstructed from clusters in the electromagnetic calorimeter measured in projective towers but uses information from the Inner Detector as well. These towers are portion of the second layer of the calorimeter of $N_1 \times N_2$ cells in the $\eta-\phi$ plane. Photons and electrons (positrons) signature and energy deposits are very similar in the EM calorimeter. That's why we need information from ID to discriminate them: a photon would not produce any tracks there since the ID is sensitive only to charged particles. A cluster with no tracks associated is pruduced by a photon which is defined \emph{unconverted} since it was produced by a primary vertex it is straight revealed by the EM calorimeter. A \emph{converted} photon, instead, is produced in a primary vertex, it generats a electron-positron couple in a secondary vertex within the ID and in the calorimeter it produces two associated tracks.
+Photons are reconstructed from clusters in the electromagnetic calorimeter measured in projective towers but uses information from the Inner Detector as well. These towers are portions of the second layer of the calorimeter of $N_1 \times N_2$ cells in the $\eta-\phi$ plane. Photons and electrons (positrons) signature and energy deposits are very similar in the EM calorimeter. That's why information from ID to discriminate them are essential: a photon would not produce any track since the ID is sensitive only to charged particles. A cluster with no tracks associated is classified as a \emph{unconverted} photon since it was produced in a primary vertex it is straight revealed by the EM calorimeter. A \emph{converted} photon, instead, is produced in a primary vertex, it generates a electron-positron pair in a secondary vertex within the ID whose tracks can be associated to the cluster.
 
-The reconstruction process starts from a \emph{sliding-window} algorithm. It looks for the optimal clusters starting from windows of $3\times5$ cells, or $0.025\times0.025$ in $\eta-\phi$, for unconverted photons and $3\times7$ cells ($0.175\times0.175 \, \eta\times\phi$) for converted ones, in the barrel region of the EM calorimeter, whose energy deposited is greater than \SI{2.5}{\gev} in order to reduce electronic noises and any \pileup events. In the endcap, clusters of size $5\times5$ are used for all photon candidates.
+The reconstruction process starts from a \emph{sliding-window} algorithm. It looks for the optimal clusters starting from windows of $3\times5$ cells, or $0.025\times0.025$ in $\eta-\phi$, for unconverted photons and $3\times7$ cells ($0.175\times0.175 \, \eta\times\phi$) for converted ones, in the barrel region of the EM calorimeter, whose energy deposited is greater than \SI{2.5}{\gev}. In the endcap, clusters of size $5\times5$ are used for all photon candidates.
 
-In order to identify an object as a photon or electron, tracks information are necessary. The tracking algorithm, Gaussian Sum Filter (GSF), reconstructs tracks by fitting points within the pixel detector and first layers of SCT and extrapolates informations gathered to outer layer of the ID and into the EM calorimeter. The algorithm also carefully trests the energy losses due to bremsstrahlung. Working along with the tracking algorithm, the vertexing algorithm analyses and classifies the interaction vertices and requires that a track points toward the center of the cluster whithin a $0.05\times0.05$ $\eta\times\phi$ window. Clusters with no matching tracks are classified as unconverted photons. Otherwise it is reconstructed as a converted photon or an electron.
+%In order to identify an object as a photon or electron, tracks information is necessary. The tracking algorithm, Gaussian Sum Filter (GSF), reconstructs tracks by fitting points within the pixel detector and first layers of SCT and extrapolates informations gathered to outer layer of the ID and into the EM calorimeter. The algorithm also carefully trests the energy losses due to bremsstrahlung. Working along with the tracking algorithm, the vertexing algorithm analyses and classifies the interaction vertices and requires that a track points toward the center of the cluster whithin a $0.05\times0.05$ $\eta\times\phi$ window. Clusters with no matching tracks are classified as unconverted photons. Otherwise it is reconstructed as a converted photon or an electron.
 
 Any noisy or sporadic noisy channel can sometimes produce a signal with transverse momentum larger than \SI{2.5}{\GeV }and give rise to a sliding window cluster~\cite{photons}. In order to identify these bad quality or fake clusters coming from instrumental problems cleaning cuts are applied on photon candidates. A photon is flagged as bad if it contains or edges dead/masked cells.
 
 \subsubsection{Identification}
-Once a list of candidate photons has been made, we have to discriminate between real photons and contamination from \pizero, as shown in \Fig{\ref{pizerogamma}}, or other SM particles decaying via two photons. Identification is based upon the strip and middle layers of the EM calorimeter.
+\begin{figure}[tp]
+\centering
+\includegraphics[width=.65\textwidth]{MCSample/pizerogamma}
+\caption{Discrimination between a single photon and two collimated photons from a \pizero decay in the the ATLAS EM calorimeter. From the bottom to the top the strip, middle and back layers are visualized.}
+\label{pizerogamma}
+\end{figure}
 
-Two working points are defined for photons: loose and tight depending on which cuts a photon passes based on shower shapes measured in strips and middle layers of the EM calorimeter together with hadronic leakage. The differences observed between data and MC in the ``isEM'' discriminating variables are measured comparing the shower shape distributions, and parametrized as simple shifts.{\bfseries POCO CHIARO}. Instead, three working points which are loose, medium and tight, have been defined for electrons. Details on photons selection criteria can be found in \cite[Sect. 4]{photons}.
+Once a list of candidate photons has been made, we have to discriminate between real photons and hadronic jets containing high \pt \pizero, as shown in \Fig{\ref{pizerogamma}}. Identification is based upon the information from the strip and middle layers of the EM calorimeter.
+
+Two working points are defined for photons: loose and tight depending on which cuts a photon passes based on shower shapes measured in strips and middle layers of the EM calorimeter together with hadronic leakage. The differences observed between data and MC in the discriminating variables are measured comparing the shower shape distributions in data and MC, and parametrized as simple shifts. Instead, three working points which are loose, medium and tight, have been defined for electrons. Details on photons selection criteria can be found in \cite[Sect. 4]{photons}.
+
+Tight photons efficiency identification is expected to be greater than \SI{90}{\percent}~\cite{photonsISO}.
 
 \subsubsection{Isolation}
 \label{sec:phisolation}
 \begin{figure}[tp]
 \centering
-\subfloat[scale=1.5][\label{pizerogamma}]
-{\includegraphics[width=.45\textwidth]{MCSample/pizerogamma}} \quad
-\subfloat[0.4\textwidth][\label{topoetcone40}]
-{\includegraphics[scale=0.6]{MCSample/topoetcone40}} 
-\caption{(\emph{a}). Discrimination between a single photon and two collimated photons from a \pizero decay in the the ATLAS EM calorimeter. From the bottom to the top the strip, middle and back layers are visualized. \\ \emph({b}). The algorithm which fills TopoEtCone40 in action: from the $R=0.4$ cone (yellow) a $5\times7$ rectangle is removed, energy deposited is computed among the \topo~within the cone (orange) and the \pt-leakage (blue) is subtracted.}
+\includegraphics[width=0.38\textwidth]{MCSample/topoetcone40}
+\caption{The algorithm which fills TopoEtCone40 in action: from the $R=0.4$ cone (yellow) a $5\times7$ rectangle is removed, energy deposited is computed among the \topo~within the cone (orange) and the \pt-leakage (blue) is subtracted.}
+\label{topoetcone40}
 \end{figure}
-Usually the isolation of a particle is expressed in terms of $E_\textup{T}^{\textup{iso}}$ which computes the transverse energy of the calorimeter cells (\topo) whithin a cone of given radius around a candidate. A track isolation $p_\textup{T}^{\textup{iso}}$variable can be defined as well.
 
-In the above mentioned cone, an algorithm looks for \topo~with energy deposits above a certain threshold. If any has been found, the contribute of the photon itself, in a $5\times7$ cells area around the cone axis, and from the underlying evens and \pileup is therefore subtracted and the \pt-leakage, i.e. photon energy escaped frome the area previously identified, is taken into account. Then the total energy in the cone is computed and the variable storing this information in our analysis is ``TopoEtCone40'' which contains the energy evaluated in a cone of $R=0.4$ radius. Therefore a photon is considered isolated if ``TopoEtCone40''remains below a certain threshold, i.e. $\text{TopoEtcone40} < 0.022\pt^\gamma + \SI{2.45}{\GeV}$ and $\text{ptcone20}/\pt^\gamma<0.05$. A visual representation of the process described is given in \Fig{\ref{topoetcone40}}.
+Usually the isolation of a particle is expressed in terms of $E_\textup{T}^{\textup{iso}}$ which computes the transverse energy measured in the calorimeter cells (\topo) whithin a cone of given radius around the candidate. A track isolation $p_\textup{T}^{\textup{iso}}$variable can be defined as well.
 
-All the reconstructed loose photons with \ET $> \SI{10}{\GeV}$ (after energy rescaling) and $\eta<2.37$ are considered as photon candidates.
+In the above mentioned cone, an algorithm sums up the energies of the \topo~with energy deposits above a certain threshold~\cite{photonsISO}. The contribution of the photon itself, in a $5\times7$ cells area around the cone axis, and from the underlying evens and \pileup is  subtracted and the \pt-leakage, i.e. photon energy escaped from the area previously identified, is taken into account. Then the total energy in the cone is computed and the variable storing this information in our analysis is ``TopoEtCone40'' which contains the energy evaluated in a cone of radius $R=0.4$. Therefore a photon is considered isolated if ``TopoEtCone40''remains below a certain threshold, i.e. $\text{TopoEtcone40} < 0.022\pt^\gamma + \SI{2.45}{\GeV}$ and $\text{ptcone20}/\pt^\gamma<0.05$. A visual representation of the process described is given in \Fig{\ref{topoetcone40}}.
+
+Isolation efficiency is computed to be greater than \SI{90}{\percent} for $\et^\gamma$ greater than \SI{100}{\gev}~\cite{photonsISO}.
 
 
 \subsection{Missing transverse momentum}
 \label{sec:met}
 \subsubsection{Reconstruction}
 
-An intuitive definition of missing transverse momentum (\met) is the momentum inbalance in the transverse plane. A non-zero inbalance there, must suggest the presence of missing energy since this plane is boost-invariant and energy must be conserved. Indeed we can state something only about this energy since any beam-projected component could carry a fraction of proton momentum at which the collision took place, which is unknown\footnote{boh, magari l'inglese \`e sbagliato. Cio\`e voglio dire che non conosciamo l'energia longitudinale perch\`e il momento del partone \`e ignoto, ma l'energia del piano trasverso \`e nulla e tale deve rimanere}.
+An intuitive definition of missing transverse momentum (\met) is the momentum inbalance in the transverse plane. A non-zero inbalance, must suggest the presence of missing energy since this plane is boost-invariant and energy must be conserved. Indeed we can state something only about transverse energy since the parton momentum in the beam direction before the collision is unknown.
 
-The true \met is given simply by neutrinos and non interacting particles, but also there are other sources such malfunctioning in the detector or its finite resolution so that a reconstructable particle becomes invisible or it could be relevant for this analysis for which it stands to \emph{non}-interacting particles such DM particles.
+The true \met is given simply by neutrinos and non interacting particles, but also there are other sources such malfunctioning detector region or its finite coverage so that a reconstructable particle becomes invisible. This is particularly relevant for this analysis when we look for to \emph{non}-interacting particles such DM particles.
 
-Here we refer to the scalar quantity with \met and to the vectorial with \textbf{\met}. For a detailed approach to the calibration and reconstruction of this quantity refer to \cite{met}.
+Here we refer to the scalar quantity with \met and to the vectorial with \textbf{\met}. For a detailed explanation of the  to the calibration and reconstruction of this quantity refer to \cite{met}.
 
 The \met calculation used in this analysis is based on all reconstructed and calibrated physics objects. In the transverse plane the scalar energy and the corresponing vector quantity are given by:
 \begin{gather}
@@ -190,7 +202,7 @@ The \met calculation used in this analysis is based on all reconstructed and cal
 	\textbf{\met}=\met \hat{n}
 \end{gather}
 
-where $\hat{n}$ is a versor pointing from the origin of the ATLAS reference frame toward the direction in which \met is found.
+where $\hat{n}$ is a versor pointing from the origin of the ATLAS reference frame toward the direction in which \met is found and equals the negative vectorial sum of all reconstructed object \pt.
 
 The single components $E_i^\textup{miss}$, ($i=\{x,y\}$), in equation \ref{eqn:met} is given by:
 \begin{equation}
