@@ -88,13 +88,13 @@ For the \mph analysis the following background processes were considered.
 
 In order to quantify the amount of background events in SR, several Control Regions (CRs) are defined which are assumed to be free of signal contamination. Each of them is defined reverting one or more constraints for the SR to enrich every region with a given background process, so that they are characterized by a pure dominant process among the others. This provides also ortogonality of a region to one another and their statistical independence.
 
-Events in CRs are simulated using \SHERPA v2.2.0 whose predictions are be fitted to data, to get a more reliable estimate of background in SR. Data driven techniques are applied to estimate
-
-
-electrons and jets faking photons, but in this work results in all the regions from these sources have been taken from the \mph paper of 2015 nd 2016 data~cite{paperMP}. This kind of backgrounds cannot be estimated like the previous ones because they are due due to some detector mistakes in reconstruction and purely \insitu techniques are used. Faking photons from electrons are estimated with the \emph{tag and probe} method, while the \emph{2D sideband method} is used for fake photons from jets.
+Events in CRs are simulated using \SHERPA v2.2.0 whose predictions are be fitted to data, to get a more reliable estimate of background in SR. Data driven techniques are applied to estimate electrons and jets faking photons, but in this work results in all the regions from these sources have been taken from the \mph paper of 2015 nd 2016 data~cite{paperMP}. This kind of backgrounds cannot be estimated like the previous ones because they are due due to some detector mistakes in reconstruction and purely \insitu techniques are used. Faking photons from electrons are estimated with the \emph{tag and probe} method, while the \emph{2D sideband method} is used for fake photons from jets.
 
 In \Fig{\ref{fig:prefit}} and \Fig{\ref{fig:prefitcont}}, the distribution of leading photon \pt and \met for the main background sources in SR and in CRs is given.
 
+
+
+\subsection{Definition of Control Regions}
 \begin{figure}[p]
 \centering
 \subfloat[][Photon momentum distribution in SR \label{subfig:SRp}]
@@ -132,9 +132,6 @@ In \Fig{\ref{fig:prefit}} and \Fig{\ref{fig:prefitcont}}, the distribution of le
 \caption{Continued from \Fig{\ref{fig:prefit}}}
 \label{fig:prefitcont}
 \end{figure}
-
-
-\subsection{Definition of Control Regions}
 \input{monophoton/regions}
 Four CRs shown in \Fig{\ref{fig:regions}}, enriched in a specific background process are defined in order to extract normalization factors ($k_>$, $k_W$, $k_\gammajet$) for the main background, that are applied in the SR.
 
@@ -197,9 +194,10 @@ whose expectation value is given by the sum of:
 \item other sources of background such the fake photons from electrons and jets.
 \end{itemize}
 
-The free parameters of the fit are the signal yield and the three k factors: $k_{\textup{Z}}$, $k_{\textup{W}}$ and $k_{\textup{pj}}$. Uncertainties are treated by multiplying \ref{eqn:nr} by a gaussian like:
+The free parameters of the fit are the signal yield and the three k factors: $k_{\textup{Z}}$, $k_{\textup{W}}$ and $k_{\textup{pj}}$. Uncertainties are treated by multiplying \ref{eqn:nr} by a gaussian term:
 \begin{equation}
    g(\vartheta_{t} \vert \theta_{t}) = \frac{1}{\sqrt{2\pi}}e^{\frac{(\vartheta_{t}-\theta_{t})^2}{2} } 
+   \label{eqn:gauss}
 \end{equation} 
 where $\theta$ is best value of the parameter associated to a given systematic and $\vartheta$ is the value being computed by the fit. Parameters found far away from their best value by the fitting procedure have a lower weight. A simultaneous likelihood is then built, by multiplying each region likelihood. The whole precedure of the likelihood implementation and maximization is carried out by the \hf package.
 
@@ -263,7 +261,30 @@ The HistFitter \Tab{\ref{table.results.systematics.in.logL.fit.table.results.yie
 \input{monophoton/MonoPhoton_sys_afterFit}
 
 \section{Systematic uncertainties}
-Various sources of experimental uncertainties are taken into account for the background prediction. For the main background sources \znng, \zg, \wg and \gj the uncertainties provided by the CP groups were considered. Each systematic impact was evaluated considering the corresponding variation by varying the relevant quantity (calibration scale, identification and reconstruction scale factor or efficiency), as per CP recommendation. For instance, a one-sided shift is applied to a certain variable and the corresponding variation on each yield is symmetrized and considered as systematic uncertainty.
+Various sources of experimental uncertainties are taken into account for the background prediction. For the main background sources \znng, \zg, \wg and \gj the uncertainties provided by the CP groups were considered. Each systematic impact was evaluated considering the corresponding yield variation from a single systematic: the fitting procedure sets all parameters constant, except for the one of interest and calculate the uncertainty from varying only that parameter. This procedure allows to take care of any correlation between systematics.
+
+Sytematic uncertainties can involve experimental uncertainties related to the knowledge of the energy scale of the reconstruction and identification of physics objects, reconstruction and selection efficiencies and overall uncertainties on the event selection efficiency. On the other hand theoretical uncertainties are taken into account. They arise from theoretical assumption on the cross section of the various MC processes, and include the systematic errors on data-driven techniques for fake photons estimate.
+
+%The systematic uncertainties are treated as nuisance parameter $\theta$ by the fit and modeled with a response function $\nu\left(\theta\right)=1+\delta\theta$ which multiplies data yield. $\theta$ is the optimized value taken from the fit accounted in the likelihood model with \Eqn{\ref{eqn:gauss}}.
+
+However, the \mph analysis is dominated by statistical uncertainties which accounts for the \SI{4.3}{\percent}~\cite{paperMP} of the total error. Systematic and statistical uncertainties togheter accounts for the \SI{6.1}{\percent}. The main sources of systematic uncertainties comes from the fake photons events: Jet and electron fake rate and the jet energy scale. \Tab{\ref{table:sys}} reports the contribution from these sources.
+
+\begin{table}[pt]
+\centering
+\begin{tabular}{lc}
+\noalign{\smallskip}\toprule\noalign{\smallskip}
+Source & Impact\\
+\noalign{\smallskip}\midrule\noalign{\smallskip}
+Total (statistical+systematic) uncertainty & \SI{6.1}{\percent}\\
+Statistical uncertainty only & \SI{4.3}{\percent}\\
+Jet fake rate & \SI{1.3}{\percent}\\
+Electron fake rate& \SI{1.5}{\percent}\\ 
+Jet energy scale& \SI{4.1}{\percent}\\
+\noalign{\smallskip}\bottomrule\noalign{\smallskip}
+\end{tabular}
+\caption{Post fit background uncertainties. Impact of the statistical and systematic uncertainties are reported along with the three major systematic sources for a total background of $2637.80$ events in the SR}
+\label{table:sys}
+\end{table}
 
 
 
