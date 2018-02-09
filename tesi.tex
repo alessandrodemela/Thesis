@@ -55,12 +55,15 @@
 \renewcommand{\epsilon}{\varepsilon}
 \renewcommand{\rho}{\varrho}
 
-\usepackage{hyperref}
+
+%\usepackage{hyperref}
+
+\newcommand{\paginavuota}{\newpage\null\thispagestyle{empty}\newpage\null\thispagestyle{empty}\newpage}
 
 %\newlength\longest
 
 \begin{document}	
-\include{frontespizio}
+%\include{frontespizio}
 
 %\include{quoting}
 
@@ -68,7 +71,7 @@
 
 \frontmatter
 \include{introduction}
-\tableofcontents
+%\tableofcontents
 
 \mainmatter
 \titleformat{\chapter}[display]{\filcenter\large }{\filcenter\uppercase{Chapter }\thechapter}{2ex}{\bfseries\LARGE\titlerule[1.3pt]\vspace{2ex}\centering}[\vspace{2ex}]
@@ -78,17 +81,16 @@
 %\include{LHC_ATLAS/LHC_ATLAS}
 %\include{DarkMatter/DarkMatter}
 %\include{MCSample/MCSample}
-\include{monophoton/monophoton}
+%\include{monophoton/monophoton}
 %\include{Interpretations/interpretations}
 
-%\chapter[titolocorto]{LENTE PER DM}
-%Castle database numero 29 
 
+%\paginavuota
 \backmatter
 \titleformat{\chapter}[display]{\itshape}{}{2ex}{\fontfamily{ppl}\selectfont\LARGE}[\titlerule]
-\cleardoublepage
+%\cleardoublepage
 \addcontentsline{toc}{chapter}{\bibname}
-\printbibliography
+%\printbibliography
 %\include{out_fit_inclusive_150_after}
 
 \end{document}

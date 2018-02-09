@@ -1,4 +1,4 @@
-\chapter[MonteCarlo sample production]{MonteCarlo production of Minimal DM model samples for the \mph analysis}
+\chapter[MonteCarlo samples production]{MonteCarlo production of Minimal DM model samples for the \mph analysis}
 
 \lettrine{T}{}his chapter describes all the steps made to generate, simulate and reconstruct MonteCarlo (MC) events in the context of the Minimal DM model for the \mph analysis .
 
@@ -30,7 +30,6 @@ p p > \chi^+ \chi^- \gamma,\, \chi^+ > \piplus \chi_0,\, \chi^- > \piminus \chi_
 p p > \chi^+ \chi_0 \gamma,\, \chi^+ > \piplus \chi_0\\
 p p > \chi^+ \chi_0 \gamma,\, \chi^- > \piminus \chi_0
 \end{gather*}
- 
 have been generated to provide a final stare characterized by one photon and missing transverse momentum (\met). The Minimal DM model predicts several ways in which DM can be produced and revealed within a \mph analysis. Three examples of Feynman diagram are given in \Fig{\ref{fig:feynman}}. Notice that a photon can also be radiated from the final state which is a peculiarity with respect to other DM simplified models adopted at LHC.
 
 For 21 different $\chi_0$ masses, \num{10000} events have been generated requiring a kinematic cut on photon energy to be greater than \SI{130}{\gev} in order to populate the \mph analysis phase space.
@@ -167,13 +166,20 @@ Once a list of candidate photons has been made, we have to discriminate between 
 
 Two working points are defined for photons: loose and tight depending on which cuts a photon passes based on shower shapes measured in strips and middle layers of the EM calorimeter together with hadronic leakage. The differences observed between data and MC in the discriminating variables are measured comparing the shower shape distributions in data and MC, and parametrized as simple shifts. Instead, three working points which are loose, medium and tight, have been defined for electrons. Details on photons selection criteria can be found in \cite[Sect. 4]{photons}.
 
-Tight photons efficiency identification is expected to be greater than \SI{90}{\percent}~\cite{photonsISO}.
+Identification efficiency is computed with three different data-driven methods presented in~\cite{photons}: the matrix method, electron extrapolation and measure of radiative photons from  \Zboson\rarrow\ellell$\gamma$ decays whose comparison is given in \Fig{\ref{fig:phID}} for converted photons. Tight photons efficiency identification is expected to be greater than \SI{90}{\percent}.
+
+\begin{figure}[pt]
+\centering
+\includegraphics[width=0.65\textwidth]{MCSample/phID}
+\caption{Comparison of the data-driven mesurements of the identification efficiency for converted photons as function of \et in the region \SIrange{10}{1500}{\gev}, for the pseudorapidity interval \AetaRange{0.6} using data collected in 2015-2016.}
+\label{fig:phID}
+\end{figure}
 
 \subsubsection{Isolation}
 \label{sec:phisolation}
 \begin{figure}[tp]
 \centering
-\includegraphics[width=0.38\textwidth]{MCSample/topoetcone40}
+\includegraphics[width=0.33\textwidth]{MCSample/topoetcone40}
 \caption{The algorithm which fills TopoEtCone40 in action: from the $R=0.4$ cone (yellow) a $5\times7$ rectangle is removed, energy deposited is computed among the \topo~within the cone (orange) and the \pt-leakage (blue) is subtracted.}
 \label{topoetcone40}
 \end{figure}
@@ -211,9 +217,7 @@ The single components $E_i^\textup{miss}$, ($i=\{x,y\}$), in equation \ref{eqn:m
 
 Each term is calculated as the negative sum of the reconstructed objects, projected on the transverse plane and reverting the corresponding \pt. The ``Soft'' term is calculated from energy deposits or tracks which are not matched to selected hard objects. 
 
-There are several computation of \met. The one this analysis is based on is the ``Track Soft Term'' (TST) as recommended by ATLAS CP groups, calculated from the tracks from the primary vertices that are not matched to selected hard objetcs providing a stronger measurement against \pileup~\cite{Brunt:2013489}.
-
-\subsection{Jets, maybe\dots}
+There are several computation of \met. The one this analysis is based on is the ``Track Soft Term'' (TST) as recommended by ATLAS CP groups, calculated from the tracks from the primary vertices that are not matched to selected hard objetcs providing a stronger measurement against \pileup~\cite{met}.
 
 \section{EXOT6 Derivation}
 \label{sec:derivation}
@@ -242,7 +246,7 @@ As final step a RooT::NTUPLE file was produced in which events are once again se
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=.5\textwidth]{MCSample/Derivation}
+\includegraphics[width=.45\textwidth]{MCSample/Derivation}
 \caption{Sketch of how the derivation code works for ATLAS data. Each single event from the whole amount of ATLAS data contains different characteristics that the derivation code depending on the analysis performed.}
 \label{fig:derivation}
 \end{figure}
