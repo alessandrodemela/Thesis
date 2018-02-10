@@ -1,30 +1,43 @@
-\chapter{Interpretations of the results}
+\chapter{Interpretation of the results}
 
-\lettrine{D}{}ata yield in \SI{36.4}{\ifb}, presented in the previous chapter, are in agreement with prediction of the SM. This chapter quantifies this level of agreement introducing appropiate test statistics allowing to set model independent, regardless of the model considered, and model dependent, within the Minimal DM model, upper limits.
+\lettrine{T}{}his chapter is dedicated to the interpretation of the results of the \mph analysis presented in the previous chapter in terms of model independent limits and model dependent within the Minimal DM model. 
 
-\section{The profiled likelihood ratio}
-In \Sect{\ref{sec:likelihood}} the Likelihood function was defined as a function of the POI $\mu$~\cite{Cowan}.
-A very common procedure to establish discovery (or exclusion) in particle physics is based on a likelihood ratio as a test statistic. Indeed, to test an hypothesized value of $\mu$ the \emph{profiled likelihood ratio} is used as the principal statistical parameter in this analysis, has been considered. It is defined as:
+\section{Statistical model}
+In particle physics one often searches for phenomena that have been predicted but not observed yet. Any analysis must be correlated by a quantitative evaluation of the significance of any signal collected. This is usually done by means of a \p or equivalently a Gaussian significance \emph{Z}~\cite{Cowan}.
+
+Two kind of hypothesis can be defined. The null hypothesis $H_{0}$, which is the one to be tested against the alternative $H_{1}$. In a discovery analysis, in which new signal is looked for with no assumption on it, $H_{0}$ plays the role of background only hypothesis and $H_{1}$ is the signal plus backkground hypothesis. When setting limits on a particular model the roles are switched.
+
+To summarize the outcome of an experiment and quantify the level of agreement between the data and an observed signal one can define a \p:
+\begin{definizione}
+  The \p of a distribution is the probability under the assumption of $H$ of finding data with equal or greater incompatibility with $H$.
+\end{definizione}
+
+An equivalent way to compute this kind of agreement is to turn the \p into Gaussian significance $Z$ by means of the inverse of the cumulative distribution of the standard Gaussian $\Phi^{-1}$ such that:
+\begin{equation}
+  Z = \Phi^{-1}(1-p)
+\end{equation}
+
+\section{The profile likelihood ratio}
+The Likelihood function is defined as a function of a parameter of interest (POI) $\mu$, and a set of nuisance parameter $k_i$ and $\theta$~\cite{Cowan}.
+A very common procedure to establish discovery (or exclusion) in particle physics is based on a likelihood ratio as a test statistic. Indeed, to test an hypothesized value of $\mu$ the \emph{profiled likelihood ratio} is used as the principal statistical estimator in this analysis, has been considered. It is defined as:
 \begin{equation}
   \lambda(\mu) = \frac {\mathfrak{L}(\mu,\hat{\hat{\theta}})}{\mathfrak{L(\hat{\mu},\hat{\theta})}}
   \label{eqn:profiled}
 \end{equation}
-where the numerator, $\hat{\hat{\theta}}$ conditional maximum-likelihood estimator (MLE) of $\theta$, or the value which maximies $\mathfrak{L}$ for a given $\mu$ (therefore, it is a function of $\mu$, and the denominator is the maximized, unconditionally by fixing no parameters, likelihood function. \Eqn{\ref{eqn:profiled}} is a rescaling of the likelihood function: 
+where in the numerator, $\hat{\hat{\theta}}$ is the conditional maximum-likelihood estimator (MLE) of $\theta$, or the value which maximizes $\mathfrak{L}$ for a given $\mu$ (therefore, it is a function of $\mu$), and the denominator is the maximized unconditional likelihood function.
 
 \subsection{The $t_\mu$ test statistic}
-The profiled likelihood ratio $\lambda(\mu)$ is constrained to vary between 0 and 1 so that it is useful to define the corresponding $\tmu$ statistic as 
+The profiled likelihood ratio $\lambda(\mu)$ is by definition varied between 0 and 1 so that it is useful to define the corresponding $\tmu$ statistic as 
 \begin{equation}
   t_{\mu} = -2 \log{\lambda(\mu)}
 \end{equation}
-which can be used to build a statistic to measure the discrepancy between data and the hypothesis where higher value of $t_{\mu}$ correspond to higher disagreement. The \p can also be evaluated, and its correspondance to $t_{\mu}$ is pointed out in \Fig{\ref{pvalue}}, as:
+which can be used to build a test statistic to quantify the discrepancy between data and the hypothesis where higher value of $t_{\mu}$ correspond to higher disagreement. The \p can also be evaluated, and its correspondance to $t_{\mu}$ is pointed out in \Fig{\ref{pvalue}}, as:
 \begin{equation}
- p_{\mu}=\int_{t_{\mu,\textup{obs}}}^\infty f\left(t_\mu \vert \mu\right) dt_\mu
+ p_{\mu}=\int_{t_{\mu,\textup{obs}}}^\infty f(t_\mu \vert \mu) dt_\mu
  \label{eqn:pdatmu}
 \end{equation}
 
-where $t_{\mu,\textup{obs}}$ is the value of $t_\mu$ observed from data and $f\left(t_\mu \vert \mu\right)$ is the probability density function of $t_\mu$ under the assumption of the POI value $\mu$. One can often assume that presence of new signal can only increase the mean event rate, which for a counting experiment can be evaluated as $E[n] = \mu s + b$ where $s$ are the signal events and $b$ is the background, so that we can consider parameter $\mu$ as positive so that an alternative test statistic $\tilde{t}_\mu$ can be defined. For a model in which $\mu>0$, if one finds that $\hat{\mu}<0$, the best level of agreement must be for $\mu=0$.
-
-Note that $f\left(t_\mu \vert \mu\right)$ in \Eqn{\ref{eqn:pdatmu}}, like all the $f$ distribution in this Section, is unknown, because we miss the real POI which is crucial to its determination. According to Wilks' theorem, the distribution of $f(t_\mu \vert \mu)$ is known in the case of a large statistics an it follows a one-degree of freedom (in case of one POI) $\chi^2$ distribution, regardless of the values taken by the nuisance parameters, see~\cite[\Sect{3}]{Cowan}, so that $f$ is expressed in term of certain asymptotic formul\ae~ in the limit of large samples. Alternatively one can obtain it by performing several pseudo-experiment, i.e. \emph{toys}, to get the right distribution expression even if they're always time expensive.
+where $t_{\mu,\textup{obs}}$ is the value of $t_\mu$ observed from data and $f(t_\mu \vert \mu)$ is the probability density function of $t_\mu$ under the assumption of the POI value $\mu$. One can often assume that presence of new signal can only increase the mean event rate, which for a counting experiment can be evaluated as $E[n] = \mu s + b$ where $s$ are the signal events and $b$ is the background, so that we can consider parameter $\mu$ as positive so that an alternative test statistic $\tilde{t}_\mu$ can be defined. For a model in which $\mu>0$, if one finds that $\hat{\mu}<0$, the best level of agreement must be for $\mu=0$.
 
 \begin{figure}[tp]
 \centering
@@ -37,13 +50,10 @@ Note that $f\left(t_\mu \vert \mu\right)$ in \Eqn{\ref{eqn:pdatmu}}, like all th
 \end{figure}
 
 \subsection{Test statistics for discovery and exclusion fit}
-Without any observed excess of events in one or more SR(s), two methods set exclusion
-limits on specific signal models. These two fit strategies, complementary to the background only fit described {\bf above}, are the discovery fit, or model-independent and the exclusion fit model-dependent. Both fit are used to set upper limits on the POI, i.e. the number of events in case of discovery and the visible cross section for exclusion, by varying its value whithin a certain range and then interpolating for which POI value one finds \SI{95}{\percent} exclusion. For this reason, setting an upper limit is also called \emph{hypotest inversion}.
+The presence of a signal can be quantified by testing the $\mu=0$ hypothesis against the $\mu>0$ one. Rejecting the $\mu=0$ hypothesis leads to the discovery of a new signal. On the other hand, without any observed excess of events in one or more SR(s), two methods set exclusion limits on new physics. These two fit strategies, complementary to the background only fit described in the previous chapter, are the discovery fit (model-independent) and the exclusion fit (model-dependent). Both fits are used to set upper limits on the POI, i.e. the number of events, by varying its value whithin a certain range and then interpolating for which POI value one finds \SI{95}{\percent} exclusion. For this reason, setting an upper limit is also called \emph{hypotest inversion}.
 
 \subsubsection{The $q_0$ test for discovery of a positive signal}
-When searching for new phenomena typically one would put constraints on potential new physiscs. Indeed, in a discovery fit the purpose is to set model-independent \SI{95}{\percent} CL upper limits on the number of Beyond Standard Model (BSM) events in SR. For no signal model in particular anyone can estimate the number of signal events predicted in a particular SR, in our case the already defined ``fiducial region'', and see wether a certain model has been excluded by current data or not.
-
-In this scenario rejecting the $\mu = 0$ hypothesis leads to the discovery of a new signal.  An appropriate test, the $q_0$ test statistic, is therefore defined as follows:
+In this scenario, rejecting the $\mu = 0$ hypothesis, i.e rejecting the background only hypothesis, leads to the discovery of a new signal.  An appropriate test statistic, the $q_0$, is therefore defined as follows:
 \begin{equation}
 q_0=
 \left\{
@@ -54,40 +64,32 @@ q_0=
 \right.
 \end{equation} 
 
-Data shows lack of agreement with the background only hypothesis ($\hat{\mu}=0$), only if $q_0\ne0$. Using the observed value of $q_0$ one can quantify the level of disagreement between the data and the null hypothesis not so much unlike for the $t_\mu$ case:
+Data shows lack of agreement with the background only hypothesis ($\hat{\mu}=0$), only if $q_0\ne0$. Using the observed value of $q_0$ one can quantify the level of disagreement between the data and the null hypothesis:
 \begin{equation}
- p_{\mu}=\int_{q_{0,\textup{obs}}}^\infty f\left(q_0 \vert 0\right) dq_0
+ p_{0}=\int_{q_{0,\textup{obs}}}^\infty f\left(q_0 \vert 0\right) dq_0
  \label{eqn:pdaq0}
 \end{equation}
 
 \subsubsection{The $q_\mu$ test for model dependent upper limits}
-This fit strategy is used with the purpose of studying a specific signal model. Again, with no relevant excess of events proved by the background only fit exclusion limits can be performed for setting upper limit on the visible cross section of the model being tested. The signal sample was added to every CRs and not only in the SR, in order to take into account any posssible signal contamination in them. Note that this test is useful even in case of excess of events for which can be used to measure properties such as the signal strength.
+When searching for new phenomena if no excess is observed typically one would put constraints on potential new physiscs. Indeed, in a discovery fit the purpose is to set model-independent \SI{95}{\percent} CL upper limits on the number of Beyond Standard Model (BSM) events in SR. For no signal model in particular anyone can estimate the number of signal events predicted in a particular SR, in our case the already defined ``fiducial region'', and see wether a certain model has been excluded by current data or not.
 
-As for the model independent fit, a suitable test statistic can be defined for the model dependent fit as well, in a very similar way. However, now the null hypothesis is the signal+background coexisting in the SR because a signal is supposed to be tested against the background only hypothesis. Therefore the $q_\mu$ test statistic is defined as:
+This fit strategy is used with the purpose of studying a specific signal model. Exclusion limits can be performed for setting upper limit on the visible cross section of the model being tested. The model independent upper limit implements the signal only in the SR to set an upper limit on event one would observe, while the model dependent implements in in the SR and in every CR, in order to take into account any posssible signal contamination outside the SR. Note that this test is useful even in case of excess of events for which can be used to measure properties such as the signal strength.
+
+For setting limits, a suitable test statistic is defined. However, now the null hypothesis is the signal plus background coexisting in the SR because a signal is supposed to be tested against the background only hypothesis. Therefore the $q_\mu$ test statistic is defined as:
 \begin{equation}
 q_\mu=
 \left\{
 \begin{aligned}
--2\log{\lambda(0)}\quad &\text{if}\quad \hat{\mu}\le\mu\\
+-2\log{\lambda(\mu)}\quad &\text{if}\quad \hat{\mu}\le\mu\\
  0 \qquad&\text{if}\quad \hat{\mu}>\mu
 \end{aligned}
 \right.
 \end{equation} 
 Once again the relation between $q_\mu$ and the \p is straighforward:
 \begin{equation}
- p_{\mu}=\int_{q_{\mu,\textup{obs}}}^\infty f\left(q_\mu \vert \mu\right) dq_\mu
+ p_{\mu}=\int_{q_{\mu,\textup{obs}}}^\infty f(q_\mu \vert \mu) dq_\mu
  \label{eqn:pdaqmu}
 \end{equation}
-
-\subsection{Experimental sensitivity}
-\label{sec:sensitivity}
-To characterize the sensitivity of an experiment, the significance obtained from a single dataset is irrelevant. The expected (or median) significance which allows to reject different values of $\mu$ is more useful. In a discovery analysis one would like to know the median significance with which one would reject the background-only null hypothesis and for exclusion the median with which one rejects a nonzero value of $\mu$.
-
-The median significance is obtained by replacing the ensamble of simulated data set with a single representative one, the so-called Asimov data set which it is easy to obtain the median values of $q_0$ and $q_\mu$.
-
-The sensitivity of an experiment is illustrated in \Fig{\ref{fig:medianq}} which shows the PDF for $q_\mu$ assuming an observed (tested) value of $\mu$ and an expected value of $\mu'$ retrieved from certain asymptotic formul\ae~ valid in the case of large samples~\cite{Cowan}. Analogous consideration can be made for the discovery analysis by replacing $q_\mu$ with the corresponding $q_0$. The sensitivity of an experiment can be characterized by giving the \p corresponding to the median $q_\mu$, assuming $\mu=\mu'$. 
-
-When the distribution of the strenght parameters $\mu'$ gets shifted to higher values, so does the median $q_\mu$. From \Eqn{\ref{eqn:pdaq0}} and \Eqn{\ref{eqn:pdaqmu}} it is clear that \p is pushed towards lower values. Now the hypotest inversion is finally revealed. What the fitting procedure achieved is to scan several values of $\mu$ and evaluate the median \p assuming $\mu'$. The computed upper limit is therefore the value of $\mu$ for which \p gets under the threshold of \num{0.05}.
 
 In the context of exclusion limits, the $\cls$ statistic is mostly used replacing the \p. $\cls$ being derived from the \p is defined as:
 \begin{equation}
@@ -97,20 +99,35 @@ which is the ratio between the \p given the signal and background and $1-$ the \
 
 Upper limits are then set for the value of $\mu$ whose corresponding $\cls$ is computed to be below the $0.05$ threshold.
 
+\subsection{Experimental sensitivity}
+\label{sec:sensitivity}
+To characterize the sensitivity of an experiment, one normally reports the expected significance from a given measurement under different signal assumption.
+
+
+In a model independent a discovery analysis one would like to know the median significance with which one would reject the background-only hypothesis under the assumption of a different ($\mu'$) signal strenght. The median significance is obtained by replacing the ensamble of simulated data set with a single representative one, the so-called Asimov data set which it is easy to obtain the median values of $q_0$ and $q_\mu$.
+
+The sensitivity of an experiment is illustrated in \Fig{\ref{fig:medianq}} which shows the PDF for $q_\mu$ when testing a signal strength $\mu$ and the distribution of $q_\mu$ when a signal strength $\mu'$ is being provided from the signal being tested.
+
+The sensitivity of an experiment can be characterized by giving the \p corresponding to the median $q_\mu$, assuming an alternate value $\mu'$. 
+
+When the distribution of the strenght parameters $\mu'$ gets shifted to higher values, so does the median $q_\mu$. From \Eqn{\ref{eqn:pdaq0}} and \Eqn{\ref{eqn:pdaqmu}} it is clear that \p is pushed towards lower values. Now the hypotest inversion is finally revealed. What the fitting procedure achieved is to scan several values of $\mu$ and evaluate the median \p assuming $\mu'$. The computed upper limit is therefore the value of $\mu$ for which the \p gets under the threshold of \num{0.05}.
+
 \begin{figure}[pt]
 \centering
 \includegraphics[width=0.5\textwidth]{interpretations/medianq}
-\caption{Representation of the situation described in \Sect{\ref{sec:sensitivity}}. The observed distribution $f\left(q_\mu \vert \mu \right)$ is overlapped with the median $f\left(q_\mu \vert \mu' \right)$ given by the asimptotic formul\ae~ according to which it has the form of an half chi squared distribution. The median $q_\mu$ is computed assuming the alternate value $\mu'$ and the result is used to calculate the \p for distribution $f\left(q_\mu \vert \mu \right)$.}
+\caption{Representation of the situation described in \Sect{\ref{sec:sensitivity}}. The observed distribution $f(q_\mu \vert \mu)$ is overlapped with the median $f(q_\mu \vert \mu')$ given by the asimptotic formul\ae~ according to which it has the form of an half chi squared distribution. The median $q_\mu$ is computed assuming the alternate value $\mu'$ and the result is used to calculate the \p for distribution $f(q_\mu \vert \mu)$.}
 \label{fig:medianq}
 \end{figure}
 
+Note that all the $q_\mu$ distribution $f$ according to Wilks' theorem, can be approximated in the case of a large statistics as a one-degree of freedom (in case of one POI) $\chi^2$ distribution, regardless of the values taken by the nuisance parameters, see~\cite[\Sect{3}\!]{Cowan}. Alternatively one can obtain it by performing several pseudo-experiment, i.e. \emph{toys}, to get the right distribution even if they're always time expensive.
+
 \section{Model-independent limit}
-The model-independent, discovery, fit purpose is to set upper limit on the number of BSM events that can be found in the SR. This can be achieved by counting the excess of events yield on the basis of a bogus signal model that is a single bin histogram with the bin value at 1. In this case the strenght parameter $\mu$ assumes the meaning of number of events, and upper limits are given in terms of that. By rescaling with luminosity via \Eqn{\ref{eqn:Nevents}} one can obtain the corresponding upper limit on the visible cross section $\sigma_\textup{vis}=\sigma_\textit{th}\times A\times\epsilon \equiv N/L$ where $\sigma_\textit{th}$ is the theorical cross section. Results, also published in~\cite{paperMP} whithin the official 2017 \mph analysis, are reported in \Tab{\ref{table.results.exclxsec.pval.upperlimit.SR}}. Therefore we obtain a cross section upper limit on new events of \SI{5.91}{fb} corresponding to a maximum of \SI{215.1}{events}. Upper limit meaning is very simple: cross sections higher to the computed maximum are far too strong, i.e. events have greater probability to occur, not to be aware of them. The CLs evlution versus the visible cross section being tested by the fit is reported in \Fig{\ref{fig:cls}}, the computed upper limit at \SI{95}{\percent} CL is the abscissa intersection between the observed/expected $\cls$ and the line $\cls=0.05$.
+The model-independent fit purpose is to set upper limit on the number of BSM events that can be found in the SR. This can be achieved by counting the excess of events wrt SM prediction on the basis of a bogus signal model that is a single bin histogram with the bin value at 1. In this case the strenght parameter $\mu$ assumes the meaning of number of events, and upper limits are given in terms of that. By rescaling with luminosity via \Eqn{\ref{eqn:Nevents}} one can obtain the corresponding upper limit on the visible cross section $\sigma_\textup{vis}=\sigma_\textit{th}\times A\times\epsilon$ where $\sigma_\textit{th}$ is the theorical cross section. The computed results for the fit are reported in \Tab{\ref{table.results.exclxsec.pval.upperlimit.SR}} and they exhibit good agreement with those published in~\cite{paperMP}. A cross section upper limit on new physics of \SI{5.91}{fb} has been established. Upper limit meaning is very simple: cross sections higher than the computed maximum are excluded, i.e. signal rate is strong and therefore as excess has to be observed. The CLs evlution versus the visible cross section being tested by the fit is reported in \Fig{\ref{fig:cls}}. The computed upper limit at \SI{95}{\percent} CL is the abscissa intersection between the observed/expected $\cls$ and the line $\cls=0.05$.
 
 
 \input{interpretations/Asymptotic_Scan}
 
-\subsubsection{Outlook results at \SI{120}{\ifb} and \SI{3}{ab^{-1}}}
+\subsubsection{Projections at \SI{120}{\ifb} and \SI{3}{ab^{-1}} integrated luminosity}
  In order to foresee future data prediction, Asimov dataset for luminosity at \SI{120}{\ifb} and \SI{3}{ab^{-1}} were generated. The first value refers to actual estimate of the luminosity that will be delivered to ATLAS during \RunTwo, while the second is the prediction of the luminosity delivered in the whole LHC activity period. At \SI{120}{\ifb} the upper limit cross section, from the Asimov dataset, is computed to be \SI{1.79}{fb} and to be \SI{720}{ab} at \SI{3}{ab^{-1}}.
 
 
@@ -118,31 +135,31 @@ The model-independent, discovery, fit purpose is to set upper limit on the numbe
 \input{interpretations/UpperLimitTable36.4}
 
 \subsection{Fiducial cross section}
-In order to put constrain on model not covered in this analysis, a ``fiducial region'' was defined with kinematic cuts given in \Sect{\ref{sec:truth}}, corresponding to a signal region selection. A fiducial cross section can be defined starting from the visible cross section divided by the reconstruction efficiency.
+In order to put constrain on model not covered in this analysis, a ``fiducial region'' was defined with kinematic cuts given in \Sect{\ref{sec:truth}}, corresponding to a signal region selection applied at the truth level. A fiducial cross section can be defined starting from the visible cross section divided by the reconstruction efficiency.
 
-Total efficiency $\left(\text{Eff}_\textup{tot}\right)$ can be defined as the ratio between events passing the cuts at reconstruction level in the SR $\left(N_\textup{reco}\right)$ and the total number of events processed $\left(N_\textup{total}\right)$, which for the signals being tested is \num{10000}. It can be decomposed into a fiducial acceptance $\left(\text{Acc}_\textup{fid}\right)$ and a fiducial reconstruction efficiency $\left(\text{Eff}_\textup{fid}\right)$:
+Total efficiency $\left(\text{Eff}_\textup{tot}\right)$ can be defined as the ratio between events passing the selections at reconstruction level in the SR $\left(N_\textup{reco}\right)$ and the total number of events generated $\left(N_\textup{total}\right)$, which for the signals being tested is \num{10000}. It can be decomposed into a fiducial acceptance $\left(\text{Acc}_\textup{fid}\right)$ and a fiducial reconstruction efficiency $\left(\text{Eff}_\textup{fid}\right)$:
 \begin{equation}
-	\text{Eff}_\textup{tot}=\frac{N_\textup{reco}}{N_\textup{total}}=\text{Acc}_\textup{fid}\times\text{Eff}_\textup{fid}
+	\text{Eff}_\textup{tot}=\frac{N_\textup{reco}}{N_\textup{total}}=A\times\epsilon
 \end{equation}
 
 Fiducial acceptance is defined as:
 \begin{equation}
-	A\equiv\text{Acc}_\textup{fid}=\frac{N_\textup{fid}}{N_\textup{total}}
+	A=\frac{N_\textup{fid}}{N_\textup{total}}
 	\label{eqn:accfid}
 \end{equation}
 or the ratio between the number of events passing the truth-level fiducial cuts $\left(N_\textup{fid}\right)$ and the total numer of events generated, and the fiducial reconstruction efficiency is:
 \begin{equation}
-	\epsilon\equiv\text{Eff}_\textup{fid}=\frac{N_\textup{reco}}{N_\textup{fid}}
+	\epsilon=\frac{N_\textup{reco}}{N_\textup{fid}}
 	\label{eqn:efffid}
 \end{equation}
 
-Theorical cross section, fiducial acceptance, fiducial efficiency and total efficienct for the \num{21} mass points considered are reported in \Tab{\ref{tab:eff}}. Lower acceptance values for small masses are to be retrieved in the \met shape. As we can see from \Fig{\ref{fig:validation}} those masses have the peak in the \met distribution shifted to the left so that fewer events would pass the truth level selection. Fiducial efficiency ranges in \SIrange{69}{79}{\percent}.
+Theoretical cross section, fiducial acceptance, fiducial efficiency and total efficiency for the \num{21} mass points considered are reported in \Tab{\ref{tab:eff}}. Lower acceptance values for small masses are due to the \met shape. As we can see from \Fig{\ref{fig:validation}} those masses have the peak in the \met distribution shifted to the left so that fewer events would pass the truth level selection. Fiducial efficiency ranges in \SIrange{69}{79}{\percent}.
 
 \input{interpretations/tableEff}
 
-Given the upper limit cross section from \Tab{\ref{table.results.exclxsec.pval.upperlimit.SR}}, for every mass point the corresponding $\left(\text{Eff}_\textup{tot}\right)$ can be used to rescale it and bring it back to the theorical cross section since $\sigma_\textup{theo}^\textup{U.L.}x=\sigma_\textup{vis}^\textup{U.L.}/\left(A\times\epsilon\right)$, where U.L. stands for the \sv upper limit. Note that even if the sample being tested are truth level, the total efficiency $\epsilon$ computed from the full simulated events, see \Sect{\ref{sec:full}}, have been used.
+Given the upper limit cross section from \Tab{\ref{table.results.exclxsec.pval.upperlimit.SR}}, for every mass point the corresponding $\left(\text{Eff}_\textup{tot}\right)$ can be used to rescale it and bring it back to the theoretical cross section since $\sigma_\textup{theo}^\textup{U.L.}x=\sigma_\textup{vis}^\textup{U.L.}/\left(A\times\epsilon\right)$, where U.L. stands for the \sv upper limit. Note that even if the samples being tested are truth level, the total efficiency $\epsilon$ computed from the full simulated events, see \Sect{\ref{sec:full}}, have been used.
 
-These values have been compared to the theorical cross section reported in \Tab{\ref{tab:eff}}. The resulting plot, made from the truth level reconstruction, is pictured in \Fig{\ref{subfig:exclMI}}. Values of the theorical cross section above the observed line are rejected by the analysis for they exhibit a too great value.
+These values have been compared to the theorical cross section reported in \Tab{\ref{tab:eff}}. The resulting plot, made from the truth level reconstruction, is pictured in \Fig{\ref{subfig:exclMI}}. Values of the theorical cross section above the observed line are excluded by the analysis.
 
 \begin{figure}[tp]
 \centering
@@ -150,14 +167,14 @@ These values have been compared to the theorical cross section reported in \Tab{
 {\includegraphics[width=.75\textwidth]{interpretations/exclusionplot}} \\
 \subfloat[][\label{subfig:exclMIZ}]
 {\includegraphics[width=.75\textwidth]{interpretations/exclusionplotZoom}} \quad
-\caption{Model independent upper limit on $\chi_0$ mass rescaled on the computed total efficiency for data yield. Solid line represents the upper limit on the visible cross section rescaled by total efficiency $\left(A\times\epsilon\right)$. Dashed black line is the expected upper limit and finally the dashed red line shows the theorical cross section. ($b$) is the enlarged version of ($a$) in the critical region. Mass below \SI{\sim 48}{\gev} are rejected by the analysis.}
+\caption{Upper limit on $\chi_0$ mass rescaled on the computed total efficiency for every mass sample. Solid line represents the upper limit on the visible cross section rescaled by total efficiency $\left(A\times\epsilon\right)$. Dashed black line is the expected upper limit and finally the dashed red line shows the theorical cross section. ($b$) is the enlarged version of ($a$) in the crossing region. Masses below \SI{\sim 50}{\gev} are rejected by the analysis.}
 \label{fig:exclMI}
 \end{figure}
 
 
 An enlarged plot on the area of interest is also reported in  \Fig{\ref{subfig:exclMIZ}}. From the plots, the model-independent fit would exclude a mass range below \SI{\sim50}{\GeV}.
 
-For the high luminosity outlook, mass excluded by the analysis would be below \SI{\sim96}{\gev} for the \SI{120}{\ifb} prediction and \SI{\sim385}{\gev} at \SI{3}{ab^{-1}}. 
+For the high luminosity outlook, mass excluded by the analysis would be below \SI{\sim100}{\gev} for the \SI{120}{\ifb} scenario and \SI{\sim400}{\gev} at \SI{3}{ab^{-1}}. 
 
 %\begin{table}[pt]
 %\centering
@@ -185,17 +202,16 @@ For the high luminosity outlook, mass excluded by the analysis would be below \S
 {\includegraphics[width=.45\textwidth]{interpretations/exclusionplot3000}} \quad
 \subfloat[][\SI{3}{ab^{-1}} upper limit, enlarged\label{subfig:3000miZ}]
 {\includegraphics[width=.45\textwidth]{interpretations/exclusionplotZoom3000}} \\
-\caption{Model independent upper limits outlooks at \SI{120}{\ifb} and \SI{3}{ab^{-1}} plot rescaled for the total efficiency computed for every mass sample. Solid line represents the expected limit, while dashed black line is the expected and the dashed red line is the theorical cross section. Enlargement in the crucial range are also reported.}
+\caption{Upper limits outlooks at \SI{120}{\ifb} and \SI{3}{ab^{-1}} plot rescaled for the total efficiency computed for every mass sample. Solid line represents the expected limit, while dashed black line is the expected and the dashed red line is the theorical cross section. Enlargements in the crossing range are also reported.}
 \label{fig:outlookmi}
 \end{figure}
 
 
-\pagebreak
 \section{Interpretation at full simulation level}
 \label{sec:full}
-Sample simulated and described in Chapter 3, were used to perform an exclusion (model-dependent) fit for the Minimal DM model to obtain upper limits on \chizero cross section production, on number of events yield, in the SR.
+Full simulated simulated and described in Chapter 3, were used to perform an exclusion (model-dependent) fit for the Minimal DM model to obtain upper limits on \chizero cross section production, on number of events yield, in the SR.
 
-Now the POI is the signal strenght $\mu$ and upper limits were set on it. In order to obtain the limit cross section, for each mass, the theorical cross section reported in \Tab{\ref{tab:eff}} was multiplied by the computed upper limit on the signal strenght. 
+Now the POI is the signal strenght $\mu=\sigma_\textup{{vis}}/\sigma_{\textup{theo}}$ and upper limits were set on it. In order to obtain the limit on the cross section, for each mass, the theorical cross section reported in \Tab{\ref{tab:eff}} was multiplied by the computed upper limit on the signal strenght. 
 
 The computed limit on the cross section of \chizero production can be expressed as:
 \begin{equation}
@@ -206,9 +222,9 @@ Note that the dominant background \znng has a \SI{760}{fb} cross section and sig
 
 Upper limit values for a mass $m_i$ below \num{1} indicates that this mass could be certainly excluded by the analysis. Indeed, the upper limit cross section would be $\sigma_\textup{vis}\times \mu^\textup{U.L.}$ and when $\mu^\textup{U.L.} \le 1$, the visible cross section results lower than the theorical and therefore rejected.
 
-In \Tab{\ref{tab:mu}} the observed and expected upper limit are reported. The POI goes above $1$ between \SI{60}{\gev} and \SI{70}{\gev} so that mass excluded from the full simulated sample is \SI{\sim61}{\gev} as shown in \Fig{\ref{fig:exclMD}}. 
+In \Tab{\ref{tab:mu}} the observed and expected upper limit, on the strenght parameter $\mu$, are reported. The POI goes above $1$ between \SI{60}{\gev} and \SI{70}{\gev} so that mass excluded from the full simulated sample is \SI{\sim60}{\gev}. In \Fig{\ref{fig:exclMD}} the upper limit in terms of the theoretical cross section is shown. 
 
-The truth level and full simulation approach are quite in agreement. The lack of precision is given from the fact that for the latter, no systematic uncertainties have been taken into account.
+The truth level and full simulation approach are quite in agreement. The lack of perfect is given from the fact that for the latter, no systematic uncertainties have been taken into account.
 
 \input{interpretations/tableMuSig}
 
@@ -218,7 +234,7 @@ The truth level and full simulation approach are quite in agreement. The lack of
 {\includegraphics[width=.75\textwidth]{interpretations/exclusionplotMD}} \\
 \subfloat[][\label{subfig:exclMDZ}]
 {\includegraphics[width=.75\textwidth]{interpretations/exclusionplotZoomMD}} \quad
-\caption{Model dependent upper limit on $\chi_0$ mass rescaled on the computed total efficiency for data yield. Solid line represents the upper limit on the visible cross section rescaled by total efficiency $\left(A\times\epsilon\right)$. Dashed black line is the expected upper limit and finally the dashed red line shows the theorical cross section. ($b$) is the enlarged version of ($a$) in the critical region. Mass below \SI{\sim 61}{\gev} are rejected by the analysis.}
+\caption{Model dependent upper limit on $\chi_0$ mass rescaled on the computed total efficiency for data yield. Solid line represents the upper limit on the visible cross section rescaled by total efficiency $\left(A\times\epsilon\right)$. Dashed black line is the expected upper limit and finally the dashed red line shows the theorical cross section. ($b$) is the enlarged version of ($a$) in the critical region. Mass below \SI{\sim 60}{\gev} are rejected by the analysis.}
 \label{fig:exclMI}
 \end{figure}
 
