@@ -1,4 +1,4 @@
-\documentclass[a4paper,openright,10pt]{book}
+\documentclass[a4paper,openright,11pt]{book}
 \usepackage[a-1b]{pdfx}
 \usepackage{lettrine,lipsum,mparhack,geometry,longtable,booktabs,caption,titlesec,graphicx,mhchem}
 \usepackage{microtype,mathtools,slashed,subfig,multicol}
@@ -49,6 +49,7 @@
 \fancyhead[RO]{\itshape \nouppercase \leftmark}
 \fancyfoot[LE]{ \thepage}
 \fancyfoot[RO]{ \thepage}
+\setlength{\headheight}{13.6pt} 
 
 \renewcommand{\contentsname}{{Table of Contents}}
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
@@ -57,40 +58,44 @@
 
 
 %\usepackage{hyperref}
-
+\hypersetup{hidelinks}
 \newcommand{\paginavuota}{\newpage\null\thispagestyle{empty}\newpage\null\thispagestyle{empty}\newpage}
 
 %\newlength\longest
 
 \begin{document}	
-%\include{frontespizio}
+\include{frontespizio}
 
-%\include{quoting}
+\include{quoting}
 
 \titleformat{\chapter}[display]{\itshape}{}{2ex}{\fontfamily{ppl}\selectfont\LARGE}[\titlerule]
 
 \frontmatter
 \include{introduction}
-%\tableofcontents
+\tableofcontents
+
+%\paginavuota
 
 \mainmatter
 \titleformat{\chapter}[display]{\filcenter\large }{\filcenter\uppercase{Chapter }\thechapter}{2ex}{\bfseries\LARGE\titlerule[1.3pt]\vspace{2ex}\centering}[\vspace{2ex}]
 \titleformat{\section}[block]{\filcenter\Large }{\thesection}{0pt}{\bfseries	\quad \large \centering}[\vspace{3pt}]
 \titleformat{\subsection}[block]{\normalfont \large }{\thesubsection \quad}{0pt}{\itshape \bfseries}[]
 
-%\include{LHC_ATLAS/LHC_ATLAS}
-%\include{DarkMatter/DarkMatter}
-%\include{MCSample/MCSample}
-%\include{monophoton/monophoton}
-%\include{Interpretations/interpretations}
+\include{LHC_ATLAS/LHC_ATLAS}
+\include{DarkMatter/DarkMatter}
+\include{MCSample/MCSample}
+\include{monophoton/monophoton}
+\include{Interpretations/interpretations}
+
+\include{conclusions}
 
 
-%\paginavuota
 \backmatter
 \titleformat{\chapter}[display]{\itshape}{}{2ex}{\fontfamily{ppl}\selectfont\LARGE}[\titlerule]
 %\cleardoublepage
+\phantomsection
 \addcontentsline{toc}{chapter}{\bibname}
-%\printbibliography
+\printbibliography
 %\include{out_fit_inclusive_150_after}
 
 \end{document}

@@ -8,7 +8,7 @@ The \mph analysis strategy relies on the comparison between the observed and pre
 \begin{description}
 \item[Signal Region (SR)] It's a signal-enriched region defined such that a significant excess of signal events over the predicted background. Depending on the analysis, one or more SRs can be defined;
 \item[Control Region (CR)] It's a background-enriched region and free of signal contamination, used to estimate the background in the SR. Comparisons between MC and data are performed and results are extrapolated in the SR. Various CRs are defined to contain the largest number of events for a specific background process;
-\item[Validation Region (VR)] It's a region used to validate the extrapolation process from CRs to SRs. Its definition is very close to that of the SR but minimizing the signal contamination. Dedicated CRs for the VR are built and the results of background prediction in the VR can be SASASASASA compared with the observations to validate the procedure.
+\item[Validation Region (VR)] It's a region used to validate the extrapolation process from CRs to SRs. Its definition is very close to that of the SR but minimizing the signal contamination. Dedicated CRs for the VR are built and the results of background prediction in the VR can be compared with the observations to validate the procedure.
 In this work no VRs is defined, because the procedure is assumed to be already validated in previous analyses.
 \end{description}
 
@@ -57,7 +57,7 @@ After the preselection, event Candidates in SR are selected with the following k
 \begin{itemize}
 \item \met \SI{\ge 150}{\gev};
 \item one loose photon with \pt \SI{\ge 150}{\gev} with a pseudorapidity cut in \etaRange{1.37}{1.52} to cut out the calorimeter crack region and \AetaRange{2.37}
-\item \met significance ($\met/\sqrt{\sumET}$) is requested to be above \SI{8.5}{\gev^{-1/2}};
+\item \met significance ($\met/\sqrt{\,\sumET}$) is requested to be above \SI{8.5}{\gev^{-1/2}};
 \item the leading photon must be isolated as specified in \Sect{\ref{sec:phisolation}}, so that we select events characterized by $ \text{TopoEtcone40} \le \SI{2.45}{\GeV} + \SI{0.022}{\pt\GeV}$ and $\text{ptcone20}/\pt^\gamma<0.05$;
 \item photon direction and \met must not overlap, requiring $\Delta\phi_{\gamma - \met} \le 0.4$
 \item photon pointing along z coordinate wrt the identified primary vertex must not be larger than \SI{250}{\mm};
@@ -147,14 +147,14 @@ Four CRs shown in \Fig{\ref{fig:regions}}, enriched in a specific backgrounds pr
 
 Null hypothesis is rejected only if \p is found to be under a common defined threshold usually set at \num{2.87e-7}, corresponding to a significance of $Z=5$.
 
-\section{The simultaneous fitting technique}
+\section{The simultaneous fitting technique*}
 \label{sec:simfit}
 The simultaneous fit allows to estimate the signal and background yields in CRs and SR exploiting the data and MC information in all these regions at the same time. In addition this technique allows to manage all the CRs at the same time by taking into account the correlation of the systematic uncertainties across the regions.
 
 The predicted event yield in a specific region ``R'', which could be the SR or a CR, is described as a poisson distribution:
 \begin{equation}
 \begin{split}
-		N_\textup{R} \propto \text{Pois} &\bigg( N_\textup{R}\left(\text{data}\right)\vert L\times\sigma_{\textup{vis}} \\
+		N_\textup{R} \propto \text{Pois} &\bigg( N_\textup{R}\left(\text{data}\right)\vert \mu\times N_\textup{S} \\
 						&+ k_{\textup{Z}} N_{\textup{R}}\left(\text{MC}\right) \left(\Zboson \left(\rarrow \nu\nu \right) +  \gamma\right) \\
 						&+ k_{\textup{Z}}N_\textup{R}\left(\text{MC}\right) \left(\Zboson \left(\rarrow \ell\ell\right) + \gamma \right) \\
 						&+ k_{\textup{W}}N_\textup{R}\left(\text{MC}\right) \left(\Wboson \left(\rarrow \lnu\right)+ \gamma \right) \\
@@ -164,7 +164,7 @@ The predicted event yield in a specific region ``R'', which could be the SR or a
 \label{eqn:nr}
 \end{equation}
 
-whose expectation value is given by the sum of:
+where $\mu$ is the strenght parameter $N_\textup{S}$ is the number of signal events. $N_\textup{R}$  whose expectation value is given by the sum of:
 \begin{itemize}
 \item the signal yield in the region R, i.e. the integrated luminosity multiplied by the visible cross section;
 \item the expected (MC) events for a background, multiplied by the corresponding $k$-factor;
@@ -186,9 +186,9 @@ The whole precedure of the likelihood implementation and maximization is carried
 \subsection{\hf software framework}
 
 This analysis is based on a statistical software framework called ``\hf''~\cite{baak:histfitter} which has also been extensively used in several searches for supersymmetric and exotic particles and in Higgs Boson physics. 
-\hf uses Python and C++ code languages to operate. The user interfaces with the software via a Python macro for configuration while C++ is used in hard computation behind the scenes using the software packages HistFactory~\cite{Cranmer:1456844} and RooStats~\cite{2010acat.confE..57M} which are based on RooFit~\cite{2003physics...6116V} and ROOT~\cite{Brun:1997pa}.
+\hf uses Python and C++ code languages to operate. The user interfaces with the software via a Python macro for configuration while C++ is used in hard computation behind the scenes, using the software packages HistFactory~\cite{Cranmer:1456844} and RooStats~\cite{2010acat.confE..57M} which are based on RooFit~\cite{2003physics...6116V} and ROOT~\cite{Brun:1997pa}.
 
-\hf also builds a parametric model which is a Probability Density Function (PDF) whose parameters are extracted via a fitting procedure. The fit on data is based on SRs and CRs which are statistically independent by construction, i.e. no events can compete for more than one region, so that they can modeled by separate PDFs and combined in a simultaneous fit. The \hf analysis strategy holds on the sharing of PDF parameters in all regions enabling the use of information found in a region everywhere. This prodcedure is called ``simultaneous fitting technique''. This technique enables the signal and background yields estimation in every region exploiting constrains on data in all these regions at the same time.
+\hf also builds a parametric model which is a Probability Density Function (PDF) whose parameters are extracted via a fitting procedure. The fit on data is based on SRs and CRs which are statistically independent by construction, i.e. no events can compete for more than one region, so that they can modeled by separate PDFs and combined in a simultaneous fit. The \hf analysis strategy holds on the sharing of PDF parameters in all regions enabling the use of information found in a region everywhere. This is the ``simultaneous fitting technique'' described in \Sect{\ref{sec:simfit}}. This technique enables the signal and background yields estimation in every region exploiting constrains on data in all these regions at the same time.
 
 Through the fit to data, the observed event counts in CRs are used to normalize the background estimates in the SRs. This extrapolation procedure, which will be shown in action in this analysis in \Fig{\ref{fig:regions}}, happens by means of a rescaling of MC prediction in all regions, i.e. computing a \emph{normalization factor} in the fit.
 
