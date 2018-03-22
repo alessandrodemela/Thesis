@@ -1,7 +1,8 @@
 \documentclass[a4paper,openright,11pt]{book}
 \usepackage[a-1b]{pdfx}
-\usepackage{lettrine,lipsum,mparhack,geometry,longtable,booktabs,caption,titlesec,graphicx,mhchem}
+\usepackage{lettrine,lipsum,mparhack,geometry,longtable,booktabs,caption,titlesec,graphicx}
 \usepackage{microtype,mathtools,slashed,subfig,multicol}
+\usepackage[version=4]{mhchem}
 \usepackage{amsthm}
 \usepackage{amsmath}
 \usepackage[swapnames]{frontespizio}
@@ -18,23 +19,23 @@
 \newcommand{\ATLASLATEXPATH}{../atlaslatex/latex/}
 \usepackage{\ATLASLATEXPATH atlasphysics}
 \usepackage[range-phrase=-]{siunitx}
-\newcommand{\gmet}{$\gamma +$\met }
-\newcommand{\znng}{\mbox{$\Zboson (\rarrow \nu\nu )  + \gamma$} }
-\newcommand{\zg}{\mbox{$\Zboson (\rarrow \ell\ell) + \gamma$} }
-\newcommand{\wg}{\mbox{$\Wboson (\rarrow \lnu) + \gamma$} }
-\newcommand{\gj}{\mbox{$\gamma + \text{jets}$} }
-\newcommand{\mph}{MonoPhoton }
-\newcommand{\cm}{centre-of-mass }
-\newcommand{\chizero}{$\chi_0$ }
-\newcommand{\chip}{$\chi^+$ }
-\newcommand{\chim}{$\chi^-$ }
-\newcommand{\chipm}{$\chi^\pm$ }
-\newcommand{\geant}{{\scshape Geant4 }}
-\newcommand{\hf}{{HistFitter }}
-\newcommand{\p}{{\itshape p}-value }
+\newcommand{\gmet}{$\gamma +$\met\xspace}
+\newcommand{\znng}{\mbox{$\Zboson (\rarrow \nu\nu )  + \gamma$}\xspace}
+\newcommand{\zg}{\mbox{$\Zboson (\rarrow \ell\ell) + \gamma$}\xspace}
+\newcommand{\wg}{\mbox{$\Wboson (\rarrow \lnu) + \gamma$}\xspace}
+\newcommand{\gj}{\mbox{$\gamma + \text{jets}$}\xspace}
+\newcommand{\mph}{MonoPhoton\xspace}
+\newcommand{\cm}{centre-of-mass\xspace}
+\newcommand{\chizero}{$\chi_0$\xspace}
+\newcommand{\chip}{$\chi^+$\xspace}
+\newcommand{\chim}{$\chi^-$\xspace}
+\newcommand{\chipm}{$\chi^\pm$\xspace}
+\newcommand{\geant}{{\scshape Geant4\xspace}}
+\newcommand{\hf}{HistFitter\xspace}
+\newcommand{\p}{{\itshape p}-value\xspace}
 \newcommand{\sv}{$\sigma_\textup{vis}$\xspace}
-\newcommand{\tmu}{t_{\mu} }
-\newcommand{\cls}{\text{CL}_\textup{s} }
+\newcommand{\tmu}{t_{\mu}\xspace}
+\newcommand{\cls}{\text{CL}_\textup{s}\xspace}
 
 
 \theoremstyle{definition}
@@ -57,11 +58,11 @@
 \renewcommand{\rho}{\varrho}
 
 
-%\usepackage{hyperref}
+\usepackage{hyperref}
 \hypersetup{hidelinks}
 \newcommand{\paginavuota}{\newpage\null\thispagestyle{empty}\newpage\null\thispagestyle{empty}\newpage}
 
-%\newlength\longest
+\newlength\longest
 
 \begin{document}	
 \include{frontespizio}
@@ -74,7 +75,7 @@
 \include{introduction}
 \tableofcontents
 
-%\paginavuota
+\paginavuota
 
 \mainmatter
 \titleformat{\chapter}[display]{\filcenter\large }{\filcenter\uppercase{Chapter }\thechapter}{2ex}{\bfseries\LARGE\titlerule[1.3pt]\vspace{2ex}\centering}[\vspace{2ex}]
@@ -82,21 +83,36 @@
 \titleformat{\subsection}[block]{\normalfont \large }{\thesubsection \quad}{0pt}{\itshape \bfseries}[]
 
 \include{LHC_ATLAS/LHC_ATLAS}
+\clearpage
+\thispagestyle{empty}
 \include{DarkMatter/DarkMatter}
+\clearpage
+\thispagestyle{empty}
 \include{MCSample/MCSample}
+\clearpage
+\thispagestyle{empty}
 \include{monophoton/monophoton}
+\clearpage
+\thispagestyle{empty}
 \include{Interpretations/interpretations}
+\clearpage
+\thispagestyle{empty}
 
 \include{conclusions}
+\clearpage
+\thispagestyle{empty}
 
 
 \backmatter
+\paginavuota
 \titleformat{\chapter}[display]{\itshape}{}{2ex}{\fontfamily{ppl}\selectfont\LARGE}[\titlerule]
-%\cleardoublepage
+%\include{aknowledgements}
+
+\cleardoublepage
 \phantomsection
 \addcontentsline{toc}{chapter}{\bibname}
 \printbibliography
-%\include{out_fit_inclusive_150_after}
+
 
 \end{document}
 
